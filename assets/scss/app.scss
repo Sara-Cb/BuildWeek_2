@@ -1,0 +1,57 @@
+@import "./partials/reset";
+@import "./partials/mixins";
+@import "./partials/variables";
+
+html,
+body,
+.mainContainer,
+.mainRow {
+  width: 100%;
+  height: 100%;
+  background-color: $black;
+  * {
+    color: $white;
+  }
+}
+
+html,
+body {
+  max-width: 100vw;
+  max-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.mainContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.mainLeft,
+.mainCenter,
+.mainRight {
+  height: 100%;
+}
+
+.mainLeft {
+  background-color: $grey;
+}
+
+.navbar {
+  height: 50%;
+}
+
+.recentNav {
+  height: 45%;
+  @include scrolly;
+}
+
+.topNav {
+  height: 60px;
+}
+
+.mainCenter .content {
+  height: 90%;
+  @include scrolly;
+}
