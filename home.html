@@ -18,29 +18,32 @@
     <div class="row mainRow">
       <!-- left start -->
       <div class="col-2 border border-solid border-dark mainLeft">
-        <div class="navbar">
+        <nav class="navbar">
           <!-- impostazioni -->
-          <div class="row"><a href="">...</a></div>
+          <div class="row">
+            <div>
+              <img src="./assets/img/logo.svg" alt="logo Spotify" class="navbar-brand">
+            </div>
+            <a href="">...</a>
+          </div>
           <!-- nav -->
           <div class="row">
-            <nav>
-              <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">Cerca</a></li>
-                <li><a href="">La tua libreria</a></li>
-              </ul>
-            </nav>
+            <ul>
+              <li><a href="">Home</a></li>
+              <li><a href="">Cerca</a></li>
+              <li><a href="">La tua libreria</a></li>
+            </ul>
           </div>
 
           <!-- nav 2 -->
           <div class="row">
             <ul>
               <li><a href="">Crea playlist</a></li>
-              <li><a href="">brani che ti piacciono</a></li>
+              <li><a href="">Brani che ti piacciono</a></li>
               <li><a href="">I tuoi episodi</a></li>
             </ul>
           </div>
-        </div>
+        </nav>
         <!-- playlist con scroll -->
         <div class="recentNav">
           <div class="row">
@@ -78,7 +81,26 @@
       </div>
       <!-- center start -->
       <div class="col border border-solid border-dark mainCenter">
-        <div class="row sticky-top topNav">frecette account</div>
+        <div class="row sticky-top topNav">
+          <div class="arrowIcons">
+            <i class="bi bi-chevron-left"></i>
+            <i class="bi bi-chevron-right"></i>
+          </div>
+          <div class="accountSet dropdown">
+            <a class="dropdown-toggle account" href="#" id="profileDropdownMenuLink" data-bs-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <img src="./assets/img/profile.jpg" alt="profile pic">
+              <span>Team Five</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="profileDropdownMenuLink">
+              <a class="dropdown-item" href="#">Account</a>
+              <a class="dropdown-item" href="#">Profilo</a>
+              <a class="dropdown-item" href="#">Impostazioni</a>
+              <hr>
+              <a class="dropdown-item" href="#">Esci</a>
+            </div>
+          </div>
+        </div>
         <!-- annuncio -->
         <div class="container-fluid content">
           <div class="row">
@@ -111,7 +133,9 @@
             </aside>
           </div>
           <!-- benvenuto ascoltati di recente -->
-          <div class="row"><h3>Benvenuto</h3></div>
+          <div class="row">
+            <h3>Benvenuto</h3>
+          </div>
           <div id="welcome" class="row row-cols-2 row-cols-lg-3"></div>
 
           <div class="row justify-content-between flex-nowrap">

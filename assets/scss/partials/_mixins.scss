@@ -2,3 +2,32 @@
   overflow-y: auto;
   overflow-x: hidden;
 }
+
+@mixin centeringFlex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin spacingFlex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin colorCombo($combo) {
+  @if ($combo == "dark") {
+    background-color: $grey;
+    color: $white;
+  }
+  @if ($combo== "black") {
+    background-color: $black;
+    color: $white;
+  }
+  @if ($combo == "green") {
+    background-color: $green;
+    color: $black;
+  }
+}
