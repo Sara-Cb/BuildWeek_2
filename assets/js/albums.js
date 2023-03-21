@@ -39,12 +39,13 @@ let printAlbum = async function () {
       </div>
       <div>PLAY</div>
 
-    </div>`
-    for (let i = 0; i < thisAlbum.tracks.data.length; i++){
-albumRef.innerHTML+= <div>
+    </div>`;
+    for (let i = 0; i < thisAlbum.tracks.data.length; i++) {
+      albumRef.innerHTML += `<div>
     </div>
     }
     `;
+    }
   }
 };
 printAlbum();
