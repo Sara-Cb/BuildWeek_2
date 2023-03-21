@@ -41,7 +41,7 @@ body {
 }
 
 .mainLeft,
-.topNav {
+.mainRight {
   @include colorCombo("black");
 }
 
@@ -130,8 +130,13 @@ body {
 .mainCenter {
   .content {
     height: 90%;
+    padding-top: 30px;
     @include scrolly;
   }
+}
+
+.content > .row {
+  margin-bottom: 40px;
 }
 
 .card,
