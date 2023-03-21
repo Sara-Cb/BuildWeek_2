@@ -156,7 +156,7 @@ body {
 }
 
 .mainLeft,
-.topNav {
+.mainRight {
   background-color: rgb(0, 0, 0);
   color: rgb(255, 255, 255);
 }
@@ -260,8 +260,13 @@ body {
 
 .mainCenter .content {
   height: 90%;
+  padding-top: 30px;
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+.content > .row {
+  margin-bottom: 40px;
 }
 
 .card,

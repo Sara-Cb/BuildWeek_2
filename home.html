@@ -116,7 +116,7 @@
                   <div class="col border border-solid border-dark">
                     <div>
                       <span>album</span>
-                      <span><button>nascondi annuncio</button></span>
+                      <span><button type="button">nascondi annuncio</button></span>
                     </div>
                     <div>
                       <h2>titolo del brano (feat)</h2>
@@ -173,6 +173,24 @@
     crossorigin="anonymous"></script>
   <!-- inserisi script -->
   <script src="./assets/js/home.js"></script>
+  <script>
+    const navTop = document.querySelector('.navTop');
+    const leftArrow = document.querySelector('.arrowIcons i:first-of-type');
+    const rightArrow = document.querySelector('.arrowIcons i:last-of-type');
+
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 80) {
+        navTop.classList.add('white');
+        leftArrow.classList.add('green');
+        rightArrow.classList.add('green');
+      } else {
+        navTop.classList.remove('white');
+        leftArrow.classList.remove('green');
+        rightArrow.classList.remove('green');
+      }
+    });
+
+  </script>
 </body>
 
 </html>
