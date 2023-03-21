@@ -208,13 +208,16 @@ body {
   justify-content: center;
   align-items: center;
   aspect-ratio: 1/1;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(25, 25, 25, 0.6);
   padding: 5px;
   border-radius: 50%;
 }
 
 .account {
   width: 150px;
+  background-color: rgba(25, 25, 25, 0.6);
+  border-radius: 2em;
+  padding: 5px 3px;
 }
 .account img {
   height: 30px;

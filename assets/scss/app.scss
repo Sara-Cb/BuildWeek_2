@@ -78,13 +78,16 @@ body {
   margin: 0 5px;
   @include centeringFlex;
   aspect-ratio: 1/1;
-  background-color: transparentize($white, 0.5);
+  background-color: transparentize($grey, 0.4);
   padding: 5px;
   border-radius: 50%;
 }
 
 .account {
   width: 150px;
+  background-color: transparentize($grey, 0.4);
+  border-radius: 2em;
+  padding: 5px 3px;
   img {
     height: 30px;
     aspect-ratio: 1/1;
