@@ -173,8 +173,34 @@ body {
   width: 80%;
 }
 
+.mainCenter,
+.recentNav {
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+.mainCenter ::-webkit-scrollbar,
+.recentNav ::-webkit-scrollbar {
+  width: 10px;
+}
+.mainCenter ::-webkit-scrollbar-track,
+.recentNav ::-webkit-scrollbar-track {
+  background: transparent;
+}
+.mainCenter ::-webkit-scrollbar-thumb,
+.recentNav ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.6);
+}
+.mainCenter ::-webkit-scrollbar-thumb:hover,
+.recentNav ::-webkit-scrollbar-thumb:hover {
+  background: rgb(255, 255, 255);
+}
+
 .recentNav {
   height: 55%;
+}
+.recentNav .row {
+  height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -226,6 +252,10 @@ body {
 }
 .account * {
   margin-right: 5px;
+}
+
+.dropdown-toggle.show::after {
+  transform: rotate(180deg);
 }
 
 .mainCenter .content {

@@ -54,9 +54,34 @@ body {
   width: 80%;
 }
 
+.mainCenter,
+.recentNav {
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: transparentize($white, 0.4);
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: $white;
+  }
+}
+
 .recentNav {
   height: 55%;
-  @include scrolly;
+  .row {
+    height: 100%;
+    @include scrolly;
+  }
 }
 
 .topNav {
@@ -98,9 +123,15 @@ body {
   }
 }
 
-.mainCenter .content {
-  height: 90%;
-  @include scrolly;
+.dropdown-toggle.show::after {
+  transform: rotate(180deg);
+}
+
+.mainCenter {
+  .content {
+    height: 90%;
+    @include scrolly;
+  }
 }
 
 .card,
