@@ -40,11 +40,24 @@ let printAlbum = async function () {
       <div>PLAY</div>
 
     </div>`;
-    for (let i = 0; i < thisAlbum.tracks.data.length; i++) {
-      albumRef.innerHTML += `<div>
-    </div>
-    }
-    `;
+    for (let j = 0; j < thisAlbum[i].tracks.data.length; j++) {
+      albumRef.innerHTML += ` <div class="row">
+      
+      <div class="col"><a class="d-flex" href="albums.html?id=${thisAlbum[i].id}&track=${
+        thisAlbum[i].tracks.data[j].preview
+      }">
+      <span class="align-self-center mx-3 fs-3">${j + 1}</span>
+      <span class="d-flex flex-column justify-content-around">
+      <h4 class="my-0 ">${thisAlbum[i].tracks.data[j].title}</h4>
+      <p class="fs-5 my-0 ">${thisAlbum[i].artist.name}<p></span>
+    </a></div>
+    <div class="col-2 d-flex">
+    <h4 class="align-self-center">${thisAlbum[i].tracks.data[j].rank}</h4>
+  </div>
+  <div class="col-2 d-flex">
+  <h4 class="align-self-center">${thisAlbum[i].tracks.data[j].duration}</h4>
+</div>
+    </div>`;
     }
   }
 };
