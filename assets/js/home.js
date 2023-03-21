@@ -95,7 +95,7 @@ let printMore = async function () {
   await getData("album/119606", cardsMore);
   await getData("album/15483710", cardsMore);
 
-  //correggere dimensione dell'immagine a riga 101!
+  //correggere dimensione dell'immagine
 
   for (let i = 0; i < 6; i++) {
     let colRef = document.querySelector("#more");
@@ -110,7 +110,7 @@ let printMore = async function () {
   }
 };
 
-//getData("search?q=turbe giovanili");
+getData("search?q=lucio dalla");
 
 printAd();
 printWelcome();
