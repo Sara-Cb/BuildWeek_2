@@ -48,9 +48,7 @@ let printAlbum = async function () {
 
       albumRef.innerHTML += ` <div class="row">
       
-      <div  onclick="playFunction(\'${
-        thisAlbum[i].tracks.data[j].preview
-      }\')" class="col d-flex">
+      <div  onclick="playFunction(\'${thisAlbum[i].tracks.data[j].preview}\')" class="col d-flex">
       <span class="align-self-center mx-3 fs-3">${j + 1}</span>
       <span class="d-flex flex-column justify-content-around">
       <h4 class="my-0 ">${thisAlbum[i].tracks.data[j].title}</h4>
@@ -63,12 +61,6 @@ let printAlbum = async function () {
   <h4 class="align-self-center">${thisAlbum[i].tracks.data[j].duration}</h4>
 </div>
     </div>`;
-      // let divRef = document.getElementById(id);
-      //console.log(divRef);
-      //divRef.addEventListener("click", function () {
-      //playFunction(preview);
-      //console.log("click rilevato");
-      //});
     }
   }
 };
