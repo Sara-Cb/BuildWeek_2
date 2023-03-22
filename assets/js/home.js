@@ -72,7 +72,7 @@ let printAd = async function () {
     </div>
     <div>
       <h2>${cardAd[i].title}</h2>
-      <p>${cardAd[i].artist.name}</p>
+      <p><a href="./artists.html?artistId=${cardAd[i].artist.id}">${cardAd[i].artist.name}</a></p>
       <p>Ascolta il nuovo singolo di ${cardAd[i].artist.name}</p>
       <div>
         <button>Play</button>
@@ -104,7 +104,7 @@ let printMore = async function () {
     </div>
     <div class="card-body">
       <p class="card-text">${cardsMore[i].title}</p>
-      <p class="card-text">${cardsMore[i].artist.name}</p>
+      <p class="card-text"><a href="./artists.html?artistId=${cardsMore[i].artist.id}">${cardsMore[i].artist.name}</a></p>
     </div>
   </a></div>`;
   }
