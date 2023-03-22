@@ -18,9 +18,19 @@ const printEverything = function () {
     const artistCard = document.createElement("div");
     artistCard.setAttribute("class", "card");
 
-    trackCard.innerHTML = `<div class='row'><div class="col-3 border border-solid border-dark"><img class="image-fluid" src="${album.cover_big}" style='width:100px; aspect-ratio:1/1' alt="Album cover"/></div><div class="col-7 border border-solid border-dark"><div class='card-body'><h4>${track.title}</h4><p>${artist.name}</p></div></div><div class="col-1 border border-solid border-dark"><p>${track.duration}</p></div></div>`;
-    albumCard.innerHTML = `<div class="border border-solid border-dark card-img-top"> <img class="image-fluid" src="${album.cover_big}" style='width:100px; aspect-ratio:1/1' alt="Album cover"/> </div><div class="col-7 border border-solid border-dark"> <div class='card-body'> <h4>${album.title}</h4> <p>${artist.name}</p> </div> </div>`;
-    artistCard.innerHTML = `<div class="border border-solid border-dark card-img-top"> <img class="image-fluid" src="${artist.picture_big}" style='width:100px; aspect-ratio:1/1' alt="Album cover"/> </div> <div class="col-7 border border-solid border-dark"> <div class='card-body'><h4>${artist.name}</h4><p>Artista</p> </div></div>`;
+    trackCard.innerHTML = `<div class='row'><div class="col-3"><img class="image-fluid trackCardImg" src="${album.cover_big}"  alt="Album cover"/></div><div class="col-7"><div class='card-body'><h4>${track.title}</h4><p>${artist.name}</p></div></div><div class="col-1"><p>${track.duration}</p></div></div>`;
+    albumCard.innerHTML = `<div> <img class="image-fluid albumCardImg" src="${album.cover_big}"  alt="Album cover"/>
+     </div><div class="col-7"> <div class='card-body'> <h4>${album.title}</h4> <p>${artist.name}</p> </div> </div>`;
+    artistCard.innerHTML = `<div class= card-img-top"> <img class="image-fluid artistCardImg" src="${artist.picture_big}"  alt="Album cover"/> </div> <div class="col-7"> <div class='card-body'><h4>${artist.name}</h4><p>Artista</p> </div></div>`;
+    /* `
+    <div class="col-6 col-md-4 col-lg-3 justify-content-between"><a href="albums.html?id=${album.id}"> <div class="card">
+    <img src="${album.cover_big}" class="card-img-top" alt="album cover" /></a>
+    </div>
+    <div class="card-body">
+      <p class="card-text">${album.title}</p>
+      <p class="card-text"><a href="./artists.html?artistId=${album.artist.id}">${album.artist.name}</a></p>
+    </div>
+  </div>`;*/
 
     tracksDiv.appendChild(trackCard);
     albumsDiv.appendChild(albumCard);
@@ -34,9 +44,7 @@ const fetchEverything = async (keyword) => {
   artistsDiv.innerHTML = "";
   tracksArray = [];
   try {
-    const response = await fetch(
-      `https://striveschool-api.herokuapp.com/api/deezer/search?q=${keyword}`
-    );
+    const response = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${keyword}`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }

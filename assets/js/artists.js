@@ -40,14 +40,14 @@ let printArtist = async function () {
   for (let i = 0; i < thisArtist.length; i++) {
     let artistRef = document.querySelector("#artist");
     artistRef.innerHTML = ` 
-    <div class="col-3 border border-solid border-dark mb-5">
+    <div class="col-3 mb-5">
     <img
       class="image-fluid w-100"
       src="${thisArtist[i].picture_xl}"
       alt="Album cover"
     />
   </div>
-  <div class="col border border-solid border-dark mb-5">
+  <div class="col mb-5">
     <div class="h-100 d-flex flex-column justify-content-end">
       <h2>${thisArtist[i].name}</h2>
       <p>${thisArtist[i].nb_fan} ascoltatori mensili</p>
@@ -99,14 +99,14 @@ let printArtists = async function () {
   for (let i = 0; i < myArtists.length; i++) {
     let artistRef = document.querySelector("#artist");
     artistRef.innerHTML += ` 
-    <div class="col-3 border border-solid border-dark">
+    <div class="col-3">
           <img
             class="image-fluid w-100"
             src="${myArtists[i].picture_big}"
             alt="Artist cover"
           />
         </div>
-        <div class="col-9 border border-solid border-dark">
+        <div class="col-9">
           <div>
             <span>artist</span>
             <h2>${myArtists[i].name}</h2>

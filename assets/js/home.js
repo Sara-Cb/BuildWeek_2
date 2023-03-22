@@ -32,7 +32,7 @@ let printWelcome = async function () {
   for (let i = 0; i < 6; i++) {
     let colRef = document.querySelector("#welcome");
     colRef.innerHTML += ` <a href="albums.html?id=${cardsAlbums[i].id}"><div class="col">
-      <div class="card mb-3" style="max-width: 540px">
+      <div class="card albumCard">
         <div class="row g-0">
           <div class="col-4">
             <img
@@ -58,14 +58,14 @@ let printAd = async function () {
   console.log(cardAd);
   for (let i = 0; i < cardAd.length; i++) {
     let adRef = document.querySelector("#ad");
-    adRef.innerHTML = `<div class="col-3 border border-solid border-dark">
+    adRef.innerHTML = `<div class="col-3">
     <img
       class="image-fluid w-100"
       src="${cardAd[i].album.cover_big}"
       alt="Album cover"
     />
   </div>
-  <div class="col border border-solid border-dark">
+  <div class="col">
     <div>
       <span>album</span>
       <span><button>nascondi annuncio</button></span>

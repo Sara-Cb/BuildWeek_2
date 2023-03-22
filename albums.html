@@ -11,11 +11,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
 
   <link rel="stylesheet" href="assets/css/app.css" />
-  <style>
-    #playbutton {
-      font-size: 1.5em;
-    }
-  </style>
+  
 </head>
 
 <body>
@@ -23,7 +19,7 @@
     <!-- riga madre -->
     <div class="row mainRow">
       <!-- left start -->
-      <div class="col-2 border border-solid border-dark mainLeft">
+      <div class="col-2 mainLeft">
         <nav class="navbar">
           <!-- impostazioni -->
           <div class="row">
@@ -98,7 +94,7 @@
 
       <!-- left end -->
       <!-- center start -->
-      <div class="col border border-solid border-dark mainCenter">
+      <div class="col mainCenter">
         <div class="row sticky-top topNav">
           <div class="arrowIcons">
             <a onclick="window.history.back()"><i class="bi bi-chevron-left"></i></a>
@@ -121,7 +117,7 @@
         </div>
         <!--inizio contenuti pagina-->
         <div class="container-fluid content">
-          <div class="col border border-solid border-dark">
+          <div class="col">
             <div id="album" class="row"></div>
             <div class="row">
               <ol id="tracklist">
@@ -133,21 +129,17 @@
         <!-- center end -->
 
         <!-- right start -->
-        <div class="col-1 border border-solid border-dark">awdad</div>
+        <div class="col-1">right</div>
       </div>
     </div>
-    <!-- player -->
-    <section class="fixed-bottom bg-dark" style="z-index: 5">
+     <!-- player -->
+     <section class="fixed-bottom bg-dark playerSection">
       <audio id="audioReference" src=""></audio>
       <audio id="audio2" src="https://cdns-preview-0.dzcdn.net/stream/c-01583a052af6254d60d7738d9df6f8e5-5.mp3"></audio>
       <div class="row" class="player">
-        <div id="songData" class="col-2" style="
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-          ">
+        <div id="songData" class="col-2">
           <div>
-            <img id="playerImg" src="./assets/img/profile.jpg" alt="cover" style="height: 50px; aspect-ratio: 1/1" />
+            <img id="playerImg" src="./assets/img/profile.jpg" alt="cover"/>
           </div>
           <div>
             <p id="playerSong">Title</p>
@@ -158,26 +150,15 @@
           </div>
         </div>
 
-        <div class="col-8" style="
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-          ">
-          <div id="playerButtons" style="display: flex; justify-content: center; align-items: center">
+        <div id="playerComands" class="col-8">
+          <div id="playerButtons">
             <button class="btn"><i class="bi bi-shuffle"></i></button>
-            <button id="trackBack" class="btn">
-              <i class="bi bi-skip-start-fill fs-4"></i>
-            </button>
-            <button id="playbutton" class="btn">
-              <i class="bi bi-play-circle-fill fs-3"></i>
-            </button>
-            <button id="trackNext" class="btn">
-              <i class="bi bi-skip-end-fill fs-4"></i>
-            </button>
+            <button class="btn"><i class="bi bi-skip-start-fill fs-4"></i></button>
+            <button id="playbutton" class="btn"><i class="bi bi-play-circle-fill fs-3"></i></button>
+            <button class="btn"><i class="bi bi-skip-end-fill fs-4"></i></button>
             <button class="btn"><i class="bi bi-repeat"></i></button>
           </div>
-          <div id="songTime" style="display: flex; justify-content: center; align-items: center">
+          <div id="songTime">
             <p>current time</p>
             <div>
               <input type="range" id="timeRange" />
@@ -186,11 +167,7 @@
           </div>
         </div>
 
-        <div class="col-2" style="
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-          ">
+        <div id="playerIcons" class="col-2">
           <button><i class="bi bi-mic"></i></button>
           <button><i class="bi bi-list"></i></button>
           <button><i class="bi bi-speaker"></i></button>

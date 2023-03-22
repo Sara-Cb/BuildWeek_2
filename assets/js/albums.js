@@ -82,9 +82,7 @@ function playFunction(url, title, artist, cover, duration, id) {
   });
 
   audio.addEventListener("timeupdate", function () {
-    songTime.children[0].textContent = formatTime(
-      Math.round(audio.currentTime)
-    );
+    songTime.children[0].textContent = formatTime(Math.round(audio.currentTime));
     timeRange.style.width = (audio.currentTime / audio.duration) * 100 + "%";
   });
 }
@@ -121,14 +119,14 @@ let printAlbum = async function () {
   for (let i = 0; i < thisAlbum.length; i++) {
     let albumRef = document.querySelector("#album");
     albumRef.innerHTML = ` 
-    <div class="col-3 border border-solid border-dark">
+    <div class="col-3">
       <img
         class="image-fluid w-100"
         src="${thisAlbum[i].cover_big}"
         alt="Album cover"
       />
     </div>
-    <div class="col border border-solid border-dark">
+    <div class="col">
       <div>
         <span>album</span>
         
