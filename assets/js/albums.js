@@ -36,7 +36,7 @@ let printAlbum = async function () {
         
       
         <h2>${thisAlbum[i].title}</h2>
-        <p>${thisAlbum[i].artist.name} - ${thisAlbum[i].release_date} - ${thisAlbum[i].nb_tracks} brani - ${thisAlbum[i].duration}</p>
+        <p><a href="./artists.html?artistId=${thisAlbum[i].artist.id}">${thisAlbum[i].artist.name}</a> - ${thisAlbum[i].release_date} - ${thisAlbum[i].nb_tracks} brani - ${thisAlbum[i].duration}</p>
       </div>
       <div>PLAY</div>
 
