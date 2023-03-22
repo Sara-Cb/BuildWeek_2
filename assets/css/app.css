@@ -162,11 +162,13 @@ body {
 }
 
 .navbar {
-  height: 40%;
+  height: 45%;
+  min-height: 340px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  flex-wrap: nowrap;
 }
 
 .navbar-brand {
@@ -197,7 +199,7 @@ body {
 }
 
 .recentNav {
-  height: 55%;
+  max-height: 50%;
 }
 .recentNav .row {
   height: 100%;
