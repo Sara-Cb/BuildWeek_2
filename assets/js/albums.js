@@ -1,74 +1,3 @@
-const tracksArray = [];
-const albumsArray = [];
-const artistsArray = [];
-
-const fetchAlbum = function (albumId) {
-  async () => {
-    try {
-      const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/deezer/album/${albumId}`
-      );
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      let data = await response.json();
-      let album = data;
-      albumsArray.push(album);
-    } catch (error) {
-      console.error(`Error: ${error.message}`);
-    }
-  };
-};
-
-const fetchArtist = function (artistId) {
-  async () => {
-    try {
-      const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}`
-      );
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      let data = await response.json();
-      let artist = data.data;
-      artistsArray.push(artist);
-    } catch (error) {
-      console.error(`Error: ${error.message}`);
-    }
-  };
-};
-
-const fetchEverything = async (keyword) => {
-  try {
-    const response = await fetch(
-      `https://striveschool-api.herokuapp.com/api/deezer/search?q=${keyword}`
-    );
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    let data = await response.json();
-    let arrayTracce = data.data;
-    for (let i = 0; i < arrayTracce.length; i++) {
-      let track = data.data[i];
-      tracksArray.push(track);
-      let album = track.album;
-      albumsArray.push(album);
-      let artist = track.artist;
-      artistsArray.push(artist);
-    }
-  } catch (error) {
-    console.error(`Error: ${error.message}`);
-  }
-  console.log(tracksArray);
-  console.log(albumsArray);
-  console.log(artistsArray);
-};
-
-fetchEverything("america");
-//fetchEverything("love");
-//fetchEverything("every");
-
-/*
 const API_URL = "https://striveschool-api.herokuapp.com/api/deezer/";
 let thisAlbum = [];
 let albumId = new URLSearchParams(window.location.search).get("id");
@@ -190,4 +119,3 @@ if (audio) {
 }
 
 printAlbum();
-*/
