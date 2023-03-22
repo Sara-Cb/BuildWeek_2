@@ -111,6 +111,11 @@
         <div class="container-fluid content">
           <div class="col border border-solid border-dark">
             <div id="album" class="row"></div>
+            <div class="row">
+              <ol id="tracklist">
+
+              </ol>
+            </div>
           </div>
         </div>
       </div>
@@ -121,17 +126,48 @@
     </div>
   </div>
   <!-- player -->
-  <section>
-    <div class="container-fluid fixed-bottom bg-primary">
-      <div class="row">
-        <div class="col">adwa</div>
-        <div class="col">
-          <div class="row justify-content-center">
-            <button id="playbutton">▶️</button>
-            <input class="w-100" type="range" value="0" min="0" max="100" step="1" />
-          </div>
+  <section class="fixed-bottom bg-dark" style="z-index: 5;">
+    <audio id="audioReference" src=""></audio>
+    <audio id="audio2" src="https://cdns-preview-0.dzcdn.net/stream/c-01583a052af6254d60d7738d9df6f8e5-5.mp3"></audio>
+    <div class="row" class="player">
+
+      <div id="songData" class="col-2" style="display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <img id="playerImg" src="./assets/img/profile.jpg" alt="cover" style="height: 50px; aspect-ratio: 1/1;" />
         </div>
-        <div class="col">dwad</div>
+        <div>
+          <p id="playerSong">Title</p>
+          <p id="playerArtist">Artist</p>
+        </div>
+        <div>
+          <button><i class="bi bi-heart"></i></button>
+        </div>
+      </div>
+
+      <div class="col-8" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <div id="playerButtons" style="display: flex; justify-content: center; align-items: center;">
+          <button class="btn"><i class="bi bi-shuffle"></i></button>
+          <button class="btn"><i class="bi bi-skip-start-fill fs-4"></i></button>
+          <button id="playbutton" class="btn"><i class="bi bi-play-circle-fill fs-3"></i></button>
+          <button class="btn"><i class="bi bi-skip-end-fill fs-4"></i></button>
+          <button class="btn"><i class="bi bi-repeat"></i></button>
+        </div>
+        <div id="songTime" style="display: flex; justify-content: center; align-items: center;">
+          <p>current time</p>
+          <div>
+            <input type="range" id="timeRange">
+          </div>
+          <p>total time</p>
+        </div>
+      </div>
+
+      <div class="col-2" style="display: flex; justify-content: space-between; align-items: center;">
+        <button><i class="bi bi-mic"></i></button>
+        <button><i class="bi bi-list"></i></button>
+        <button><i class="bi bi-speaker"></i></button>
+        <label for="volume"><i class="bi bi-volume-down-fill"></i></label>
+        <input type="range" id="volume" name="volume" min="0" max="10" />
+        <button><i class="bi bi-arrows-angle-expand"></i></button>
       </div>
     </div>
   </section>
