@@ -5,6 +5,68 @@ let thisArtist = [];
 let myArtists = [];
 let artistTracks = [];
 let albumsArray = [];
+const tracklistRef = document.getElementById("tracklist");
+const playerSong = document.getElementById("playerSong");
+const playerArtist = document.getElementById("playerArtist");
+const songTime = document.getElementById("songTime");
+const timeRange = document.getElementById("timeRange");
+const playerImg = document.getElementById("playerImg");
+const playButton = document.getElementById("playbutton");
+const btnNext = document.getElementById("trackNext");
+const btnBack = document.getElementById("trackBack");
+
+let currentTrack;
+const volumeControl = document.getElementById("volume");
+let audio = document.getElementById("audioReference");
+//play top
+const playTop = function () {
+  if (albumId) {
+    document.getElementById("0").click();
+  }
+};
+
+//next prev
+btnBack.addEventListener("click", function () {
+  if (currentTrack != 0) {
+    let backId = currentTrack - 1;
+    console.log(currentTrack);
+    let divBack = document.getElementById(backId);
+    console.log(divBack);
+    divBack.click();
+  } else {
+    divCur = document.getElementById(currentTrack);
+    divCur.click();
+  }
+});
+btnNext.addEventListener("click", function () {
+  console.log(artistTracks);
+  if (currentTrack != artistTracks[0].data.length - 1) {
+    let nextId = currentTrack + 1;
+    console.log(currentTrack);
+    let divNext = document.getElementById(nextId);
+    console.log(divNext);
+    divNext.click();
+  } else {
+    divCur = document.getElementById("0");
+    divCur.click();
+  }
+});
+timeRange.addEventListener("click", function (event) {
+  const pos = (event.pageX - timeRange.offsetLeft) / timeRange.offsetWidth;
+  audio.currentTime = pos * audio.duration;
+});
+
+playButton.addEventListener("click", function () {
+  if (audio.paused) {
+    audio.play();
+  } else {
+    audio.pause();
+  }
+});
+
+volumeControl.addEventListener("input", function () {
+  audio.volume = volumeControl.value / 10;
+});
 
 const getData = async function (_content, _array) {
   try {
@@ -57,26 +119,35 @@ let printArtist = async function () {
   await getData(`artist/${artistId}/top?limit=20&index=0`, artistTracks);
   //console.log(artistTracks);
   for (let i = 0; i < 5; i++) {
+    console.log(artistTracks[0].data[i]);
+    let preview = artistTracks[0].data[i].preview;
+    let songTitle = artistTracks[0].data[i].title;
+    let songArtist = artistTracks[0].data[i].artist.name;
+    let songCover = artistTracks[0].data[i].album.cover_big;
+    let songTime = artistTracks[0].data[i].duration;
+    let reproductions = artistTracks[0].data[i].rank;
+    let id = i;
     let artistRef = document.querySelector("#artist");
     artistRef.innerHTML += ` 
       <div class="row">
-      <div  onclick="playFunction(\'${artistTracks[0].data[i].preview}\')" class="col d-flex">
+      <div id="${id}" onclick="playFunction(\'${preview}\', \'${songTitle}\', \'${songArtist}\',\'${songCover}\', \'${songTime}\',${id})" class="col d-flex">
       <span class="align-self-center mx-3 fs-3">${i + 1}</span>
       <span class="d-flex flex-column justify-content-around">
-      <h4 class="my-0 ">${artistTracks[0].data[i].title}</h4>
+      <h4 class="my-0 ">${songTitle}</h4>
       <p class="fs-5 my-0 ">${artistTracks[0].data[i].album.title}<p></span>
     </div>
     <div class="col-2 d-flex">
-    <h4 class="align-self-center">${artistTracks[0].data[i].rank}</h4>
+    <h4 class="align-self-center">${reproductions}</h4>
   </div>
   <div class="col-2 d-flex">
-  <h4 class="align-self-center">${artistTracks[0].data[i].duration}</h4>
+  <h4 class="align-self-center">${songTime}</h4>
 </div>
     </div>`;
   }
   await getArtistAlbums();
   console.log(albumsArray);
   for (let i = 0; i < 5; i++) {
+    console.log(albumsArray[0]);
     let artistRef = document.querySelector("#artist");
     artistRef.innerHTML += ` <div class="col-2 justify-content-between"><a href="albums.html?id=${albumsArray[0].data[i].id}"> <div class="card">
     <img src="${albumsArray[0].data[i].cover_big}" class="card-img-top" alt="album cover" />
@@ -116,52 +187,40 @@ let printArtists = async function () {
         </div>`;
   }
 };
-let audio;
-const playBtn = document.getElementById("playbutton");
-const progressEl = document.querySelector('input[type="range"]');
-const playFunction = function (_song) {
-  //console.log(_song);
-  if (audio) {
-    audio.pause();
-  }
-  audio = new Audio(_song);
-  audio.paused ? audio.play() : audio.pause();
-  playBtn.textContent = audio.paused ? "▶️" : "⏸️";
-  playBtn.click();
-  console.log("click su play");
-};
+function playFunction(url, title, artist, cover, duration, id) {
+  audio.src = url;
+  currentTrack = id;
+  playerSong.textContent = title;
+  playerArtist.textContent = artist;
+  playerImg.setAttribute("src", cover);
 
-let mouseDownOnSlider = false;
-if (audio) {
-  audio.addEventListener("loadeddata", () => {
-    progressEl.value = 0;
-  });
-  audio.addEventListener("timeupdate", () => {
-    if (!mouseDownOnSlider) {
-      progressEl.value = (audio.currentTime / audio.duration) * 100;
-    }
-  });
-  audio.addEventListener("ended", () => {
-    playBtn.textContent = "▶️";
+  audio.addEventListener("loadedmetadata", function () {
+    songTime.children[0].textContent = formatTime(0);
+    songTime.children[2].textContent = formatTime(Math.round(duration));
+
+    timeRange.style.width = "0%";
+
+    audio.play();
   });
 
-  playBtn.addEventListener("click", () => {
-    console.log("ciao");
-    audio.paused ? audio.play() : audio.pause();
-    playBtn.textContent = audio.paused ? "▶️" : "⏸️";
-  });
-
-  progressEl.addEventListener("change", () => {
-    const pct = progressEl.value / 100;
-    audio.currentTime = (audio.duration || 0) * pct;
-  });
-  progressEl.addEventListener("mousedown", () => {
-    mouseDownOnSlider = true;
-  });
-  progressEl.addEventListener("mouseup", () => {
-    mouseDownOnSlider = false;
+  audio.addEventListener("timeupdate", function () {
+    songTime.children[0].textContent = formatTime(
+      Math.round(audio.currentTime)
+    );
+    timeRange.style.width = (audio.currentTime / audio.duration) * 100 + "%";
   });
 }
+
+const formatTime = function (time) {
+  minuti = Math.round(time / 60);
+  secondi = time % 60;
+  if (secondi < 10) {
+    secondi = "0" + secondi;
+  }
+  let correctTime = `${minuti}:${secondi}`;
+  console.log(correctTime);
+  return correctTime;
+};
 if (artistId) {
   console.log(artistId);
   printArtist();
