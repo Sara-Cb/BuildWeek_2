@@ -101,12 +101,12 @@ let printMore = async function () {
     let colRef = document.querySelector("#more");
     colRef.innerHTML += ` <div class="col-2 justify-content-between"><a href="albums.html?id=${cardsMore[i].id}"> <div class="card">
     <img src="${cardsMore[i].cover_big}" class="card-img-top" alt="album cover" />
-    </div>
+    </a></div>
     <div class="card-body">
       <p class="card-text">${cardsMore[i].title}</p>
       <p class="card-text"><a href="./artists.html?artistId=${cardsMore[i].artist.id}">${cardsMore[i].artist.name}</a></p>
     </div>
-  </a></div>`;
+  </div>`;
   }
 };
 

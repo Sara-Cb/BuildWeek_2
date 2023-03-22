@@ -2,6 +2,7 @@ const API_URL = "https://striveschool-api.herokuapp.com/api/deezer/";
 let thisAlbum = [];
 let albumId = new URLSearchParams(window.location.search).get("id");
 let song;
+let myAlbums = [];
 const getData = async function (_content, _array) {
   try {
     let response = await fetch(API_URL + _content);
@@ -118,4 +119,42 @@ if (audio) {
   });
 }
 
-printAlbum();
+//popolamento array albums
+const getMyAlbums = async function () {
+  let albumRef = document.getElementById("album");
+  await getData("album/316555317", myAlbums);
+  await getData("album/405622007", myAlbums);
+  await getData("album/288437072", myAlbums);
+  await getData("album/205447462,", myAlbums);
+  await getData("album/361734707", myAlbums);
+  await getData("album/137556512", myAlbums);
+  await getData("album/314664567", myAlbums);
+  await getData("album/119606", myAlbums);
+  await getData("album/15483710", myAlbums);
+  await getData("album/384315", myAlbums);
+  await getData("album/12207770", myAlbums);
+  await getData("album/75621062", myAlbums);
+  await getData("album/12047952", myAlbums);
+  await getData("album/12047958", myAlbums);
+  await getData("album/109943", myAlbums);
+  await getData("album/74495", myAlbums);
+  await getData("album/12047930", myAlbums);
+  await getData("album/406094377", myAlbums);
+  console.log(myAlbums);
+  myAlbums.forEach((album) => {
+    albumRef.innerHTML += ` <div class="col-6 col-md-4 col-lg-3 justify-content-between"><a href="albums.html?id=${album.id}"> <div class="card">
+    <img src="${album.cover_big}" class="card-img-top" alt="album cover" />
+    </div>
+    <div class="card-body">
+      <p class="card-text">${album.title}</p>
+      <p class="card-text"><a href="./artists.html?artistId=${album.artist.id}">${album.artist.name}</a></p>
+    </div>
+  </a></div>`;
+  });
+};
+
+if (albumId) {
+  printAlbum();
+} else {
+  getMyAlbums();
+}
