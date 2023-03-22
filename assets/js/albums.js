@@ -53,12 +53,6 @@ function playFunction(url, title, artist, cover, duration) {
   });
 }
 
-function formatTime(time) {
-  const minutes = Math.floor(time / 60);
-  const seconds = time % 60;
-  return minutes + ":" + (seconds < 10 ? "0" + seconds : seconds);
-}
-
 const calcDuration = function (time) {
   minuti = Math.round(time / 60);
   secondi = time % 60;
@@ -137,49 +131,5 @@ let printAlbum = async function () {
     }
   }
 };
-
-/*const playFunction = function (_song) {
-  //console.log(_song);
-  if (audio) {
-    audio.pause();
-  }
-  audio = new Audio(_song);
-  audio.paused ? audio.play() : audio.pause();
-  playBtn.textContent = audio.paused ? "▶️" : "⏸️";
-  playBtn.click();
-  console.log("click su play");
-};
-
-let mouseDownOnSlider = false;
-if (audio) {
-  audio.addEventListener("loadeddata", () => {
-    progressEl.value = 0;
-  });
-  audio.addEventListener("timeupdate", () => {
-    if (!mouseDownOnSlider) {
-      progressEl.value = (audio.currentTime / audio.duration) * 100;
-    }
-  });
-  audio.addEventListener("ended", () => {
-    playBtn.textContent = "▶️";
-  });
-
-  playBtn.addEventListener("click", () => {
-    console.log("ciao");
-    audio.paused ? audio.play() : audio.pause();
-    playBtn.textContent = audio.paused ? "▶️" : "⏸️";
-  });
-
-  progressEl.addEventListener("change", () => {
-    const pct = progressEl.value / 100;
-    audio.currentTime = (audio.duration || 0) * pct;
-  });
-  progressEl.addEventListener("mousedown", () => {
-    mouseDownOnSlider = true;
-  });
-  progressEl.addEventListener("mouseup", () => {
-    mouseDownOnSlider = false;
-  });
-}*/
 
 printAlbum();
