@@ -46,8 +46,10 @@ body {
 }
 
 .navbar {
-  height: 40%;
+  height: 45%;
+  min-height: 340px;
   @include spacingFlex(column, space-between, flex-start);
+  flex-wrap: nowrap;
 }
 
 .navbar-brand {
@@ -77,7 +79,7 @@ body {
 }
 
 .recentNav {
-  height: 55%;
+  max-height: 50%;
   .row {
     height: 100%;
     @include scrolly;
