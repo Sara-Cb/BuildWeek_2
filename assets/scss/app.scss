@@ -145,3 +145,54 @@ body {
 .dropdown-menu {
   @include colorCombo("dark");
 }
+
+.playerSection {
+  z-index: 5;
+}
+
+#song {
+  @include spacingFlex(row, space-between, center);
+}
+
+#playerImg {
+  height: 50px;
+  aspect-ratio: 1/1;
+}
+
+#playerControls {
+  @include centeringFlex;
+  #playerButtons,
+  #songTime {
+    @include centeringFlex;
+    flex-direction: row;
+  }
+}
+
+#playerIcons {
+  @include spacingFlex(row, space-between, center);
+}
+
+#playbutton {
+  font-size: 2em;
+}
+
+.albumCard {
+  max-width: 540px;
+  margin-bottom: 20px;
+}
+
+.trackCardImg {
+  width: 100px;
+  aspect-ratio: 1/1;
+}
+
+.albumCardImg {
+  width: 150px;
+  aspect-ratio: 1/1;
+}
+
+.artistCardImg {
+  width: 100px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
