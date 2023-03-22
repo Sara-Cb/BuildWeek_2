@@ -275,4 +275,67 @@ body {
 .dropdown-menu {
   background-color: rgb(25, 25, 25);
   color: rgb(255, 255, 255);
+}
+
+.playerSection {
+  z-index: 5;
+}
+
+#song {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#playerImg {
+  height: 50px;
+  aspect-ratio: 1/1;
+}
+
+#playerControls {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#playerControls #playerButtons,
+#playerControls #songTime {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+#playerIcons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#playbutton {
+  font-size: 2em;
+}
+
+.albumCard {
+  max-width: 540px;
+  margin-bottom: 20px;
+}
+
+.trackCardImg {
+  width: 100px;
+  aspect-ratio: 1/1;
+}
+
+.albumCardImg {
+  width: 150px;
+  aspect-ratio: 1/1;
+}
+
+.artistCardImg {
+  width: 100px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
 }/*# sourceMappingURL=app.css.map */
