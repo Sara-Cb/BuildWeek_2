@@ -5,7 +5,22 @@ const tracksDiv = document.getElementById("tracksDiv");
 const albumsDiv = document.getElementById("albumsDiv");
 const artistsDiv = document.getElementById("artistsDiv");
 
+const formatTime = function (time) {
+  minuti = Math.round(time / 60);
+  secondi = time % 60;
+  if (secondi < 10) {
+    secondi = "0" + secondi;
+  }
+  let correctTime = `${minuti}:${secondi}`;
+  console.log(correctTime);
+  return correctTime;
+};
+
 const printEverything = function () {
+  document.getElementById("braniH2").classList.remove("d-none");
+  document.getElementById("albumH2").classList.remove("d-none");
+  document.getElementById("artistiH2").classList.remove("d-none");
+
   for (let i = 0; i < tracksArray.length; i++) {
     let track = tracksArray[i];
     let album = track.album;
@@ -14,23 +29,20 @@ const printEverything = function () {
     const trackCard = document.createElement("div");
     trackCard.setAttribute("class", "card");
     const albumCard = document.createElement("div");
-    albumCard.setAttribute("class", "card");
+    albumCard.setAttribute("class", "col-3");
     const artistCard = document.createElement("div");
-    artistCard.setAttribute("class", "card");
+    artistCard.setAttribute("class", "col-3");
 
-    trackCard.innerHTML = `<div class='row'><div class="col-3"><img class="image-fluid trackCardImg" src="${album.cover_big}"  alt="Album cover"/></div><div class="col-7"><div class='card-body'><h4>${track.title}</h4><p>${artist.name}</p></div></div><div class="col-1"><p>${track.duration}</p></div></div>`;
-    albumCard.innerHTML = `<div> <img class="image-fluid albumCardImg" src="${album.cover_big}"  alt="Album cover"/>
-     </div><div class="col-7"> <div class='card-body'> <h4>${album.title}</h4> <p>${artist.name}</p> </div> </div>`;
-    artistCard.innerHTML = `<div class= card-img-top"> <img class="image-fluid artistCardImg" src="${artist.picture_big}"  alt="Album cover"/> </div> <div class="col-7"> <div class='card-body'><h4>${artist.name}</h4><p>Artista</p> </div></div>`;
-    /* `
-    <div class="col-6 col-md-4 col-lg-3 justify-content-between"><a href="albums.html?id=${album.id}"> <div class="card">
-    <img src="${album.cover_big}" class="card-img-top" alt="album cover" /></a>
-    </div>
-    <div class="card-body">
-      <p class="card-text">${album.title}</p>
-      <p class="card-text"><a href="./artists.html?artistId=${album.artist.id}">${album.artist.name}</a></p>
-    </div>
-  </div>`;*/
+    trackCard.innerHTML = `<a href="albums.html?id=${
+      album.id
+    }"><div class='row'><div class="col-1"><img class="image-fluid trackCardImg" src="${
+      album.cover_big
+    }"  alt="Album cover"/></div><div class="col"><div class='card-body'><h4>${track.title}</h4><p>${
+      artist.name
+    } </p></div></div><div class="col-2"><p>${formatTime(track.duration)}</p></div></div></a>`;
+    albumCard.innerHTML = `<div class"card><a href="albums.html?id=${album.id}"> <img class="image-fluid albumCardImg" src="${album.cover_big}"  alt="Album cover"/></a>
+ <div class='card-body'> <h4>${album.title}</h4><p><a href="artists.html?id=${artist.id}>${artist.name}</a></p></div>`; //non compare il p???
+    artistCard.innerHTML = `<div class"card><a href="artists.html?artistId=${artist.id}"><div class= card-img-top"> <img class="image-fluid artistCardImg" src="${artist.picture_big}"  alt="Artist pic"/> </div> <div class="col"> <div class='card-body'><h4>${artist.name}</h4><p>Artista</p> <a/></div></div>`;
 
     tracksDiv.appendChild(trackCard);
     albumsDiv.appendChild(albumCard);
