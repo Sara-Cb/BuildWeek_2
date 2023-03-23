@@ -150,20 +150,14 @@ let printArtist = async function () {
   await getData(`artist/${artistId}`, thisArtist);
   for (let i = 0; i < thisArtist.length; i++) {
     let artistRef = document.querySelector("#artist");
-    artistRef.innerHTML = ` 
-    <div class="col-3 mb-5">
-    <img
-      class="image-fluid w-100"
-      src="${thisArtist[i].picture_xl}"
-      alt="Album cover"
-    />
-  </div>
-  <div class="col mb-5">
+    artistRef.innerHTML = ` <div id=artistCoverSpace class="col mb-5">
     <div class="h-100 d-flex flex-column justify-content-end">
       <h2>${thisArtist[i].name}</h2>
       <p>${thisArtist[i].nb_fan} ascoltatori mensili</p>
     </div>
     `;
+    const artistCoverSpace = document.getElementById("artistCoverSpace");
+    artistCoverSpace.style.backgroundImage = `url('${thisArtist[i].picture_xl}')`;
   }
   await getData(`artist/${artistId}/top?limit=20&index=0`, artistTracks);
   //console.log(artistTracks);
