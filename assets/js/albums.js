@@ -13,7 +13,8 @@ const playerImg = document.getElementById("playerImg");
 const playButton = document.getElementById("playbutton");
 const btnNext = document.getElementById("trackNext");
 const btnBack = document.getElementById("trackBack");
-
+const iconsRowRef = document.getElementById("iconsRow");
+const indiciRowRef = document.getElementById("indici");
 let currentTrack;
 const volumeControl = document.getElementById("volume");
 let audio = document.getElementById("audioReference");
@@ -208,5 +209,7 @@ const getMyAlbums = async function () {
 if (albumId) {
   printAlbum();
 } else {
+  iconsRowRef.classList.toggle("d-none");
+  indiciRowRef.classList.toggle("d-none");
   getMyAlbums();
 }
