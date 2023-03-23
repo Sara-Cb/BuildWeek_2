@@ -114,7 +114,7 @@ meter {
 .playerSection {
   z-index: 5;
   padding: 10px;
-  background-color: rgb(25, 25, 25);
+  height: 100px;
 }
 
 #song {
@@ -203,49 +203,52 @@ meter {
 }
 
 html,
-body,
-.mainContainer,
-.mainRow {
+body {
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
+  max-width: 100vw;
+  max-height: 100vh;
   background-color: rgb(25, 25, 25);
   color: rgb(255, 255, 255);
 }
 html *,
-body *,
-.mainContainer *,
-.mainRow * {
+body * {
   color: rgb(255, 255, 255);
   font-family: "Circular Std", Arial, Helvetica, sans-serif;
 }
 html a,
-body a,
-.mainContainer a,
-.mainRow a {
+body a {
   text-decoration: none;
   cursor: pointer;
 }
 
-html,
-body {
-  max-width: 100vw;
-  max-height: 100vh;
+.mainContainer,
+.mainRow {
+  width: 100%;
   margin: 0;
   padding: 0;
 }
 
 .mainContainer {
-  position: fixed;
-  top: 0;
-  left: 0;
+  height: calc(100% - 100px);
 }
 
+.mainRow,
 .mainLeft,
 .mainCenter,
-.mainRight {
+.mainRight,
+.mainLeft > div,
+.mainRight > div {
   height: 100%;
+}
+
+.mainCenter .content {
+  height: 90%;
+  padding-top: 30px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .mainLeft,
@@ -255,14 +258,32 @@ body {
 }
 
 .mainRight {
-  font-size: 0.8em;
+  font-size: 0.7em;
+}
+.mainRight h4 {
+  font-size: 1.2rem;
 }
 .mainRight h5 {
-  font-size: 1em;
+  font-size: 0.9rem;
+}
+.mainRight p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
+.mainRight > div {
+  padding-top: 1.5em;
+}
+
+@media screen and (max-width: 1200px) {
+  #mainRightOpened,
+  #mainRightClosed {
+    display: none;
+  }
+}
 .navbar {
-  height: 45%;
+  height: 40%;
   min-height: 340px;
   display: flex;
   flex-direction: column;
@@ -272,7 +293,7 @@ body {
 }
 
 .navbar-brand {
-  width: 80%;
+  width: 90%;
 }
 
 .settings.dropdown-toggle::after {
@@ -303,7 +324,9 @@ body {
 }
 
 .recentNav {
-  max-height: 50%;
+  height: 55%;
+  border-top: 1px solid rgba(255, 255, 255, 0.6);
+  padding-top: 15px;
 }
 .recentNav .row {
   height: 100%;
@@ -311,7 +334,12 @@ body {
   overflow-x: hidden;
 }
 
-.topNav {
+#myUl li {
+  margin-bottom: 1.1em;
+}
+
+.topNav,
+.topNav > div {
   height: 60px;
   display: flex;
   flex-direction: row;
@@ -362,14 +390,6 @@ body {
 
 .dropdown-toggle.show::after {
   transform: rotate(180deg);
-}
-
-.mainCenter .content {
-  height: 90%;
-  padding-top: 30px;
-  padding-bottom: 90px;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 
 .card,

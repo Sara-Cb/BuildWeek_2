@@ -7,13 +7,14 @@
 // Global
 
 html,
-body,
-.mainContainer,
-.mainRow {
+body {
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
+  max-width: 100vw;
+  max-height: 100vh;
+
   @include colorCombo("dark");
   * {
     color: $white;
@@ -25,24 +26,32 @@ body,
   }
 }
 
-html,
-body {
-  max-width: 100vw;
-  max-height: 100vh;
+.mainContainer,
+.mainRow {
+  width: 100%;
   margin: 0;
   padding: 0;
 }
 
 .mainContainer {
-  position: fixed;
-  top: 0;
-  left: 0;
+  height: calc(100% - 100px);
 }
 
+.mainRow,
 .mainLeft,
 .mainCenter,
-.mainRight {
+.mainRight,
+.mainLeft > div,
+.mainRight > div {
   height: 100%;
+}
+
+.mainCenter {
+  .content {
+    height: 90%;
+    padding-top: 30px;
+    @include scrolly;
+  }
 }
 
 .mainLeft,
@@ -51,21 +60,38 @@ body {
 }
 
 .mainRight {
-  font-size: 0.8em;
+  font-size: 0.7em;
+  h4 {
+    font-size: 1.2rem;
+  }
   h5 {
-    font-size: 1em;
+    font-size: 0.9rem;
+  }
+  p {
+    @include cutText;
+  }
+}
+
+.mainRight > div {
+  padding-top: 1.5em;
+}
+
+@media screen and (max-width: 1200px) {
+  #mainRightOpened,
+  #mainRightClosed {
+    display: none;
   }
 }
 
 .navbar {
-  height: 45%;
+  height: 40%;
   min-height: 340px;
   @include spacingFlex(column, space-between, flex-start);
   flex-wrap: nowrap;
 }
 
 .navbar-brand {
-  width: 80%;
+  width: 90%;
 }
 
 .settings.dropdown-toggle::after {
@@ -95,14 +121,21 @@ body {
 }
 
 .recentNav {
-  max-height: 50%;
+  height: 55%;
+  border-top: 1px solid transparentize($white, 0.4);
+  padding-top: 15px;
   .row {
     height: 100%;
     @include scrolly;
   }
 }
 
-.topNav {
+#myUl li {
+  margin-bottom: 1.1em;
+}
+
+.topNav,
+.topNav > div {
   height: 60px;
   @include spacingFlex(row, space-between, center);
 }
@@ -145,15 +178,7 @@ body {
   transform: rotate(180deg);
 }
 
-.mainCenter {
-  .content {
-    height: 90%;
-    padding-top: 30px;
-    padding-bottom: 90px;
-    @include scrolly;
-  }
-}
-
+// CARDS
 .card,
 .dropdown-menu {
   @include colorCombo("dark");
@@ -176,6 +201,7 @@ body {
   background-size: cover;
 }
 
+// BUTTONS - ICONS
 .myPlay {
   font-size: 3em;
   color: $green;
