@@ -57,6 +57,7 @@ btnNext.addEventListener("click", function () {
     divCur.click();
   }
 });
+
 timeRange.addEventListener("click", function (event) {
   const pos = (event.pageX - timeRange.offsetLeft) / timeRange.offsetWidth;
   audio.currentTime = pos * audio.duration;
@@ -178,6 +179,8 @@ searchForm.addEventListener("submit", function (e) {
   fetchEverything(research);
   searchInput.value = "";
 });
+
+//FUNZIONE RIEMPIMENTO NAVBAR
 let printMore = async function () {
   await getData("album/316555317", cardsMore);
   await getData("album/405622007", cardsMore);

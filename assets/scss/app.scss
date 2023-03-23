@@ -58,6 +58,10 @@ body {
   width: 80%;
 }
 
+.settings.dropdown-toggle::after {
+  display: none !important;
+}
+
 .mainCenter,
 .recentNav {
   ::-webkit-scrollbar {

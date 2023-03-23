@@ -58,6 +58,7 @@ btnNext.addEventListener("click", function () {
     divCur.click();
   }
 });
+
 timeRange.addEventListener("click", function (event) {
   const pos = (event.pageX - timeRange.offsetLeft) / timeRange.offsetWidth;
   audio.currentTime = pos * audio.duration;
@@ -126,6 +127,7 @@ const getData = async function (_content, _array) {
     console.log(error);
   }
 };
+
 const getArtistAlbums = async function () {
   try {
     let response = await fetch(API_URL + `artist/${artistId}/albums`);
@@ -202,21 +204,7 @@ let printArtist = async function () {
   </div>`;
   }
 };
-let printMore = async function () {
-  await getData("album/316555317", cardsMore);
-  await getData("album/405622007", cardsMore);
-  await getData("album/288437072", cardsMore);
-  await getData("album/205447462,", cardsMore);
-  await getData("album/361734707", cardsMore);
-  await getData("album/137556512", cardsMore);
-  await getData("album/119606", cardsMore);
-  await getData("album/15483710", cardsMore);
-  await getData("album/314664567", cardsMore);
-  let ulRef = document.getElementById("myUl");
-  for (let i = cardsMore.length - 1; i > -1; i--) {
-    ulRef.innerHTML += `<a class="my-1" href="albums.html?id=${cardsMore[i].id}"> <li><p class="card-title">${cardsMore[i].title}</p></li> </a> `;
-  }
-};
+
 let printArtists = async function () {
   await getData("artist/7979", myArtists);
   await getData("artist/4527", myArtists);
@@ -245,6 +233,7 @@ let printArtists = async function () {
         </div>`;
   }
 };
+
 function playFunction(url, title, artist, cover, duration, id) {
   audio.src = url;
   currentTrack = id;
@@ -275,6 +264,24 @@ if (artistId) {
 } else {
   printArtists();
 }
+
+//FUNZIONE RIEMPIMENTO NAVBAR
+let printMore = async function () {
+  await getData("album/316555317", cardsMore);
+  await getData("album/405622007", cardsMore);
+  await getData("album/288437072", cardsMore);
+  await getData("album/205447462,", cardsMore);
+  await getData("album/361734707", cardsMore);
+  await getData("album/137556512", cardsMore);
+  await getData("album/119606", cardsMore);
+  await getData("album/15483710", cardsMore);
+  await getData("album/314664567", cardsMore);
+  let ulRef = document.getElementById("myUl");
+  for (let i = cardsMore.length - 1; i > -1; i--) {
+    ulRef.innerHTML += `<a class="my-1" href="albums.html?id=${cardsMore[i].id}"> <li><p class="card-title">${cardsMore[i].title}</p></li> </a> `;
+  }
+};
 printMore();
+
 //getData("search?q=liberato");
 //http://127.0.0.1:5500/artists.html?artistId=7979

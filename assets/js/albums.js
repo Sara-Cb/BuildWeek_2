@@ -57,6 +57,7 @@ btnNext.addEventListener("click", function () {
     divCur.click();
   }
 });
+
 timeRange.addEventListener("click", function (event) {
   const pos = (event.pageX - timeRange.offsetLeft) / timeRange.offsetWidth;
   audio.currentTime = pos * audio.duration;
@@ -182,21 +183,7 @@ let printAlbum = async function () {
     }
   }
 };
-let printMore = async function () {
-  await getData("album/316555317", cardsMore);
-  await getData("album/405622007", cardsMore);
-  await getData("album/288437072", cardsMore);
-  await getData("album/205447462,", cardsMore);
-  await getData("album/361734707", cardsMore);
-  await getData("album/137556512", cardsMore);
-  await getData("album/119606", cardsMore);
-  await getData("album/15483710", cardsMore);
-  await getData("album/314664567", cardsMore);
-  let ulRef = document.getElementById("myUl");
-  for (let i = cardsMore.length - 1; i > -1; i--) {
-    ulRef.innerHTML += `<a class="my-1" href="albums.html?id=${cardsMore[i].id}"> <li><p class="card-title">${cardsMore[i].title}</p></li> </a> `;
-  }
-};
+
 //popolamento array albums
 const getMyAlbums = async function () {
   let albumRef = document.getElementById("album");
@@ -238,4 +225,22 @@ if (albumId) {
   indiciRowRef.classList.toggle("d-none");
   getMyAlbums();
 }
+
+//FUNZIONE RIEMPIMENTO NAVBAR
+let printMore = async function () {
+  await getData("album/316555317", cardsMore);
+  await getData("album/405622007", cardsMore);
+  await getData("album/288437072", cardsMore);
+  await getData("album/205447462,", cardsMore);
+  await getData("album/361734707", cardsMore);
+  await getData("album/137556512", cardsMore);
+  await getData("album/119606", cardsMore);
+  await getData("album/15483710", cardsMore);
+  await getData("album/314664567", cardsMore);
+  let ulRef = document.getElementById("myUl");
+  for (let i = cardsMore.length - 1; i > -1; i--) {
+    ulRef.innerHTML += `<a class="my-1" href="albums.html?id=${cardsMore[i].id}"> <li><p class="card-title">${cardsMore[i].title}</p></li> </a> `;
+  }
+};
+
 printMore();
