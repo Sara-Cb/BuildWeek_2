@@ -252,7 +252,9 @@ function playFunction(url, title, artist, cover, duration, id) {
     timeRange.style.width = (audio.currentTime / audio.duration) * 100 + "%";
   });
 }
-
+document.getElementById("closeRight").addEventListener("click", function () {
+  document.querySelector(".mainRight").classList.add("d-none");
+});
 if (artistId) {
   console.log(artistId);
   printArtist();
