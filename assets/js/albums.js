@@ -2,6 +2,7 @@ const API_URL = "https://striveschool-api.herokuapp.com/api/deezer/";
 let thisAlbum = [];
 let myAlbums = [];
 let trackArray = [];
+let myAlbums = [];
 let albumId = new URLSearchParams(window.location.search).get("id");
 let song;
 const tracklistRef = document.getElementById("tracklist");

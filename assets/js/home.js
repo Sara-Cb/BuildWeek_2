@@ -65,7 +65,7 @@ const getData = async function (_content, _array) {
     let response = await fetch(API_URL + _content);
     if (response.ok) {
       data = await response.json();
-      console.log(data);
+      // console.log(data);
       _array.push(data);
     } else {
       return new Error("Error while loading data.");
@@ -112,7 +112,7 @@ let printWelcome = async function () {
 
 let printAd = async function () {
   await getData("track/1509449772", cardAd);
-  console.log(cardAd);
+  //console.log(cardAd);
   for (let i = 0; i < cardAd.length; i++) {
     let adRef = document.querySelector("#ad");
     adRef.innerHTML = `<div class="col-3">
@@ -148,9 +148,9 @@ let printMore = async function () {
   await getData("album/205447462,", cardsMore);
   await getData("album/361734707", cardsMore);
   await getData("album/137556512", cardsMore);
-  await getData("album/314664567", cardsMore);
   await getData("album/119606", cardsMore);
   await getData("album/15483710", cardsMore);
+  await getData("album/314664567", cardsMore);
 
   //correggere dimensione dell'immagine
 
@@ -164,6 +164,10 @@ let printMore = async function () {
       <p class="card-text"><a href="./artists.html?artistId=${cardsMore[i].artist.id}">${cardsMore[i].artist.name}</a></p>
     </div>
   </div>`;
+  }
+  let ulRef = document.getElementById("myUl");
+  for (let i = cardsMore.length - 1; i > -1; i--) {
+    ulRef.innerHTML += `<a class="my-1" href="albums.html?id=${cardsMore[i].id}"> <li><p class="card-title">${cardsMore[i].title}</p></li> </a> `;
   }
 };
 
