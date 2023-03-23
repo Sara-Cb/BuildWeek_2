@@ -2,7 +2,6 @@ const API_URL = "https://striveschool-api.herokuapp.com/api/deezer/";
 let thisAlbum = [];
 let myAlbums = [];
 let trackArray = [];
-let myAlbums = [];
 let albumId = new URLSearchParams(window.location.search).get("id");
 let song;
 const tracklistRef = document.getElementById("tracklist");
@@ -84,9 +83,7 @@ function playFunction(url, title, artist, cover, duration, id) {
   });
 
   audio.addEventListener("timeupdate", function () {
-    songTime.children[0].textContent = formatTime(
-      Math.round(audio.currentTime)
-    );
+    songTime.children[0].textContent = formatTime(Math.round(audio.currentTime));
     timeRange.style.width = (audio.currentTime / audio.duration) * 100 + "%";
   });
 }
