@@ -171,7 +171,7 @@
         <div id="songTime">
           <p>0:00</p>
           <div>
-            <input type="range" id="timeRange" />
+            <input type="range" id="timeRange" value="0" />
           </div>
           <p>0:00</p>
         </div>
@@ -182,7 +182,7 @@
         <button><i class="bi bi-list"></i></button>
         <button><i class="bi bi-speaker"></i></button>
         <label for="volume"><i class="bi bi-volume-down-fill"></i></label>
-        <input type="range" id="volume" name="volume" min="0" max="10" />
+        <input type="range" id="volume" name="volume" value="3" min="0" max="10" oninput="rangevalue.value=value" />
         <button><i class="bi bi-arrows-angle-expand"></i></button>
       </div>
     </div>

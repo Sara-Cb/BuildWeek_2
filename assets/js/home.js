@@ -69,7 +69,10 @@ playButton.addEventListener("click", function () {
 });
 
 volumeControl.addEventListener("input", function () {
-  audio.volume = volumeControl.value / 10;
+  let volumeValue = volumeControl.value / 10;
+  let percentage = volumeValue * 100;
+  audio.volume = volumeValue;
+  volumeControl.style.backgroundImage = `linear-gradient(to right, #ffffff ${percentage}%, #808080 ${percentage}%)`;
 });
 
 function playFunction(url, title, artist, cover, duration, id) {

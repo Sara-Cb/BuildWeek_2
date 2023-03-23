@@ -29,7 +29,7 @@
 
 #songTime {
   * {
-    margin: 0 auto;
+    margin: 0 4px;
   }
 }
 
@@ -42,4 +42,45 @@
 
 #playbutton {
   font-size: 2em;
+}
+
+.playerSection {
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    background-color: #808080;
+    border-radius: 3em;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #ffffff;
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #ffffff;
+  }
+
+  input[type="range"]::-ms-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #ffffff;
+  }
+
+  #volume {
+    background-image: linear-gradient(
+      to right,
+      #ffffff 30%,
+      #808080 30%
+    ); //perchè inizialmente valore 3, poi cambia grazie js
+  }
 }
