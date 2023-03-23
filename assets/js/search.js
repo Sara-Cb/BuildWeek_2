@@ -6,6 +6,98 @@ const tracksDiv = document.getElementById("tracksDiv");
 const albumsDiv = document.getElementById("albumsDiv");
 const artistsDiv = document.getElementById("artistsDiv");
 
+// RIFERIMENTI PLAYER
+const tracklistRef = document.getElementById("tracklist");
+const playerSong = document.getElementById("playerSong");
+const playerArtist = document.getElementById("playerArtist");
+const songTime = document.getElementById("songTime");
+const timeRange = document.getElementById("timeRange");
+const playerImg = document.getElementById("playerImg");
+const playButton = document.getElementById("playbutton");
+const btnNext = document.getElementById("trackNext");
+const btnBack = document.getElementById("trackBack");
+const iconsRowRef = document.getElementById("iconsRow");
+const indiciRowRef = document.getElementById("indici");
+let currentTrack;
+const volumeControl = document.getElementById("volume");
+let audio = document.getElementById("audioReference");
+
+//INIZIO FUNZIONI PLAYER
+
+//play top
+const playTop = function () {
+  if (albumId) {
+    document.getElementById("0").click();
+  }
+};
+
+//next prev
+btnBack.addEventListener("click", function () {
+  if (currentTrack != 0) {
+    let backId = currentTrack - 1;
+    console.log(currentTrack);
+    let divBack = document.getElementById(backId);
+    console.log(divBack);
+    divBack.click();
+  } else {
+    divCur = document.getElementById(currentTrack);
+    divCur.click();
+  }
+});
+
+btnNext.addEventListener("click", function () {
+  if (currentTrack != trackArray.length - 1) {
+    let nextId = currentTrack + 1;
+    console.log(currentTrack);
+    let divNext = document.getElementById(nextId);
+    console.log(divNext);
+    divNext.click();
+  } else {
+    divCur = document.getElementById("0");
+    divCur.click();
+  }
+});
+timeRange.addEventListener("click", function (event) {
+  const pos = (event.pageX - timeRange.offsetLeft) / timeRange.offsetWidth;
+  audio.currentTime = pos * audio.duration;
+});
+
+playButton.addEventListener("click", function () {
+  if (audio.paused) {
+    audio.play();
+  } else {
+    audio.pause();
+  }
+});
+
+volumeControl.addEventListener("input", function () {
+  audio.volume = volumeControl.value / 10;
+});
+
+function playFunction(url, title, artist, cover, duration, id) {
+  audio.src = url;
+  currentTrack = id;
+  playerSong.textContent = title;
+  playerArtist.textContent = artist;
+  playerImg.setAttribute("src", cover);
+
+  audio.addEventListener("loadedmetadata", function () {
+    songTime.children[0].textContent = formatTime(0);
+    songTime.children[2].textContent = formatTime(Math.round(duration));
+
+    audio.play();
+  });
+
+  audio.addEventListener("timeupdate", function () {
+    const currentTime = audio.currentTime;
+    const duration = audio.duration;
+    songTime.children[0].textContent = formatTime(Math.round(currentTime));
+    const percentage = (currentTime / duration) * 100;
+    timeRange.style.backgroundImage = `linear-gradient(to right, #ffffff ${percentage}%, #808080 ${percentage}%)`;
+    timeRange.value = percentage;
+  });
+}
+
 const formatTime = function (time) {
   minuti = Math.round(time / 60);
   secondi = time % 60;
@@ -16,6 +108,8 @@ const formatTime = function (time) {
   console.log(correctTime);
   return correctTime;
 };
+
+//FINE FUNZIONI PLAYER
 
 const printEverything = function () {
   document.getElementById("braniH2").classList.remove("d-none");

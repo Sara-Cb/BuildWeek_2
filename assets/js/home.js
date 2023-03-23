@@ -2,18 +2,63 @@ const API_URL = "https://striveschool-api.herokuapp.com/api/deezer/";
 let cardsAlbums = [];
 let cardAd = [];
 let cardsMore = [];
+
+// RIFERIMENTI PLAYER
+const tracklistRef = document.getElementById("tracklist");
 const playerSong = document.getElementById("playerSong");
 const playerArtist = document.getElementById("playerArtist");
 const songTime = document.getElementById("songTime");
 const timeRange = document.getElementById("timeRange");
 const playerImg = document.getElementById("playerImg");
 const playButton = document.getElementById("playbutton");
+const btnNext = document.getElementById("trackNext");
+const btnBack = document.getElementById("trackBack");
+const iconsRowRef = document.getElementById("iconsRow");
+const indiciRowRef = document.getElementById("indici");
+let currentTrack;
+const volumeControl = document.getElementById("volume");
+let audio = document.getElementById("audioReference");
+
+//INIZIO FUNZIONI PLAYER
+
+//play top
+const playTop = function () {
+  if (albumId) {
+    document.getElementById("0").click();
+  }
+};
+
+//next prev
+btnBack.addEventListener("click", function () {
+  if (currentTrack != 0) {
+    let backId = currentTrack - 1;
+    console.log(currentTrack);
+    let divBack = document.getElementById(backId);
+    console.log(divBack);
+    divBack.click();
+  } else {
+    divCur = document.getElementById(currentTrack);
+    divCur.click();
+  }
+});
+
+btnNext.addEventListener("click", function () {
+  if (currentTrack != trackArray.length - 1) {
+    let nextId = currentTrack + 1;
+    console.log(currentTrack);
+    let divNext = document.getElementById(nextId);
+    console.log(divNext);
+    divNext.click();
+  } else {
+    divCur = document.getElementById("0");
+    divCur.click();
+  }
+});
 timeRange.addEventListener("click", function (event) {
   const pos = (event.pageX - timeRange.offsetLeft) / timeRange.offsetWidth;
   audio.currentTime = pos * audio.duration;
 });
-const volumeControl = document.getElementById("volume");
-let audio = document.getElementById("audioReference");
+
 playButton.addEventListener("click", function () {
   if (audio.paused) {
     audio.play();
@@ -37,16 +82,16 @@ function playFunction(url, title, artist, cover, duration, id) {
     songTime.children[0].textContent = formatTime(0);
     songTime.children[2].textContent = formatTime(Math.round(duration));
 
-    timeRange.style.width = "0%";
-
     audio.play();
   });
 
   audio.addEventListener("timeupdate", function () {
-    songTime.children[0].textContent = formatTime(
-      Math.round(audio.currentTime)
-    );
-    timeRange.style.width = (audio.currentTime / audio.duration) * 100 + "%";
+    const currentTime = audio.currentTime;
+    const duration = audio.duration;
+    songTime.children[0].textContent = formatTime(Math.round(currentTime));
+    const percentage = (currentTime / duration) * 100;
+    timeRange.style.backgroundImage = `linear-gradient(to right, #ffffff ${percentage}%, #808080 ${percentage}%)`;
+    timeRange.value = percentage;
   });
 }
 
@@ -60,6 +105,9 @@ const formatTime = function (time) {
   console.log(correctTime);
   return correctTime;
 };
+
+//FINE FUNZIONI PLAYER
+
 const getData = async function (_content, _array) {
   try {
     let response = await fetch(API_URL + _content);

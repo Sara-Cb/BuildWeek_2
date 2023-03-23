@@ -6,6 +6,8 @@ let myArtists = [];
 let artistTracks = [];
 let albumsArray = [];
 let cardsMore = [];
+
+// RIFERIMENTI PLAYER
 const tracklistRef = document.getElementById("tracklist");
 const playerSong = document.getElementById("playerSong");
 const playerArtist = document.getElementById("playerArtist");
@@ -15,10 +17,14 @@ const playerImg = document.getElementById("playerImg");
 const playButton = document.getElementById("playbutton");
 const btnNext = document.getElementById("trackNext");
 const btnBack = document.getElementById("trackBack");
-
+const iconsRowRef = document.getElementById("iconsRow");
+const indiciRowRef = document.getElementById("indici");
 let currentTrack;
 const volumeControl = document.getElementById("volume");
 let audio = document.getElementById("audioReference");
+
+//INIZIO FUNZIONI PLAYER
+
 //play top
 const playTop = function () {
   if (albumId) {
@@ -39,9 +45,9 @@ btnBack.addEventListener("click", function () {
     divCur.click();
   }
 });
+
 btnNext.addEventListener("click", function () {
-  console.log(artistTracks);
-  if (currentTrack != artistTracks[0].data.length - 1) {
+  if (currentTrack != trackArray.length - 1) {
     let nextId = currentTrack + 1;
     console.log(currentTrack);
     let divNext = document.getElementById(nextId);
@@ -68,6 +74,43 @@ playButton.addEventListener("click", function () {
 volumeControl.addEventListener("input", function () {
   audio.volume = volumeControl.value / 10;
 });
+
+function playFunction(url, title, artist, cover, duration, id) {
+  audio.src = url;
+  currentTrack = id;
+  playerSong.textContent = title;
+  playerArtist.textContent = artist;
+  playerImg.setAttribute("src", cover);
+
+  audio.addEventListener("loadedmetadata", function () {
+    songTime.children[0].textContent = formatTime(0);
+    songTime.children[2].textContent = formatTime(Math.round(duration));
+
+    audio.play();
+  });
+
+  audio.addEventListener("timeupdate", function () {
+    const currentTime = audio.currentTime;
+    const duration = audio.duration;
+    songTime.children[0].textContent = formatTime(Math.round(currentTime));
+    const percentage = (currentTime / duration) * 100;
+    timeRange.style.backgroundImage = `linear-gradient(to right, #ffffff ${percentage}%, #808080 ${percentage}%)`;
+    timeRange.value = percentage;
+  });
+}
+
+const formatTime = function (time) {
+  minuti = Math.round(time / 60);
+  secondi = time % 60;
+  if (secondi < 10) {
+    secondi = "0" + secondi;
+  }
+  let correctTime = `${minuti}:${secondi}`;
+  console.log(correctTime);
+  return correctTime;
+};
+
+//FINE FUNZIONI PLAYER
 
 const getData = async function (_content, _array) {
   try {
@@ -226,16 +269,6 @@ function playFunction(url, title, artist, cover, duration, id) {
   });
 }
 
-const formatTime = function (time) {
-  minuti = Math.round(time / 60);
-  secondi = time % 60;
-  if (secondi < 10) {
-    secondi = "0" + secondi;
-  }
-  let correctTime = `${minuti}:${secondi}`;
-  console.log(correctTime);
-  return correctTime;
-};
 if (artistId) {
   console.log(artistId);
   printArtist();

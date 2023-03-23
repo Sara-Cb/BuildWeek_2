@@ -5,6 +5,8 @@ let trackArray = [];
 let albumId = new URLSearchParams(window.location.search).get("id");
 let song;
 let cardsMore = [];
+
+// RIFERIMENTI PLAYER
 const tracklistRef = document.getElementById("tracklist");
 const playerSong = document.getElementById("playerSong");
 const playerArtist = document.getElementById("playerArtist");
@@ -19,6 +21,9 @@ const indiciRowRef = document.getElementById("indici");
 let currentTrack;
 const volumeControl = document.getElementById("volume");
 let audio = document.getElementById("audioReference");
+
+//INIZIO FUNZIONI PLAYER
+
 //play top
 const playTop = function () {
   if (albumId) {
@@ -39,6 +44,7 @@ btnBack.addEventListener("click", function () {
     divCur.click();
   }
 });
+
 btnNext.addEventListener("click", function () {
   if (currentTrack != trackArray.length - 1) {
     let nextId = currentTrack + 1;
@@ -102,6 +108,8 @@ const formatTime = function (time) {
   console.log(correctTime);
   return correctTime;
 };
+
+//FINE FUNZIONI PLAYER
 
 const getData = async function (_content, _array) {
   try {
