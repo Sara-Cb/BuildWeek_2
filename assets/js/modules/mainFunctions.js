@@ -144,7 +144,14 @@ let printMore = async function () {
   }
 };
 */
-const liked = function (e) {
-  e.target.classList.toggle("bi-heart");
-  e.target.classList.toggle("bi-heart-fill");
-};
+/*
+
+//LIKE FUNCTION
+const hearts = document.getElementsByClassName("like");
+for (let i = 0; i < hearts.length; i++) {
+  hearts[i].addEventListener("click", function (e) {
+    e.target.classList.toggle("bi-heart");
+    e.target.classList.toggle("bi-heart-fill");
+  });
+}
+*/

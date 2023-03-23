@@ -9,6 +9,8 @@ let cardsMore = [];
 const trackIndex = document.getElementsByClassName("trackIndex");
 const trackItem = document.getElementsByClassName("trackItem");
 const trackPlayBtn = document.getElementsByClassName("playbutton");
+const hearts = document.getElementsByClassName("like");
+
 // RIFERIMENTI PLAYER
 const tracklistRef = document.getElementById("tracklist");
 const playerSong = document.getElementById("playerSong");
@@ -16,7 +18,7 @@ const playerArtist = document.getElementById("playerArtist");
 const songTime = document.getElementById("songTime");
 const timeRange = document.getElementById("timeRange");
 const playerImg = document.getElementById("playerImg");
-const playButton = document.getElementById("playbutton");
+const playButton = document.getElementById("playBtn");
 const btnNext = document.getElementById("trackNext");
 const btnBack = document.getElementById("trackBack");
 const iconsRowRef = document.getElementById("iconsRow");
@@ -266,7 +268,9 @@ function playFunction(url, title, artist, cover, duration, id) {
   });
 
   audio.addEventListener("timeupdate", function () {
-    songTime.children[0].textContent = formatTime(Math.round(audio.currentTime));
+    songTime.children[0].textContent = formatTime(
+      Math.round(audio.currentTime)
+    );
     timeRange.style.width = (audio.currentTime / audio.duration) * 100 + "%";
   });
 }
@@ -280,23 +284,10 @@ if (artistId) {
   printArtists();
 }
 
-//FUNZIONE RIEMPIMENTO NAVBAR
-let printMore = async function () {
-  await getData("album/316555317", cardsMore);
-  await getData("album/405622007", cardsMore);
-  await getData("album/288437072", cardsMore);
-  await getData("album/205447462,", cardsMore);
-  await getData("album/361734707", cardsMore);
-  await getData("album/137556512", cardsMore);
-  await getData("album/119606", cardsMore);
-  await getData("album/15483710", cardsMore);
-  await getData("album/314664567", cardsMore);
-  let ulRef = document.getElementById("myUl");
-  for (let i = cardsMore.length - 1; i > -1; i--) {
-    ulRef.innerHTML += `<a class="my-1" href="albums.html?id=${cardsMore[i].id}"> <li><p class="card-title">${cardsMore[i].title}</p></li> </a> `;
-  }
-};
-printMore();
-
-//getData("search?q=liberato");
-//http://127.0.0.1:5500/artists.html?artistId=7979
+//LIKE FUNCTION
+for (let i = 0; i < hearts.length; i++) {
+  hearts[i].addEventListener("click", function (e) {
+    e.target.classList.toggle("bi-heart");
+    e.target.classList.toggle("bi-heart-fill");
+  });
+}

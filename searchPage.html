@@ -1,196 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="author" content="team 5" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Spotify - Cerca</title>
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Spotify_icon.svg/1982px-Spotify_icon.svg.png"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
 
-    <link rel="stylesheet" href="assets/css/app.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="author" content="team 5" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spotify - Cerca</title>
+  <link rel="icon" type="image/x-icon"
+    href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Spotify_icon.svg/1982px-Spotify_icon.svg.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
 
-  <body>
-    <div class="container-fluid mainContainer">
-      <!-- riga madre -->
-      <div class="row mainRow">
-        <!-- left start -->
-        <div class="col-2 mainLeft">
-          <nav class="navbar">
-            <!-- impostazioni -->
-            <div class="row">
-              <div>
-                <img src="./assets/img/logo.svg" alt="logo Spotify" class="navbar-brand" />
-              </div>
-              <div class="dropdown">
-                <a
-                  class="dropdown-toggle settings"
-                  href="javascript:void(0)"
-                  id="settingsDropdownMenuLink"
-                  data-bs-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <i class="bi bi-three-dots"></i>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="settingsDropdownMenuLink">
-                  <a class="dropdown-item" href="javascript:void(0)">File</a>
-                  <a class="dropdown-item" href="javascript:void(0)">Modifica</a>
-                  <a class="dropdown-item" href="javascript:void(0)">Visualizza</a>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <ul>
-                <li><a href="./home.html">Home</a></li>
-                <li><a href="./searchPage.html">Cerca</a></li>
-                <li><a href="./albums.html">La tua libreria</a></li>
-              </ul>
-            </div>
-            <!-- nav 2 -->
-            <div class="row">
-              <ul>
-                <li><a href="javascript:void(0)">Crea playlist</a></li>
-                <li><a href="javascript:void(0)">Brani che ti piacciono</a></li>
-                <li><a href="javascript:void(0)">I tuoi episodi</a></li>
-              </ul>
-            </div>
-          </nav>
-          <!-- playlist con scroll -->
-          <div class="recentNav">
-            <div class="row">
-              <ul id="myUl"></ul>
-            </div>
-          </div>
-        </div>
-        <!-- left end -->
-        <!-- center start -->
-        <div class="col mainCenter">
-          <div class="row sticky-top topNav">
+  <link rel="stylesheet" href="assets/css/app.css" />
+</head>
+
+<body>
+  <div class="container-fluid mainContainer">
+    <!-- riga madre -->
+    <div class="row mainRow">
+      <!-- left start -->
+      <div class="col-2 mainLeft">
+        <nav class="navbar">
+          <!-- impostazioni -->
+          <div class="row">
             <div>
-              <div class="arrowIcons">
-                <a onclick="window.history.back()"><i class="bi bi-chevron-left"></i></a>
-                <a onclick="window.history.forward()"><i class="bi bi-chevron-right"></i></a>
-              </div>
-              <form id="searchForm">
-                <input id="searchInput" type="search" placeholder="Cosa vuoi ascoltare?" />
-                <button type="submit"><i class="bi bi-search"></i></button>
-              </form>
+              <img src="./assets/img/logo.svg" alt="logo Spotify" class="navbar-brand" />
             </div>
-            <div class="accountSet dropdown">
-              <a
-                class="dropdown-toggle account"
-                href="#"
-                id="profileDropdownMenuLink"
-                data-bs-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <img src="./assets/img/profile.jpg" alt="profile pic" />
-                <span>Team Five</span>
+            <div class="dropdown">
+              <a class="dropdown-toggle settings" href="javascript:void(0)" id="settingsDropdownMenuLink"
+                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="bi bi-three-dots"></i>
               </a>
-              <div class="dropdown-menu" aria-labelledby="profileDropdownMenuLink">
-                <a class="dropdown-item" href="#">Account</a>
-                <a class="dropdown-item" href="#">Profilo</a>
-                <a class="dropdown-item" href="#">Impostazioni</a>
-                <hr />
-                <a class="dropdown-item" href="#">Esci</a>
+              <div class="dropdown-menu" aria-labelledby="settingsDropdownMenuLink">
+                <a class="dropdown-item" href="javascript:void(0)">File</a>
+                <a class="dropdown-item" href="javascript:void(0)">Modifica</a>
+                <a class="dropdown-item" href="javascript:void(0)">Visualizza</a>
               </div>
             </div>
           </div>
-          <!--inizio contenuti pagina-->
-          <div class="container-fluid content">
-            <div class="row" id="stampaqui">
-              <h2 id="braniH2" class="d-none">Brani</h2>
-              <div class="row" id="tracksDiv"></div>
-              <h2 id="albumH2" class="d-none">Album</h2>
-              <div class="row" id="albumsDiv"></div>
-              <h2 id="artistiH2" class="d-none">Artisti</h2>
-              <div class="row" id="artistsDiv"></div>
+          <div class="row">
+            <ul>
+              <li><a href="./home.html">Home</a></li>
+              <li><a href="./searchPage.html">Cerca</a></li>
+              <li><a href="./albums.html">La tua libreria</a></li>
+            </ul>
+          </div>
+          <!-- nav 2 -->
+          <div class="row">
+            <ul>
+              <li><a href="javascript:void(0)">Crea playlist</a></li>
+              <li><a href="javascript:void(0)">Brani che ti piacciono</a></li>
+              <li><a href="javascript:void(0)">I tuoi episodi</a></li>
+            </ul>
+          </div>
+        </nav>
+        <!-- playlist con scroll -->
+        <div class="recentNav">
+          <div class="row">
+            <ul id="myUl"><a class="my-1" href="albums.html?id=314664567">
+                <li>
+                  <p class="card-title">Turbe Giovanili (20° Anniversario / Versione Originale)</p>
+                </li>
+              </a> <a class="my-1" href="albums.html?id=15483710">
+                <li>
+                  <p class="card-title">Play</p>
+                </li>
+              </a> <a class="my-1" href="albums.html?id=119606">
+                <li>
+                  <p class="card-title">Curtain Call: The Hits</p>
+                </li>
+              </a> <a class="my-1" href="albums.html?id=137556512">
+                <li>
+                  <p class="card-title">Persona</p>
+                </li>
+              </a> <a class="my-1" href="albums.html?id=361734707">
+                <li>
+                  <p class="card-title">c@ra++ere s?ec!@le</p>
+                </li>
+              </a> <a class="my-1" href="albums.html?id=205447462">
+                <li>
+                  <p class="card-title">OBE</p>
+                </li>
+              </a> <a class="my-1" href="albums.html?id=288437072">
+                <li>
+                  <p class="card-title">NOI, LORO, GLI ALTRI</p>
+                </li>
+              </a> <a class="my-1" href="albums.html?id=405622007">
+                <li>
+                  <p class="card-title">CENERE</p>
+                </li>
+              </a> <a class="my-1" href="albums.html?id=316555317">
+                <li>
+                  <p class="card-title">LIBERATO II</p>
+                </li>
+              </a>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- left end -->
+      <!-- center start -->
+      <div class="col mainCenter">
+        <div class="row sticky-top topNav">
+          <div>
+            <div class="arrowIcons">
+              <a onclick="window.history.back()"><i class="bi bi-chevron-left"></i></a>
+              <a onclick="window.history.forward()"><i class="bi bi-chevron-right"></i></a>
+            </div>
+            <form id="searchForm">
+              <input id="searchInput" type="search" placeholder="Cosa vuoi ascoltare?" />
+              <button type="submit"><i class="bi bi-search"></i></button>
+            </form>
+          </div>
+          <div class="accountSet dropdown">
+            <a class="dropdown-toggle account" href="#" id="profileDropdownMenuLink" data-bs-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <img src="./assets/img/profile.jpg" alt="profile pic" />
+              <span>Team Five</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="profileDropdownMenuLink">
+              <a class="dropdown-item" href="#">Account</a>
+              <a class="dropdown-item" href="#">Profilo</a>
+              <a class="dropdown-item" href="#">Impostazioni</a>
+              <hr />
+              <a class="dropdown-item" href="#">Esci</a>
             </div>
           </div>
         </div>
-        <!--  center end -->
+        <!--inizio contenuti pagina-->
+        <div class="container-fluid content">
+          <div class="row" id="stampaqui">
+            <h2 id="braniH2" class="d-none">Brani</h2>
+            <div class="row" id="tracksDiv"></div>
+            <h2 id="albumH2" class="d-none">Album</h2>
+            <div class="row" id="albumsDiv"></div>
+            <h2 id="artistiH2" class="d-none">Artisti</h2>
+            <div class="row" id="artistsDiv"></div>
+          </div>
+        </div>
+      </div>
+      <!--  center end -->
+      <!-- right start -->
+      <div class="col-2 mainRight">
+        <div class="row">
+          <span class="col col-9">
+            <h5 class="flex-nowrap">Attività amici</h5>
+          </span><span class="col col-3"><i class="bi bi-person-add"></i><i id="closeRight" class="bi bi-x"></i></span>
+        </div>
+        <div class="row">
+          <div class="col col-2"><i class="bi bi-person-circle"></i></div>
+          <div class="col col-7">
+            <h5>Antonio Cancemi</h5>
+            <p>In Camera • Yumi Zouma</p>
+            <p><i class="bi bi-disc"></i> EP III</p>
+          </div>
+          <div class="col col-3">4 ore fa</div>
+        </div>
+        <div class="row">
+          <div class="col col-2"><i class="bi bi-person-circle"></i></div>
+          <div class="col col-7">
+            <h5>Sara Campobasso</h5>
+            <p>Aimed to Kill • Jade LeMac</p>
+            <p><i class="bi bi-disc"></i> Aimed to Kill</p>
+          </div>
+          <div class="col col-3">6 ore fa</div>
+        </div>
+        <div class="row">
+          <div class="col col-2"><i class="bi bi-person-circle"></i></div>
+          <div class="col col-7">
+            <h5>Emanuele Syrbe</h5>
+            <p>New Kings • Sleeping Wolf</p>
+            <p><i class="bi bi-music-note-beamed"></i></i> Twint Badass mood</p>
+          </div>
+          <div class="col col-3">8 ore fa</div>
+        </div>
+        <div class="row">
+          <div class="col col-2"><i class="bi bi-person-circle"></i></div>
+          <div class="col col-7">
+            <h5>David Scattone</h5>
+            <p>In Banca • Money</p>
+            <p><i class="bi bi-bank"></i></p>
+          </div>
+          <div class="col col-3">12 ore fa</div>
+        </div>
+      </div>
+      <!--right end-->
+    </div>
+  </div>
+  <!-- player -->
+  <section class="fixed-bottom playerSection">
+    <audio id="audioReference"
+      src="https://cdns-preview-b.dzcdn.net/stream/c-be6b18388a0a94404e424aba6ae5c086-3.mp3"></audio>
+    <div class="row" class="player">
+      <div id="songData" class="col-4">
+        <div>
+          <img id="playerImg"
+            src="https://e-cdns-images.dzcdn.net/images/cover/bb2f14dbe77a039147607237227da56a/500x500-000000-80-0-0.jpg"
+            alt="cover" />
+        </div>
+        <div>
+          <p id="playerSong">Aldo Ritmo</p>
+          <p id="playerArtist">Salmo</p>
+        </div>
+        <div>
+          <button><i class="bi bi-heart like"></i></button>
+        </div>
+      </div>
+
+      <div id="playerComands" class="col-4">
+        <div id="playerButtons">
+          <button class="btn"><i class="bi bi-shuffle"></i></button>
+          <button id="trackBack" class="btn">
+            <i class="bi bi-skip-start-fill fs-4"></i>
+          </button>
+          <button id="playBtn" class="btn">
+            <i class="bi bi-play-circle-fill fs-2"></i>
+          </button>
+          <button id="trackNext" class="btn">
+            <i class="bi bi-skip-end-fill fs-4"></i>
+          </button>
+          <button class="btn"><i class="bi bi-repeat"></i></button>
+        </div>
+        <div id="songTime">
+          <p>0:00</p>
+          <div>
+            <input type="range" id="timeRange" value="0" />
+          </div>
+          <p>0:00</p>
+        </div>
+      </div>
+
+      <div id="playerIcons" class="col-4">
+        <button><i class="bi bi-mic"></i></button>
+        <button><i class="bi bi-list"></i></button>
+        <button><i class="bi bi-speaker"></i></button>
+        <label for="volume"><i class="bi bi-volume-down-fill"></i></label>
+        <input type="range" id="volume" name="volume" value="3" min="0" max="10" />
+        <button><i class="bi bi-arrows-angle-expand"></i></button>
       </div>
     </div>
-    <!-- player -->
-    <section class="fixed-bottom playerSection">
-      <audio
-        id="audioReference"
-        src="https://cdns-preview-b.dzcdn.net/stream/c-be6b18388a0a94404e424aba6ae5c086-3.mp3"
-      ></audio>
-      <div class="row" class="player">
-        <div id="songData" class="col-4">
-          <div>
-            <img
-              id="playerImg"
-              src="https://e-cdns-images.dzcdn.net/images/cover/bb2f14dbe77a039147607237227da56a/500x500-000000-80-0-0.jpg"
-              alt="cover"
-            />
-          </div>
-          <div>
-            <p id="playerSong">Aldo Ritmo</p>
-            <p id="playerArtist">Salmo</p>
-          </div>
-          <div>
-            <button><i class="bi bi-heart"></i></button>
-          </div>
-        </div>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+    integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+    crossorigin="anonymous"></script>
+  <script src="./assets/js/search.js"></script>
+</body>
 
-        <div id="playerComands" class="col-4">
-          <div id="playerButtons">
-            <button class="btn"><i class="bi bi-shuffle"></i></button>
-            <button id="trackBack" class="btn">
-              <i class="bi bi-skip-start-fill fs-4"></i>
-            </button>
-            <button id="playbutton" class="btn">
-              <i class="bi bi-play-circle-fill fs-3"></i>
-            </button>
-            <button id="trackNext" class="btn">
-              <i class="bi bi-skip-end-fill fs-4"></i>
-            </button>
-            <button class="btn"><i class="bi bi-repeat"></i></button>
-          </div>
-          <div id="songTime">
-            <p>0:00</p>
-            <div>
-              <input type="range" id="timeRange" value="0" />
-            </div>
-            <p>0:00</p>
-          </div>
-        </div>
-
-        <div id="playerIcons" class="col-4">
-          <button><i class="bi bi-mic"></i></button>
-          <button><i class="bi bi-list"></i></button>
-          <button><i class="bi bi-speaker"></i></button>
-          <label for="volume"><i class="bi bi-volume-down-fill"></i></label>
-          <input type="range" id="volume" name="volume" value="3" min="0" max="10" oninput="rangevalue.value=value" />
-          <button><i class="bi bi-arrows-angle-expand"></i></button>
-        </div>
-      </div>
-    </section>
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
-      integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
-      crossorigin="anonymous"
-    ></script>
-    <script src="./assets/js/search.js"></script>
-  </body>
 </html>

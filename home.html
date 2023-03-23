@@ -59,87 +59,153 @@
         <!-- playlist con scroll -->
         <div class="recentNav">
           <div class="row">
-            <ul id="myUl"></ul>
+            <ul id="myUl"><a class="my-1" href="albums.html?id=314664567">
+                <li>
+                  <p class="card-title">Turbe Giovanili (20° Anniversario / Versione Originale)</p>
+                </li>
+              </a> <a class="my-1" href="albums.html?id=15483710">
+                <li>
+                  <p class="card-title">Play</p>
+                </li>
+              </a> <a class="my-1" href="albums.html?id=119606">
+                <li>
+                  <p class="card-title">Curtain Call: The Hits</p>
+                </li>
+              </a> <a class="my-1" href="albums.html?id=137556512">
+                <li>
+                  <p class="card-title">Persona</p>
+                </li>
+              </a> <a class="my-1" href="albums.html?id=361734707">
+                <li>
+                  <p class="card-title">c@ra++ere s?ec!@le</p>
+                </li>
+              </a> <a class="my-1" href="albums.html?id=205447462">
+                <li>
+                  <p class="card-title">OBE</p>
+                </li>
+              </a> <a class="my-1" href="albums.html?id=288437072">
+                <li>
+                  <p class="card-title">NOI, LORO, GLI ALTRI</p>
+                </li>
+              </a> <a class="my-1" href="albums.html?id=405622007">
+                <li>
+                  <p class="card-title">CENERE</p>
+                </li>
+              </a> <a class="my-1" href="albums.html?id=316555317">
+                <li>
+                  <p class="card-title">LIBERATO II</p>
+                </li>
+              </a>
+            </ul>
           </div>
         </div>
       </div>
       <!-- left end -->
-      <!-- nav 2 -->
-      <div class="row">
-        <ul>
-          <li><a href="javascript:void(0)">Crea playlist</a></li>
-          <li><a href="javascript:void(0)">Brani che ti piacciono</a></li>
-          <li><a href="javascript:void(0)">I tuoi episodi</a></li>
-        </ul>
-      </div>
-      </nav>
-      <!-- playlist con scroll -->
-      <div class="recentNav">
-        <div class="row">
-          <ul id="myUl"></ul>
-        </div>
-      </div>
-    </div>
-    <!-- left end -->
 
-    <!-- center start -->
-    <div class="col mainCenter">
-      <div class="row sticky-top topNav">
-        <div class="arrowIcons">
-          <a onclick="window.history.back()"><i class="bi bi-chevron-left"></i></a>
-          <a onclick="window.history.forward()"><i class="bi bi-chevron-right"></i></a>
-        </div>
-        <div class="accountSet dropdown">
-          <a class="dropdown-toggle account" href="#" id="profileDropdownMenuLink" data-bs-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            <img src="./assets/img/profile.jpg" alt="profile pic" />
-            <span>Team Five</span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="profileDropdownMenuLink">
-            <a class="dropdown-item" href="#">Account</a>
-            <a class="dropdown-item" href="#">Profilo</a>
-            <a class="dropdown-item" href="#">Impostazioni</a>
-            <hr />
-            <a class="dropdown-item" href="#">Esci</a>
+      <!-- center start -->
+      <div class="col mainCenter">
+        <div class="row sticky-top topNav">
+          <div class="arrowIcons">
+            <a onclick="window.history.back()"><i class="bi bi-chevron-left"></i></a>
+            <a onclick="window.history.forward()"><i class="bi bi-chevron-right"></i></a>
           </div>
-        </div>
-      </div>
-      <!--inizio contenuti pagina-->
-      <div class="container-fluid content">
-        <!-- annuncio -->
-        <div class="row">
-          <aside>
-            <div class="container-fluid">
-              <div id="ad" class="row">
-                <div id="adSpinner" class="spinner-border text-success" role="status"></div>
-              </div>
+          <div class="accountSet dropdown">
+            <a class="dropdown-toggle account" href="#" id="profileDropdownMenuLink" data-bs-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <img src="./assets/img/profile.jpg" alt="profile pic" />
+              <span>Team Five</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="profileDropdownMenuLink">
+              <a class="dropdown-item" href="#">Account</a>
+              <a class="dropdown-item" href="#">Profilo</a>
+              <a class="dropdown-item" href="#">Impostazioni</a>
+              <hr />
+              <a class="dropdown-item" href="#">Esci</a>
             </div>
-          </aside>
+          </div>
         </div>
-        <!-- fine annuncio -->
-        <main>
-          <!-- benvenuto ascoltati di recente -->
+        <!--inizio contenuti pagina-->
+        <div class="container-fluid content">
+          <!-- annuncio -->
           <div class="row">
-            <h3>Benvenuto</h3>
+            <aside>
+              <div class="container-fluid">
+                <div id="ad" class="row">
+                  <div id="adSpinner" class="spinner-border text-success" role="status"></div>
+                </div>
+              </div>
+            </aside>
           </div>
-          <div id="welcome" class="row row-cols-2 row-cols-lg-3">
-            <div id="welcomeSpinner" class="spinner-border text-success" role="status"></div>
-          </div>
+          <!-- fine annuncio -->
+          <main>
+            <!-- benvenuto ascoltati di recente -->
+            <div class="row">
+              <h3>Benvenuto</h3>
+            </div>
+            <div id="welcome" class="row row-cols-2 row-cols-lg-3">
+              <div id="welcomeSpinner" class="spinner-border text-success" role="status"></div>
+            </div>
 
-          <div class="row justify-content-between flex-nowrap">
-            <h3 class="w-75">Altro di cio che ti piace</h3>
-            <span class="w-25 text-end"><a href="albums.html">VISUALIZZA TUTTO</a></span>
-          </div>
-          <div id="more" class="row">
-            <div id="moreSpinner" class="spinner-border text-success" role="status"></div>
-          </div>
-          <!--  fine contenuti pagina -->
-        </main>
+            <div class="row justify-content-between flex-nowrap">
+              <h3 class="w-75">Altro di ciò che ti piace</h3>
+              <span class="w-25 text-end"><a href="albums.html">VISUALIZZA TUTTO</a></span>
+            </div>
+            <div id="more" class="row">
+              <div id="moreSpinner" class="spinner-border text-success" role="status"></div>
+            </div>
+            <!--  fine contenuti pagina -->
+          </main>
+        </div>
       </div>
+      <!--  center end -->
+      <!-- right start -->
+      <div class="col-2 mainRight">
+        <div class="row">
+          <span class="col col-9">
+            <h5 class="flex-nowrap">Attività amici</h5>
+          </span><span class="col col-3"><i class="bi bi-person-add"></i><i id="closeRight" class="bi bi-x"></i></span>
+        </div>
+        <div class="row">
+          <div class="col col-2"><i class="bi bi-person-circle"></i></div>
+          <div class="col col-7">
+            <h5>Antonio Cancemi</h5>
+            <p>In Camera • Yumi Zouma</p>
+            <p><i class="bi bi-disc"></i> EP III</p>
+          </div>
+          <div class="col col-3">4 ore fa</div>
+        </div>
+        <div class="row">
+          <div class="col col-2"><i class="bi bi-person-circle"></i></div>
+          <div class="col col-7">
+            <h5>Sara Campobasso</h5>
+            <p>Aimed to Kill • Jade LeMac</p>
+            <p><i class="bi bi-disc"></i> Aimed to Kill</p>
+          </div>
+          <div class="col col-3">6 ore fa</div>
+        </div>
+        <div class="row">
+          <div class="col col-2"><i class="bi bi-person-circle"></i></div>
+          <div class="col col-7">
+            <h5>Emanuele Syrbe</h5>
+            <p>New Kings • Sleeping Wolf</p>
+            <p><i class="bi bi-music-note-beamed"></i></i> Twint Badass mood</p>
+          </div>
+          <div class="col col-3">8 ore fa</div>
+        </div>
+        <div class="row">
+          <div class="col col-2"><i class="bi bi-person-circle"></i></div>
+          <div class="col col-7">
+            <h5>David Scattone</h5>
+            <p>In Banca • Money</p>
+            <p><i class="bi bi-bank"></i></p>
+          </div>
+          <div class="col col-3">12 ore fa</div>
+        </div>
+      </div>
+      <!--right end-->
     </div>
-    <!--  center end -->
   </div>
-  </div>
+
   <!-- player -->
   <section class="fixed-bottom playerSection">
     <audio id="audioReference"
@@ -156,7 +222,7 @@
           <p id="playerArtist">Salmo</p>
         </div>
         <div>
-          <button><i class="bi bi-heart"></i></button>
+          <button><i class="bi bi-heart like"></i></button>
         </div>
       </div>
 
@@ -166,30 +232,8 @@
           <button id="trackBack" class="btn">
             <i class="bi bi-skip-start-fill fs-4"></i>
           </button>
-          <button id="playbutton" class="btn">
-            <i class="bi bi-play-circle-fill fs-3"></i>
-          </button>
-          <button id="trackNext" class="btn">
-            <i class="bi bi-skip-end-fill fs-4"></i>
-          </button>
-          <button class="btn"><i class="bi bi-repeat"></i></button>
-        </div>
-        <div id="songTime">
-          <p>0:00</p>
-          <div>
-            <input type="range" id="timeRange" value="0" />
-          </div>
-          <p>0:00</p>
-        </div>
-      </div>
-      <div id="playerComands" class="col-4">
-        <div id="playerButtons">
-          <button class="btn"><i class="bi bi-shuffle"></i></button>
-          <button id="trackBack" class="btn">
-            <i class="bi bi-skip-start-fill fs-4"></i>
-          </button>
-          <button id="playbutton" class="btn">
-            <i class="bi bi-play-circle-fill fs-3"></i>
+          <button id="playBtn" class="btn">
+            <i class="bi bi-play-circle-fill fs-2"></i>
           </button>
           <button id="trackNext" class="btn">
             <i class="bi bi-skip-end-fill fs-4"></i>
@@ -223,6 +267,7 @@
     crossorigin="anonymous"></script>
   <!-- inserisi script -->
   <script src="./assets/js/home.js"></script>
+  <script src="./assets/js/modules/mainFunctions.js"></script>
 </body>
 
 </html>

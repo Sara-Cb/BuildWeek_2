@@ -60,7 +60,44 @@
         <!-- playlist con scroll -->
         <div class="recentNav">
           <div class="row">
-            <ul id="myUl"></ul>
+            <ul id="myUl"><a class="my-1" href="albums.html?id=314664567">
+                <li>
+                  <p class="card-title">Turbe Giovanili (20° Anniversario / Versione Originale)</p>
+                </li>
+              </a> <a class="my-1" href="albums.html?id=15483710">
+                <li>
+                  <p class="card-title">Play</p>
+                </li>
+              </a> <a class="my-1" href="albums.html?id=119606">
+                <li>
+                  <p class="card-title">Curtain Call: The Hits</p>
+                </li>
+              </a> <a class="my-1" href="albums.html?id=137556512">
+                <li>
+                  <p class="card-title">Persona</p>
+                </li>
+              </a> <a class="my-1" href="albums.html?id=361734707">
+                <li>
+                  <p class="card-title">c@ra++ere s?ec!@le</p>
+                </li>
+              </a> <a class="my-1" href="albums.html?id=205447462">
+                <li>
+                  <p class="card-title">OBE</p>
+                </li>
+              </a> <a class="my-1" href="albums.html?id=288437072">
+                <li>
+                  <p class="card-title">NOI, LORO, GLI ALTRI</p>
+                </li>
+              </a> <a class="my-1" href="albums.html?id=405622007">
+                <li>
+                  <p class="card-title">CENERE</p>
+                </li>
+              </a> <a class="my-1" href="albums.html?id=316555317">
+                <li>
+                  <p class="card-title">LIBERATO II</p>
+                </li>
+              </a>
+            </ul>
           </div>
         </div>
       </div>
@@ -94,9 +131,8 @@
 
           <div class="row">
             <div id="iconsRow" class="col d-flex">
-              <a class="align-self-center mx-3" onclick="playTop()"><i
-                  class="text-success bi bi-play-circle-fill fs-3"></i></a>
-              <a class="align-self-center me-3"><i class="bi bi-heart"></i></a>
+              <a class="align-self-center mx-3" onclick="playTop()"><i class="myPlay bi bi-play-circle-fill"></i></a>
+              <a class="align-self-center me-3"><i class="bi bi-heart like"></i></a>
               <a class="align-self-center me-3"><i class="bi bi-arrow-down-circle"></i></a>
               <a class="align-self-center me-3"><i class="bi bi-three-dots"></i></a>
             </div>
@@ -125,7 +161,50 @@
       <!-- center end -->
 
       <!-- right start -->
-      <div class="col-1">right</div>
+      <div class="col-2 mainRight">
+        <div class="row">
+          <span class="col col-9">
+            <h5 class="flex-nowrap">Attività amici</h5>
+          </span><span class="col col-3"><i class="bi bi-person-add"></i><i id="closeRight" class="bi bi-x"></i></span>
+        </div>
+        <div class="row">
+          <div class="col col-2"><i class="bi bi-person-circle"></i></div>
+          <div class="col col-7">
+            <h5>Antonio Cancemi</h5>
+            <p>In Camera • Yumi Zouma</p>
+            <p><i class="bi bi-disc"></i> EP III</p>
+          </div>
+          <div class="col col-3">4 ore fa</div>
+        </div>
+        <div class="row">
+          <div class="col col-2"><i class="bi bi-person-circle"></i></div>
+          <div class="col col-7">
+            <h5>Sara Campobasso</h5>
+            <p>Aimed to Kill • Jade LeMac</p>
+            <p><i class="bi bi-disc"></i> Aimed to Kill</p>
+          </div>
+          <div class="col col-3">6 ore fa</div>
+        </div>
+        <div class="row">
+          <div class="col col-2"><i class="bi bi-person-circle"></i></div>
+          <div class="col col-7">
+            <h5>Emanuele Syrbe</h5>
+            <p>New Kings • Sleeping Wolf</p>
+            <p><i class="bi bi-music-note-beamed"></i></i> Twint Badass mood</p>
+          </div>
+          <div class="col col-3">8 ore fa</div>
+        </div>
+        <div class="row">
+          <div class="col col-2"><i class="bi bi-person-circle"></i></div>
+          <div class="col col-7">
+            <h5>David Scattone</h5>
+            <p>In Banca • Money</p>
+            <p><i class="bi bi-bank"></i></p>
+          </div>
+          <div class="col col-3">12 ore fa</div>
+        </div>
+      </div>
+      <!--right end-->
     </div>
   </div>
   <!-- player -->
@@ -144,7 +223,7 @@
           <p id="playerArtist">Salmo</p>
         </div>
         <div>
-          <button><i class="bi bi-heart"></i></button>
+          <button><i class="bi bi-heart like"></i></button>
         </div>
       </div>
 
@@ -154,8 +233,8 @@
           <button id="trackBack" class="btn">
             <i class="bi bi-skip-start-fill fs-4"></i>
           </button>
-          <button id="playbutton" class="btn">
-            <i class="bi bi-play-circle-fill fs-3"></i>
+          <button id="playBtn" class="btn">
+            <i class="bi bi-play-circle-fill fs-2"></i>
           </button>
           <button id="trackNext" class="btn">
             <i class="bi bi-skip-end-fill fs-4"></i>

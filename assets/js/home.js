@@ -2,6 +2,7 @@ const API_URL = "https://striveschool-api.herokuapp.com/api/deezer/";
 let cardsAlbums = [];
 let cardAd = [];
 let cardsMore = [];
+const hearts = document.getElementsByClassName("like");
 
 // RIFERIMENTI PLAYER
 const tracklistRef = document.getElementById("tracklist");
@@ -10,7 +11,7 @@ const playerArtist = document.getElementById("playerArtist");
 const songTime = document.getElementById("songTime");
 const timeRange = document.getElementById("timeRange");
 const playerImg = document.getElementById("playerImg");
-const playButton = document.getElementById("playbutton");
+const playButton = document.getElementById("playBtn");
 const btnNext = document.getElementById("trackNext");
 const btnBack = document.getElementById("trackBack");
 const iconsRowRef = document.getElementById("iconsRow");
@@ -181,7 +182,7 @@ let printAd = async function () {
   </div>
   <div class="col d-flex flex-column justify-content-between">
     <div class="d-flex flex-row justify-content-between">
-      <span>album</span>
+      <span>Brano</span>
       <span onclick="hideAd()" class="text-secondary">nascondi annuncio</span>
     </div>
     <div>
@@ -189,11 +190,11 @@ let printAd = async function () {
       <p><a href="./artists.html?artistId=${cardAd[i].artist.id}">${cardAd[i].artist.name}</a></p>
       <p>Ascolta il nuovo singolo di ${cardAd[i].artist.name}</p>
       <div class="d-flex">
-        <a class="align-self-center mx-3" onclick="playFunction(\'${cardAd[i].preview}\', \'${cardAd[i].title}\', \'${cardAd[i].artist.name}\',\'${cardAd[i].album.cover}\', \'${cardAd[i].duration}\')""><i
-                  class="text-success bi bi-play-circle-fill fs-3"></i></a>
-        <a class="align-self-center me-3"><i class="bi bi-heart"></i></a>
-        <a class="align-self-center me-3"><i class="bi bi-arrow-down-circle"></i></a>
-        <a class="align-self-center me-3"><i class="bi bi-three-dots"></i></a>
+        <a class="align-self-center me-3  ms-0" onclick="playFunction(\'${cardAd[i].preview}\', \'${cardAd[i].title}\', \'${cardAd[i].artist.name}\',\'${cardAd[i].album.cover}\', \'${cardAd[i].duration}\')""><i
+                  class="myPlay bi bi-play-circle-fill"></i></a>
+        <span class="align-self-center me-3"><i class="bi bi-heart like"></i></span>
+        <span class="align-self-center me-3"><i class="bi bi-arrow-down-circle"></i></span>
+        <span class="align-self-center me-3"><i class="bi bi-three-dots"></i></span>
       </div>
     </div>
   </div>`;
@@ -225,16 +226,16 @@ let printMore = async function () {
     </div>
   </div>`;
   }
+  /*
   let ulRef = document.getElementById("myUl");
   for (let i = cardsMore.length - 1; i > -1; i--) {
     ulRef.innerHTML += `<a class="my-1" href="albums.html?id=${cardsMore[i].id}"> <li><p class="card-title">${cardsMore[i].title}</p></li> </a> `;
-  }
+  }*/ //NAVBAR IN HTML
 };
 
 let hideAd = function () {
   document.getElementById("ad").classList.add("d-none");
 };
-getData("search?q=lucio dalla");
 
 let printAll = async function () {
   await printAd();
@@ -243,3 +244,11 @@ let printAll = async function () {
 };
 
 printAll();
+
+//LIKE FUNCTION
+for (let i = 0; i < hearts.length; i++) {
+  hearts[i].addEventListener("click", function (e) {
+    e.target.classList.toggle("bi-heart");
+    e.target.classList.toggle("bi-heart-fill");
+  });
+}
