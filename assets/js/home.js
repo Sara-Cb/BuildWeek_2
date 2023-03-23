@@ -2,7 +2,64 @@ const API_URL = "https://striveschool-api.herokuapp.com/api/deezer/";
 let cardsAlbums = [];
 let cardAd = [];
 let cardsMore = [];
+const playerSong = document.getElementById("playerSong");
+const playerArtist = document.getElementById("playerArtist");
+const songTime = document.getElementById("songTime");
+const timeRange = document.getElementById("timeRange");
+const playerImg = document.getElementById("playerImg");
+const playButton = document.getElementById("playbutton");
+timeRange.addEventListener("click", function (event) {
+  const pos = (event.pageX - timeRange.offsetLeft) / timeRange.offsetWidth;
+  audio.currentTime = pos * audio.duration;
+});
+const volumeControl = document.getElementById("volume");
+let audio = document.getElementById("audioReference");
+playButton.addEventListener("click", function () {
+  if (audio.paused) {
+    audio.play();
+  } else {
+    audio.pause();
+  }
+});
 
+volumeControl.addEventListener("input", function () {
+  audio.volume = volumeControl.value / 10;
+});
+
+function playFunction(url, title, artist, cover, duration, id) {
+  audio.src = url;
+  currentTrack = id;
+  playerSong.textContent = title;
+  playerArtist.textContent = artist;
+  playerImg.setAttribute("src", cover);
+
+  audio.addEventListener("loadedmetadata", function () {
+    songTime.children[0].textContent = formatTime(0);
+    songTime.children[2].textContent = formatTime(Math.round(duration));
+
+    timeRange.style.width = "0%";
+
+    audio.play();
+  });
+
+  audio.addEventListener("timeupdate", function () {
+    songTime.children[0].textContent = formatTime(
+      Math.round(audio.currentTime)
+    );
+    timeRange.style.width = (audio.currentTime / audio.duration) * 100 + "%";
+  });
+}
+
+const formatTime = function (time) {
+  minuti = Math.round(time / 60);
+  secondi = time % 60;
+  if (secondi < 10) {
+    secondi = "0" + secondi;
+  }
+  let correctTime = `${minuti}:${secondi}`;
+  console.log(correctTime);
+  return correctTime;
+};
 const getData = async function (_content, _array) {
   try {
     let response = await fetch(API_URL + _content);
@@ -75,8 +132,8 @@ let printAd = async function () {
       <p><a href="./artists.html?artistId=${cardAd[i].artist.id}">${cardAd[i].artist.name}</a></p>
       <p>Ascolta il nuovo singolo di ${cardAd[i].artist.name}</p>
       <div>
-        <button>Play</button>
-        <button>Salva</button>
+        <button onclick="playFunction(\'${cardAd[i].preview}\', \'${cardAd[i].title}\', \'${cardAd[i].artist.name}\',\'${cardAd[i].album.cover}\', \'${cardAd[i].duration}\')">Play</button>
+        <button >Salva</button>
         <button>...</button>
       </div>
     </div>
