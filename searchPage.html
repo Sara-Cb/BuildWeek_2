@@ -11,7 +11,10 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
 
     <link rel="stylesheet" href="assets/css/app.css" />
   </head>
@@ -26,7 +29,11 @@
             <!-- impostazioni -->
             <div class="row">
               <div>
-                <img src="./assets/img/logo.svg" alt="logo Spotify" class="navbar-brand" />
+                <img
+                  src="./assets/img/logo.svg"
+                  alt="logo Spotify"
+                  class="navbar-brand"
+                />
               </div>
               <div class="dropdown">
                 <a
@@ -39,10 +46,17 @@
                 >
                   <p>...</p>
                 </a>
-                <div class="dropdown-menu" aria-labelledby="settingsDropdownMenuLink">
+                <div
+                  class="dropdown-menu"
+                  aria-labelledby="settingsDropdownMenuLink"
+                >
                   <a class="dropdown-item" href="javascript:void(0)">File</a>
-                  <a class="dropdown-item" href="javascript:void(0)">Modifica</a>
-                  <a class="dropdown-item" href="javascript:void(0)">Visualizza</a>
+                  <a class="dropdown-item" href="javascript:void(0)"
+                    >Modifica</a
+                  >
+                  <a class="dropdown-item" href="javascript:void(0)"
+                    >Visualizza</a
+                  >
                 </div>
               </div>
             </div>
@@ -65,34 +79,7 @@
           <!-- playlist con scroll -->
           <div class="recentNav">
             <div class="row">
-              <ul>
-                <li><a href="javascript:void(0)">awdaw</a></li>
-                <li><a href="javascript:void(0)">awdaw</a></li>
-                <li><a href="javascript:void(0)">awdaw</a></li>
-                <li><a href="javascript:void(0)">awdaw</a></li>
-                <li><a href="javascript:void(0)">awdaw</a></li>
-                <li><a href="javascript:void(0)">awdaw</a></li>
-                <li><a href="javascript:void(0)">awdaw</a></li>
-                <li><a href="javascript:void(0)">awdaw</a></li>
-                <li><a href="javascript:void(0)">awdaw</a></li>
-                <li><a href="javascript:void(0)">awdaw</a></li>
-                <li><a href="javascript:void(0)">awdaw</a></li>
-                <li><a href="javascript:void(0)">awdaw</a></li>
-                <li><a href="javascript:void(0)">awdaw</a></li>
-                <li><a href="javascript:void(0)">awdaw</a></li>
-                <li><a href="javascript:void(0)">awdaw</a></li>
-                <li><a href="javascript:void(0)">awdaw</a></li>
-                <li><a href="javascript:void(0)">awdaw</a></li>
-                <li><a href="javascript:void(0)">awdaw</a></li>
-                <li><a href="javascript:void(0)">awdaw</a></li>
-                <li><a href="javascript:void(0)">awdaw</a></li>
-                <li><a href="javascript:void(0)">awdaw</a></li>
-                <li><a href="javascript:void(0)">awdaw</a></li>
-                <li><a href="javascript:void(0)">awdaw</a></li>
-                <li><a href="javascript:void(0)">awdaw</a></li>
-                <li><a href="javascript:void(0)">awdaw</a></li>
-                <li><a href="javascript:void(0)">awdaw</a></li>
-              </ul>
+              <ul id="myUl"></ul>
             </div>
           </div>
         </div>
@@ -102,11 +89,19 @@
           <div class="row sticky-top topNav">
             <div>
               <div class="arrowIcons">
-                <a onclick="window.history.back()"><i class="bi bi-chevron-left"></i></a>
-                <a onclick="window.history.forward()"><i class="bi bi-chevron-right"></i></a>
+                <a onclick="window.history.back()"
+                  ><i class="bi bi-chevron-left"></i
+                ></a>
+                <a onclick="window.history.forward()"
+                  ><i class="bi bi-chevron-right"></i
+                ></a>
               </div>
               <form id="searchForm">
-                <input id="searchInput" type="search" placeholder="Cosa vuoi ascoltare?" />
+                <input
+                  id="searchInput"
+                  type="search"
+                  placeholder="Cosa vuoi ascoltare?"
+                />
                 <button type="submit"><i class="bi bi-search"></i></button>
               </form>
             </div>
@@ -122,7 +117,10 @@
                 <img src="./assets/img/profile.jpg" alt="profile pic" />
                 <span>Team Five</span>
               </a>
-              <div class="dropdown-menu" aria-labelledby="profileDropdownMenuLink">
+              <div
+                class="dropdown-menu"
+                aria-labelledby="profileDropdownMenuLink"
+              >
                 <a class="dropdown-item" href="#">Account</a>
                 <a class="dropdown-item" href="#">Profilo</a>
                 <a class="dropdown-item" href="#">Impostazioni</a>
@@ -173,9 +171,15 @@
         <div id="playerComands" class="col-4">
           <div id="playerButtons">
             <button class="btn"><i class="bi bi-shuffle"></i></button>
-            <button id="trackBack" class="btn"><i class="bi bi-skip-start-fill fs-4"></i></button>
-            <button id="playbutton" class="btn"><i class="bi bi-play-circle-fill fs-3"></i></button>
-            <button id="trackNext" class="btn"><i class="bi bi-skip-end-fill fs-4"></i></button>
+            <button id="trackBack" class="btn">
+              <i class="bi bi-skip-start-fill fs-4"></i>
+            </button>
+            <button id="playbutton" class="btn">
+              <i class="bi bi-play-circle-fill fs-3"></i>
+            </button>
+            <button id="trackNext" class="btn">
+              <i class="bi bi-skip-end-fill fs-4"></i>
+            </button>
             <button class="btn"><i class="bi bi-repeat"></i></button>
           </div>
           <div id="songTime">

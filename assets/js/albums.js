@@ -4,6 +4,7 @@ let myAlbums = [];
 let trackArray = [];
 let albumId = new URLSearchParams(window.location.search).get("id");
 let song;
+let cardsMore = [];
 const tracklistRef = document.getElementById("tracklist");
 const playerSong = document.getElementById("playerSong");
 const playerArtist = document.getElementById("playerArtist");
@@ -78,14 +79,16 @@ function playFunction(url, title, artist, cover, duration, id) {
     songTime.children[0].textContent = formatTime(0);
     songTime.children[2].textContent = formatTime(Math.round(duration));
 
-    timeRange.style.width = "0%";
-
     audio.play();
   });
 
   audio.addEventListener("timeupdate", function () {
-    songTime.children[0].textContent = formatTime(Math.round(audio.currentTime));
-    timeRange.style.width = (audio.currentTime / audio.duration) * 100 + "%";
+    const currentTime = audio.currentTime;
+    const duration = audio.duration;
+    songTime.children[0].textContent = formatTime(Math.round(currentTime));
+    const percentage = (currentTime / duration) * 100;
+    timeRange.style.backgroundImage = `linear-gradient(to right, #ffffff ${percentage}%, #808080 ${percentage}%)`;
+    timeRange.value = percentage;
   });
 }
 
@@ -134,9 +137,11 @@ let printAlbum = async function () {
         
       
         <h2>${thisAlbum[i].title}</h2>
-        <p><a href="./artists.html?artistId=${thisAlbum[i].artist.id}">${thisAlbum[i].artist.name}</a> - ${thisAlbum[i].release_date} - ${thisAlbum[i].nb_tracks} brani - ${thisAlbum[i].duration}</p>
-      </div>
-      <div><a onclick="playTop()">PLAY</a></div>
+        <p><a href="./artists.html?artistId=${thisAlbum[i].artist.id}">${
+      thisAlbum[i].artist.name
+    }</a>-${thisAlbum[i].release_date.split("-")[0]}-${
+      thisAlbum[i].nb_tracks
+    } brani - ${thisAlbum[i].duration}</p></div>
 
     </div>`;
     //<a onclick="playTop()">PLAY</a>
@@ -169,7 +174,21 @@ let printAlbum = async function () {
     }
   }
 };
-
+let printMore = async function () {
+  await getData("album/316555317", cardsMore);
+  await getData("album/405622007", cardsMore);
+  await getData("album/288437072", cardsMore);
+  await getData("album/205447462,", cardsMore);
+  await getData("album/361734707", cardsMore);
+  await getData("album/137556512", cardsMore);
+  await getData("album/119606", cardsMore);
+  await getData("album/15483710", cardsMore);
+  await getData("album/314664567", cardsMore);
+  let ulRef = document.getElementById("myUl");
+  for (let i = cardsMore.length - 1; i > -1; i--) {
+    ulRef.innerHTML += `<a class="my-1" href="albums.html?id=${cardsMore[i].id}"> <li><p class="card-title">${cardsMore[i].title}</p></li> </a> `;
+  }
+};
 //popolamento array albums
 const getMyAlbums = async function () {
   let albumRef = document.getElementById("album");
@@ -211,3 +230,4 @@ if (albumId) {
   indiciRowRef.classList.toggle("d-none");
   getMyAlbums();
 }
+printMore();
