@@ -143,18 +143,16 @@ let printAlbum = async function () {
         alt="Album cover"
       />
     </div>
-    <div class="col">
+    <div class="col d-flex flex-column justify-content-between">
       <div>
         <span>album</span>
-        
-      
+       </div> 
+      <div>
         <h2>${thisAlbum[i].title}</h2>
-        <p><a href="./artists.html?artistId=${thisAlbum[i].artist.id}">${
-      thisAlbum[i].artist.name
-    }</a>-${thisAlbum[i].release_date.split("-")[0]}-${
-      thisAlbum[i].nb_tracks
-    } brani - ${thisAlbum[i].duration}</p></div>
-
+        <p><a href="./artists.html?artistId=${thisAlbum[i].artist.id}">${thisAlbum[i].artist.name}</a> • ${
+      thisAlbum[i].release_date.split("-")[0]
+    } • ${thisAlbum[i].nb_tracks} brani • ${formatTime(thisAlbum[i].duration)}</p></div>
+    </div>
     </div>`;
     //<a onclick="playTop()">PLAY</a>
     for (let j = 0; j < thisAlbum[i].tracks.data.length; j++) {

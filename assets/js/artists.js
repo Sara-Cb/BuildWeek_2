@@ -254,9 +254,7 @@ function playFunction(url, title, artist, cover, duration, id) {
   });
 
   audio.addEventListener("timeupdate", function () {
-    songTime.children[0].textContent = formatTime(
-      Math.round(audio.currentTime)
-    );
+    songTime.children[0].textContent = formatTime(Math.round(audio.currentTime));
     timeRange.style.width = (audio.currentTime / audio.duration) * 100 + "%";
   });
 }

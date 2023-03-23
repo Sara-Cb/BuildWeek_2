@@ -138,6 +138,8 @@ let printWelcome = async function () {
   await getData("album/12047930", cardsAlbums);
   await getData("album/406094377", cardsAlbums);
 
+  document.getElementById("welcomeSpinner").classList.add("d-none");
+
   for (let i = 0; i < 6; i++) {
     let colRef = document.querySelector("#welcome");
     colRef.innerHTML += ` <a href="albums.html?id=${cardsAlbums[i].id}"><div class="col">
@@ -165,6 +167,9 @@ let printWelcome = async function () {
 let printAd = async function () {
   await getData("track/1509449772", cardAd);
   //console.log(cardAd);
+
+  document.getElementById("adSpinner").classList.add("d-none");
+
   for (let i = 0; i < cardAd.length; i++) {
     let adRef = document.querySelector("#ad");
     adRef.innerHTML = `<div class="col-3">
@@ -174,26 +179,28 @@ let printAd = async function () {
       alt="Album cover"
     />
   </div>
-  <div class="col">
-    <div>
+  <div class="col d-flex flex-column justify-content-between">
+    <div class="d-flex flex-row justify-content-between">
       <span>album</span>
-      <span><button>nascondi annuncio</button></span>
+      <span onclick="hideAd()" class="text-secondary">nascondi annuncio</span>
     </div>
     <div>
-      <h2>${cardAd[i].title}</h2>
+      <h1 class="fs-0">${cardAd[i].title}</h1>
       <p><a href="./artists.html?artistId=${cardAd[i].artist.id}">${cardAd[i].artist.name}</a></p>
       <p>Ascolta il nuovo singolo di ${cardAd[i].artist.name}</p>
-      <div>
-        <button onclick="playFunction(\'${cardAd[i].preview}\', \'${cardAd[i].title}\', \'${cardAd[i].artist.name}\',\'${cardAd[i].album.cover}\', \'${cardAd[i].duration}\')">Play</button>
-        <button >Salva</button>
-        <button>...</button>
+      <div class="d-flex">
+        <a class="align-self-center mx-3" onclick="playFunction(\'${cardAd[i].preview}\', \'${cardAd[i].title}\', \'${cardAd[i].artist.name}\',\'${cardAd[i].album.cover}\', \'${cardAd[i].duration}\')""><i
+                  class="text-success bi bi-play-circle-fill fs-3"></i></a>
+        <a class="align-self-center me-3"><i class="bi bi-heart"></i></a>
+        <a class="align-self-center me-3"><i class="bi bi-arrow-down-circle"></i></a>
+        <a class="align-self-center me-3"><i class="bi bi-three-dots"></i></a>
       </div>
     </div>
   </div>`;
   }
 };
 
-//FUNZIONE RIEMPIMENTO NAVBAR
+//FUNZIONE RIEMPIMENTO NAVBAR E SEZIONE ALBUMS
 let printMore = async function () {
   await getData("album/316555317", cardsMore);
   await getData("album/405622007", cardsMore);
@@ -205,7 +212,7 @@ let printMore = async function () {
   await getData("album/15483710", cardsMore);
   await getData("album/314664567", cardsMore);
 
-  //correggere dimensione dell'immagine
+  document.getElementById("moreSpinner").classList.add("d-none");
 
   for (let i = 0; i < 6; i++) {
     let colRef = document.querySelector("#more");
@@ -224,8 +231,15 @@ let printMore = async function () {
   }
 };
 
+let hideAd = function () {
+  document.getElementById("ad").classList.add("d-none");
+};
 getData("search?q=lucio dalla");
 
-printAd();
-printWelcome();
-printMore();
+let printAll = async function () {
+  await printAd();
+  await printWelcome();
+  await printMore();
+};
+
+printAll();
