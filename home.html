@@ -1,215 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="author" content="team 5" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Spotify HomePage</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
-    <link rel="stylesheet" href="assets/css/app.css" />
-  </head>
 
-  <body>
-    <div class="container-fluid mainContainer">
-      <!-- riga madre -->
-      <div class="row mainRow">
-        <!-- left start -->
-        <div class="col-2 mainLeft">
-          <nav class="navbar">
-            <!-- impostazioni -->
-            <div class="row">
-              <div>
-                <img src="./assets/img/logo.svg" alt="logo Spotify" class="navbar-brand" />
-              </div>
-              <div class="dropdown">
-                <a
-                  class="dropdown-toggle settings"
-                  href="javascript:void(0)"
-                  id="settingsDropdownMenuLink"
-                  data-bs-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <h3>...</h3>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="settingsDropdownMenuLink">
-                  <a class="dropdown-item" href="javascript:void(0)">File</a>
-                  <a class="dropdown-item" href="javascript:void(0)">Modifica</a>
-                  <a class="dropdown-item" href="javascript:void(0)">Visualizza</a>
-                </div>
+<head>
+  <meta charset="utf-8" />
+  <meta name="author" content="team 5" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spotify HomePage</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="assets/css/app.css" />
+</head>
+
+<body>
+  <div class="container-fluid mainContainer">
+    <!-- riga madre -->
+    <div class="row mainRow">
+      <!-- left start -->
+      <div class="col-2 mainLeft">
+        <nav class="navbar">
+          <!-- impostazioni -->
+          <div class="row">
+            <div>
+              <img src="./assets/img/logo.svg" alt="logo Spotify" class="navbar-brand" />
+            </div>
+            <div class="dropdown">
+              <a class="dropdown-toggle settings" href="javascript:void(0)" id="settingsDropdownMenuLink"
+                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="bi bi-three-dots"></i>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="settingsDropdownMenuLink">
+                <a class="dropdown-item" href="javascript:void(0)">File</a>
+                <a class="dropdown-item" href="javascript:void(0)">Modifica</a>
+                <a class="dropdown-item" href="javascript:void(0)">Visualizza</a>
               </div>
             </div>
+          </div>
 
-            <div class="row">
-              <ul>
-                <li><a href="./home.html">Home</a></li>
-                <li><a href="./searchPage.html">Cerca</a></li>
-                <li><a href="javascript:void(0)">La tua libreria</a></li>
-              </ul>
-            </div>
+          <div class="row">
+            <ul>
+              <li><a href="./home.html">Home</a></li>
+              <li><a href="./searchPage.html">Cerca</a></li>
+              <li><a href="javascript:void(0)">La tua libreria</a></li>
+            </ul>
+          </div>
 
-            <!-- nav 2 -->
-            <div class="row">
-              <ul>
-                <li><a href="javascript:void(0)">Crea playlist</a></li>
-                <li><a href="javascript:void(0)">Brani che ti piacciono</a></li>
-                <li><a href="javascript:void(0)">I tuoi episodi</a></li>
-              </ul>
-            </div>
-          </nav>
-          <!-- playlist con scroll -->
-          <div class="recentNav">
-            <div class="row">
-              <ul id="myUl"></ul>
+          <!-- nav 2 -->
+          <div class="row">
+            <ul>
+              <li><a href="javascript:void(0)">Crea playlist</a></li>
+              <li><a href="javascript:void(0)">Brani che ti piacciono</a></li>
+              <li><a href="javascript:void(0)">I tuoi episodi</a></li>
+            </ul>
+          </div>
+        </nav>
+        <!-- playlist con scroll -->
+        <div class="recentNav">
+          <div class="row">
+            <ul id="myUl"></ul>
+          </div>
+        </div>
+      </div>
+      <!-- left end -->
+
+      <!-- center start -->
+      <div class="col mainCenter">
+        <div class="row sticky-top topNav">
+          <div class="arrowIcons">
+            <a onclick="window.history.back()"><i class="bi bi-chevron-left"></i></a>
+            <a onclick="window.history.forward()"><i class="bi bi-chevron-right"></i></a>
+          </div>
+          <div class="accountSet dropdown">
+            <a class="dropdown-toggle account" href="#" id="profileDropdownMenuLink" data-bs-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <img src="./assets/img/profile.jpg" alt="profile pic" />
+              <span>Team Five</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="profileDropdownMenuLink">
+              <a class="dropdown-item" href="#">Account</a>
+              <a class="dropdown-item" href="#">Profilo</a>
+              <a class="dropdown-item" href="#">Impostazioni</a>
+              <hr />
+              <a class="dropdown-item" href="#">Esci</a>
             </div>
           </div>
         </div>
-        <!-- left end -->
-
-        <!-- center start -->
-        <div class="col mainCenter">
-          <div class="row sticky-top topNav">
-            <div class="arrowIcons">
-              <a onclick="window.history.back()"><i class="bi bi-chevron-left"></i></a>
-              <a onclick="window.history.forward()"><i class="bi bi-chevron-right"></i></a>
-            </div>
-            <div class="accountSet dropdown">
-              <a
-                class="dropdown-toggle account"
-                href="#"
-                id="profileDropdownMenuLink"
-                data-bs-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <img src="./assets/img/profile.jpg" alt="profile pic" />
-                <span>Team Five</span>
-              </a>
-              <div class="dropdown-menu" aria-labelledby="profileDropdownMenuLink">
-                <a class="dropdown-item" href="#">Account</a>
-                <a class="dropdown-item" href="#">Profilo</a>
-                <a class="dropdown-item" href="#">Impostazioni</a>
-                <hr />
-                <a class="dropdown-item" href="#">Esci</a>
-              </div>
-            </div>
-          </div>
-          <!--inizio contenuti pagina-->
-          <div class="container-fluid content">
-            <!-- annuncio -->
-            <div class="row">
-              <aside>
-                <div class="container-fluid">
-                  <div id="ad" class="row">
-                    <div class="col-3">
-                      <img
-                        class="image-fluid w-100"
-                        src="data:image/jpeg;base64,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rI6yWRPRAu54luxiBtIiICIiAiIgYWL2RQqiz0kPlb8pp8f0QpupCu4B1KnUaWtrv+qvoJJYkwQOr0Yr01AVUdVOYbzpYjLrfs3N7cwJpsbsgZVBolGUnNZFK1BcWNSxDXAvu33nVZRUpK28A+Ik6Re1cVfZ5CuzsoZR2VKsM/1bAsQb65t3CeF2QAsAQCoKZCEyEHflGUt2jc79O6der7HpNwt4TV4jotTvdQL8x2T6iTovZzAYPMGt1eZddDYGnqbo24i51vw5bpRRwztZTcWBABFxY6/VueP58pO8T0QXWwIvv3G/iSLzAxHRQ2AWy2JIsCNTexOtri+mmlhJ1q9ojK4V0TrVtksRnViA9gCymxvdbE8PozmDvfU3uxLHnc6m87dj+jtc4P5OioxAq2YkjtvcA9wAPfIQnsvx9/o0v+obfyzXHfqckOQWG6XUQkzomz/ZJiW/SVaCDuL1D6WUe+THY3sxwtGxfNWb9uwS/dTHxJmmXL+jfRariSCBlp8ahHZ8F+0fDTnOrbH2TTw9MU6a6byx+kx5sZJqezFAAAAA0AGgA7hL64EQNItMy8tAzcrhRLgoiBqFwxl1cKZtAgntoGvXCy4uFmbaIGMMNKxQEvRAtdSIl2ICIiAiIgIiICIiAiIgIiIHhEoakDwlyIFg4YT0UQJeiBSFlURAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERA//2Q=="
-                        alt=""
-                      />
+        <!--inizio contenuti pagina-->
+        <div class="container-fluid content">
+          <!-- annuncio -->
+          <div class="row">
+            <aside>
+              <div class="container-fluid">
+                <div id="ad" class="row">
+                  <div class="col-3">
+                    <img class="image-fluid w-100"
+                      src="data:image/jpeg;base64,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rI6yWRPRAu54luxiBtIiICIiAiIgYWL2RQqiz0kPlb8pp8f0QpupCu4B1KnUaWtrv+qvoJJYkwQOr0Yr01AVUdVOYbzpYjLrfs3N7cwJpsbsgZVBolGUnNZFK1BcWNSxDXAvu33nVZRUpK28A+Ik6Re1cVfZ5CuzsoZR2VKsM/1bAsQb65t3CeF2QAsAQCoKZCEyEHflGUt2jc79O6der7HpNwt4TV4jotTvdQL8x2T6iTovZzAYPMGt1eZddDYGnqbo24i51vw5bpRRwztZTcWBABFxY6/VueP58pO8T0QXWwIvv3G/iSLzAxHRQ2AWy2JIsCNTexOtri+mmlhJ1q9ojK4V0TrVtksRnViA9gCymxvdbE8PozmDvfU3uxLHnc6m87dj+jtc4P5OioxAq2YkjtvcA9wAPfIQnsvx9/o0v+obfyzXHfqckOQWG6XUQkzomz/ZJiW/SVaCDuL1D6WUe+THY3sxwtGxfNWb9uwS/dTHxJmmXL+jfRariSCBlp8ahHZ8F+0fDTnOrbH2TTw9MU6a6byx+kx5sZJqezFAAAAA0AGgA7hL64EQNItMy8tAzcrhRLgoiBqFwxl1cKZtAgntoGvXCy4uFmbaIGMMNKxQEvRAtdSIl2ICIiAiIgIiICIiAiIgIiIHhEoakDwlyIFg4YT0UQJeiBSFlURAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERA//2Q=="
+                      alt="" />
+                  </div>
+                  <div class="col">
+                    <div>
+                      <span>album</span>
+                      <span><button type="button">nascondi annuncio</button></span>
                     </div>
-                    <div class="col">
+                    <div>
+                      <h2>titolo del brano (feat)</h2>
+                      <p>(autori)</p>
+                      <p>ascolta il nuovo singolo di (autori)</p>
                       <div>
-                        <span>album</span>
-                        <span><button type="button">nascondi annuncio</button></span>
-                      </div>
-                      <div>
-                        <h2>titolo del brano (feat)</h2>
-                        <p>(autori)</p>
-                        <p>ascolta il nuovo singolo di (autori)</p>
-                        <div>
-                          <button>Play</button>
-                          <button>Salva</button>
-                          <button>...</button>
-                        </div>
+                        <button>Play</button>
+                        <button>Salva</button>
+                        <button>...</button>
                       </div>
                     </div>
                   </div>
                 </div>
-              </aside>
-            </div>
-            <!-- fine annuncio -->
-            <main>
-              <!-- benvenuto ascoltati di recente -->
-              <div class="row">
-                <h3>Benvenuto</h3>
               </div>
-              <div id="welcome" class="row row-cols-2 row-cols-lg-3"></div>
-
-              <div class="row justify-content-between flex-nowrap">
-                <h3 class="w-75">Altro di cio che ti piace</h3>
-                <span class="w-25 text-end"><a href="albums.html">VISUALIZZA TUTTO</a></span>
-              </div>
-              <div id="more" class="row"></div>
-              <!--  fine contenuti pagina -->
-            </main>
+            </aside>
           </div>
+          <!-- fine annuncio -->
+          <main>
+            <!-- benvenuto ascoltati di recente -->
+            <div class="row">
+              <h3>Benvenuto</h3>
+            </div>
+            <div id="welcome" class="row row-cols-2 row-cols-lg-3"></div>
+
+            <div class="row justify-content-between flex-nowrap">
+              <h3 class="w-75">Altro di cio che ti piace</h3>
+              <span class="w-25 text-end"><a href="albums.html">VISUALIZZA TUTTO</a></span>
+            </div>
+            <div id="more" class="row"></div>
+            <!--  fine contenuti pagina -->
+          </main>
         </div>
-        <!--  center end -->
+      </div>
+      <!--  center end -->
+    </div>
+  </div>
+  <!-- player -->
+  <section class="fixed-bottom bg-dark playerSection">
+    <audio id="audioReference" src=""></audio>
+    <audio id="audio2" src="https://cdns-preview-0.dzcdn.net/stream/c-01583a052af6254d60d7738d9df6f8e5-5.mp3"></audio>
+    <div class="row" class="player">
+      <div id="songData" class="col-2">
+        <div>
+          <img id="playerImg" src="./assets/img/profile.jpg" alt="cover" />
+        </div>
+        <div>
+          <p id="playerSong">Title</p>
+          <p id="playerArtist">Artist</p>
+        </div>
+        <div>
+          <button><i class="bi bi-heart"></i></button>
+        </div>
+      </div>
+
+      <div id="playerComands" class="col-4">
+        <div id="playerButtons">
+          <button class="btn"><i class="bi bi-shuffle"></i></button>
+          <button id="trackBack" class="btn"><i class="bi bi-skip-start-fill fs-4"></i></button>
+          <button id="playbutton" class="btn"><i class="bi bi-play-circle-fill fs-3"></i></button>
+          <button id="trackNext" class="btn"><i class="bi bi-skip-end-fill fs-4"></i></button>
+          <button class="btn"><i class="bi bi-repeat"></i></button>
+        </div>
+        <div id="songTime">
+          <p>0:00</p>
+          <div>
+            <input type="range" id="timeRange" />
+          </div>
+          <p>0:00</p>
+        </div>
+      </div>
+
+      <div id="playerIcons" class="col-4">
+        <button><i class="bi bi-mic"></i></button>
+        <button><i class="bi bi-list"></i></button>
+        <button><i class="bi bi-speaker"></i></button>
+        <label for="volume"><i class="bi bi-volume-down-fill"></i></label>
+        <input type="range" id="volume" name="volume" min="0" max="10" />
+        <button><i class="bi bi-arrows-angle-expand"></i></button>
       </div>
     </div>
-    <!-- player -->
-    <section class="fixed-bottom bg-dark playerSection">
-      <audio id="audioReference" src=""></audio>
-      <audio id="audio2" src="https://cdns-preview-0.dzcdn.net/stream/c-01583a052af6254d60d7738d9df6f8e5-5.mp3"></audio>
-      <div class="row" class="player">
-        <div id="songData" class="col-2">
-          <div>
-            <img id="playerImg" src="./assets/img/profile.jpg" alt="cover" />
-          </div>
-          <div>
-            <p id="playerSong">Title</p>
-            <p id="playerArtist">Artist</p>
-          </div>
-          <div>
-            <button><i class="bi bi-heart"></i></button>
-          </div>
-        </div>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+    integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+    crossorigin="anonymous"></script>
+  <!-- inserisi script -->
+  <script src="./assets/js/home.js"></script>
+</body>
 
-        <div id="playerComands" class="col-4">
-          <div id="playerButtons">
-            <button class="btn"><i class="bi bi-shuffle"></i></button>
-            <button id="trackBack" class="btn"><i class="bi bi-skip-start-fill fs-4"></i></button>
-            <button id="playbutton" class="btn"><i class="bi bi-play-circle-fill fs-3"></i></button>
-            <button id="trackNext" class="btn"><i class="bi bi-skip-end-fill fs-4"></i></button>
-            <button class="btn"><i class="bi bi-repeat"></i></button>
-          </div>
-          <div id="songTime">
-            <p>0:00</p>
-            <div>
-              <input type="range" id="timeRange" />
-            </div>
-            <p>0:00</p>
-          </div>
-        </div>
-
-        <div id="playerIcons" class="col-4">
-          <button><i class="bi bi-mic"></i></button>
-          <button><i class="bi bi-list"></i></button>
-          <button><i class="bi bi-speaker"></i></button>
-          <label for="volume"><i class="bi bi-volume-down-fill"></i></label>
-          <input type="range" id="volume" name="volume" min="0" max="10" />
-          <button><i class="bi bi-arrows-angle-expand"></i></button>
-        </div>
-      </div>
-    </section>
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
-      integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
-      crossorigin="anonymous"
-    ></script>
-    <!-- inserisi script -->
-    <script src="./assets/js/home.js"></script>
-  </body>
 </html>
