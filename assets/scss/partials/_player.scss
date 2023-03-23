@@ -1,0 +1,77 @@
+.playerSection {
+  z-index: 5;
+  padding: 10px;
+  background-color: $grey;
+}
+
+#song {
+  @include spacingFlex(row, space-between, center);
+}
+
+#songData {
+  @include spacingFlex(row, flex-start, center);
+  #playerImg {
+    height: 70px;
+    aspect-ratio: 1/1;
+  }
+  * {
+    margin-right: 10px;
+  }
+}
+
+#playerComands {
+  @include centeringFlex;
+  #playerButtons,
+  #songTime {
+    @include spacingFlex(row, space-around, center);
+  }
+}
+
+#songTime {
+  * {
+    margin: 0 auto;
+  }
+}
+
+#playerIcons {
+  @include spacingFlex(row, flex-end, center);
+  * {
+    margin-left: 10px;
+  }
+}
+
+#playbutton {
+  font-size: 2em;
+}
+
+.playerSection {
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    background-color: #808080;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #ffffff;
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #ffffff;
+  }
+
+  input[type="range"]::-ms-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #ffffff;
+  }
+}

@@ -1,6 +1,8 @@
 @import "./partials/reset";
 @import "./partials/mixins";
 @import "./partials/variables";
+@import "./partials/mediaQueries";
+@import "./partials/player";
 @import url("https://fonts.cdnfonts.com/css/circular-std");
 
 html,
@@ -146,36 +148,6 @@ body {
   @include colorCombo("dark");
 }
 
-.playerSection {
-  z-index: 5;
-}
-
-#song {
-  @include spacingFlex(row, space-between, center);
-}
-
-#playerImg {
-  height: 50px;
-  aspect-ratio: 1/1;
-}
-
-#playerControls {
-  @include centeringFlex;
-  #playerButtons,
-  #songTime {
-    @include centeringFlex;
-    flex-direction: row;
-  }
-}
-
-#playerIcons {
-  @include spacingFlex(row, space-between, center);
-}
-
-#playbutton {
-  font-size: 2em;
-}
-
 .albumCard {
   max-width: 540px;
   margin-bottom: 20px;
@@ -187,12 +159,12 @@ body {
 }
 
 .albumCardImg {
-  width: 150px;
+  width: 90%;
   aspect-ratio: 1/1;
 }
 
 .artistCardImg {
-  width: 100px;
+  width: 90%;
   aspect-ratio: 1/1;
   border-radius: 50%;
 }

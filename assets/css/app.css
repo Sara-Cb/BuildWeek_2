@@ -111,6 +111,93 @@ meter {
   all: revert;
 }
 
+.playerSection {
+  z-index: 5;
+  padding: 10px;
+  background-color: rgb(25, 25, 25);
+}
+
+#song {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#songData {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+#songData #playerImg {
+  height: 70px;
+  aspect-ratio: 1/1;
+}
+#songData * {
+  margin-right: 10px;
+}
+
+#playerComands {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#playerComands #playerButtons,
+#playerComands #songTime {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#songTime * {
+  margin: 0 auto;
+}
+
+#playerIcons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+#playerIcons * {
+  margin-left: 10px;
+}
+
+#playbutton {
+  font-size: 2em;
+}
+
+.playerSection input[type=range] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  width: 100%;
+  height: 8px;
+  background-color: #808080;
+}
+.playerSection input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+.playerSection input[type=range]::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+.playerSection input[type=range]::-ms-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+
 html,
 body,
 .mainContainer,
@@ -277,48 +364,6 @@ body {
   color: rgb(255, 255, 255);
 }
 
-.playerSection {
-  z-index: 5;
-}
-
-#song {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-#playerImg {
-  height: 50px;
-  aspect-ratio: 1/1;
-}
-
-#playerControls {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-#playerControls #playerButtons,
-#playerControls #songTime {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-}
-
-#playerIcons {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-#playbutton {
-  font-size: 2em;
-}
-
 .albumCard {
   max-width: 540px;
   margin-bottom: 20px;
@@ -330,12 +375,12 @@ body {
 }
 
 .albumCardImg {
-  width: 150px;
+  width: 90%;
   aspect-ratio: 1/1;
 }
 
 .artistCardImg {
-  width: 100px;
+  width: 90%;
   aspect-ratio: 1/1;
   border-radius: 50%;
 }/*# sourceMappingURL=app.css.map */

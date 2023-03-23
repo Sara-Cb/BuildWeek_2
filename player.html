@@ -14,49 +14,53 @@
 
 <body>
 
-    <div class="row" class="player">
-
-        <div id="songData" class="col-2" style="display: flex; justify-content: space-between; align-items: center;">
-            <div>
-                <img id="playerImg" src="./assets/img/profile.jpg" alt="cover"
-                    style="height: 50px; aspect-ratio: 1/1;" />
-            </div>
-            <div>
-                <p id="playerSong">Title</p>
-                <p id="playerArtist">Artist</p>
-            </div>
-            <div>
-                <button><i class="bi bi-heart"></i></button>
-            </div>
-        </div>
-
-        <div class="col-8" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-            <div id="playerButtons" style="display: flex; justify-content: center; align-items: center;">
-                <button class="btn"><i class="bi bi-shuffle"></i></button>
-                <button class="btn"><i class="bi bi-skip-start-fill fs-4"></i></button>
-                <button id="playbutton" class="btn"><i class="bi bi-play-circle-fill fs-3"></i></button>
-                <button class="btn"><i class="bi bi-skip-end-fill fs-4"></i></button>
-                <button class="btn"><i class="bi bi-repeat"></i></button>
-            </div>
-            <div id="songTime" style="display: flex; justify-content: center; align-items: center;">
-                <p>current time</p>
-                <div class="progress bg-secondary" role="progressbar" aria-valuemin="0" aria-valuemax="100"
-                    style="height: 5px; width: 70%">
-                    <div id="timeRange" class="progress-bar bg-light" style="width: 10%"></div>
+    <section class="fixed-bottom playerSection">
+        <audio id="audioReference" src=""></audio>
+        <audio id="audio2"
+            src="https://cdns-preview-0.dzcdn.net/stream/c-01583a052af6254d60d7738d9df6f8e5-5.mp3"></audio>
+        <div class="row" class="player">
+            <div id="songData" class="col-4">
+                <div>
+                    <img id="playerImg" src="./assets/img/profile.jpg" alt="cover" />
                 </div>
-                <p>total time</p>
+                <div>
+                    <p id="playerSong">Title</p>
+                    <p id="playerArtist">Artist</p>
+                </div>
+                <div>
+                    <button><i class="bi bi-heart"></i></button>
+                </div>
+            </div>
+
+            <div id="playerComands" class="col-4">
+                <div id="playerButtons">
+                    <button class="btn"><i class="bi bi-shuffle"></i></button>
+                    <button id="trackBack" class="btn"><i class="bi bi-skip-start-fill fs-4"></i></button>
+                    <button id="playbutton" class="btn"><i class="bi bi-play-circle-fill fs-3"></i></button>
+                    <button id="trackNext" class="btn"><i class="bi bi-skip-end-fill fs-4"></i></button>
+                    <button class="btn"><i class="bi bi-repeat"></i></button>
+                </div>
+                <div id="songTime">
+                    <p>current time</p>
+                    <div>
+                        <input type="range" id="timeRange" />
+                    </div>
+                    <p>total time</p>
+                </div>
+            </div>
+
+            <div id="playerIcons" class="col-4">
+                <button><i class="bi bi-mic"></i></button>
+                <button><i class="bi bi-list"></i></button>
+                <button><i class="bi bi-speaker"></i></button>
+                <label for="volume"><i class="bi bi-volume-down-fill"></i></label>
+                <input type="range" id="volume" name="volume" min="0" max="10" />
+                <button><i class="bi bi-arrows-angle-expand"></i></button>
             </div>
         </div>
+    </section>
 
-        <div class="col-2" style="display: flex; justify-content: space-between; align-items: center;">
-            <button><i class="bi bi-mic"></i></button>
-            <button><i class="bi bi-list"></i></button>
-            <button><i class="bi bi-speaker"></i></button>
-            <label for="volume"><i class="bi bi-volume-down-fill"></i></label>
-            <input type="range" id="volume" name="volume" min="0" max="10" />
-            <button><i class="bi bi-arrows-angle-expand"></i></button>
-        </div>
-    </div>
+
 </body>
 
 </html>
