@@ -144,3 +144,7 @@ let printMore = async function () {
   }
 };
 */
+const liked = function (e) {
+  e.target.classList.toggle("bi-heart");
+  e.target.classList.toggle("bi-heart-fill");
+};

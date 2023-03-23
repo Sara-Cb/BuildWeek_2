@@ -5,7 +5,9 @@ let trackArray = [];
 let albumId = new URLSearchParams(window.location.search).get("id");
 let song;
 let cardsMore = [];
-
+const trackIndex = document.getElementsByClassName("trackIndex");
+const trackItem = document.getElementsByClassName("trackItem");
+const trackPlayBtn = document.getElementsByClassName("playbutton");
 // RIFERIMENTI PLAYER
 const tracklistRef = document.getElementById("tracklist");
 const playerSong = document.getElementById("playerSong");
@@ -35,9 +37,9 @@ const playTop = function () {
 btnBack.addEventListener("click", function () {
   if (currentTrack != 0) {
     let backId = currentTrack - 1;
-    console.log(currentTrack);
+    //console.log(currentTrack);
     let divBack = document.getElementById(backId);
-    console.log(divBack);
+    //console.log(divBack);
     divBack.click();
   } else {
     divCur = document.getElementById(currentTrack);
@@ -48,9 +50,9 @@ btnBack.addEventListener("click", function () {
 btnNext.addEventListener("click", function () {
   if (currentTrack != trackArray.length - 1) {
     let nextId = currentTrack + 1;
-    console.log(currentTrack);
+    //console.log(currentTrack);
     let divNext = document.getElementById(nextId);
-    console.log(divNext);
+    //console.log(divNext);
     divNext.click();
   } else {
     divCur = document.getElementById("0");
@@ -109,7 +111,7 @@ const formatTime = function (time) {
     secondi = "0" + secondi;
   }
   let correctTime = `${minuti}:${secondi}`;
-  console.log(correctTime);
+  //console.log(correctTime);
   return correctTime;
 };
 
@@ -120,7 +122,7 @@ const getData = async function (_content, _array) {
     let response = await fetch(API_URL + _content);
     if (response.ok) {
       data = await response.json();
-      console.log(data);
+      //console.log(data);
       _array.push(data);
     } else {
       return new Error("Error while loading data.");
@@ -132,7 +134,7 @@ const getData = async function (_content, _array) {
 
 let printAlbum = async function () {
   await getData(`album/${albumId}`, thisAlbum);
-  console.log(thisAlbum);
+  //console.log(thisAlbum);
   for (let i = 0; i < thisAlbum.length; i++) {
     let albumRef = document.querySelector("#album");
     albumRef.innerHTML = ` 
@@ -164,16 +166,20 @@ let printAlbum = async function () {
       let songCover = thisAlbum[i].cover_big;
       let songTime = thisAlbum[i].tracks.data[j].duration;
       let reproductions = thisAlbum[i].tracks.data[j].rank;
+      let artistId = thisAlbum[i].artist.id;
       let id = j;
       trackArray.push(thisAlbum[i]);
-      console.log(preview);
+      console.log(thisAlbum[i]);
 
-      tracklistRef.innerHTML += `<li><div class="row">
-      <div id=${id} onclick="playFunction(\'${preview}\', \'${songTitle}\', \'${songArtist}\',\'${songCover}\', \'${songTime}\',${id})" class="col d-flex">
-        <span class="align-self-center mx-3 fs-3">${j + 1}</span>
+      tracklistRef.innerHTML += `<li class="trackItem"><div class="row">
+      <div  class="col d-flex">
+      <button onclick="playFunction(\'${preview}\', \'${songTitle}\', \'${songArtist}\',\'${songCover}\', \'${songTime}\',${id})" class="playbutton px-2 align-self-center  btn d-none">
+      <i class="bi bi-play-fill fs-3"></i>
+    </button>
+        <span class="trackIndex align-self-center mx-3 fs-3">${j + 1}</span>
         <span class="d-flex flex-column justify-content-around">
-          <h4 class="my-0 ">${songTitle}</h4>
-          <p class="fs-5 my-0 ">${songArtist}<p>
+          <h4 id=${id} onclick="playFunction(\'${preview}\', \'${songTitle}\', \'${songArtist}\',\'${songCover}\', \'${songTime}\',${id})" class="my-0 clickable">${songTitle}</h4>
+          <a href="./artists.html?artistId=${artistId}"><p class="fs-5 my-0 clickable">${songArtist}<p></a>
         </span>
       </div>
       <div class="col-2 d-flex">
@@ -184,9 +190,18 @@ let printAlbum = async function () {
       </div>
       </div></li>`;
     }
+    for (let i = 0; i < trackItem.length; i++) {
+      trackItem[i].addEventListener("mouseover", function () {
+        trackPlayBtn[i].classList.toggle("d-none");
+        trackIndex[i].classList.toggle("d-none");
+      });
+      trackItem[i].addEventListener("mouseout", function () {
+        trackPlayBtn[i].classList.toggle("d-none");
+        trackIndex[i].classList.toggle("d-none");
+      });
+    }
   }
 };
-
 //popolamento array albums
 const getMyAlbums = async function () {
   let albumRef = document.getElementById("album");
@@ -208,7 +223,7 @@ const getMyAlbums = async function () {
   await getData("album/74495", myAlbums);
   await getData("album/12047930", myAlbums);
   await getData("album/406094377", myAlbums);
-  console.log(myAlbums);
+  //console.log(myAlbums);
   myAlbums.forEach((album) => {
     albumRef.innerHTML += ` <div class="col-6 col-md-4 col-lg-3 justify-content-between"><a href="albums.html?id=${album.id}"> <div class="card">
     <img src="${album.cover_big}" class="card-img-top" alt="album cover" />

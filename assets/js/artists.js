@@ -6,7 +6,9 @@ let myArtists = [];
 let artistTracks = [];
 let albumsArray = [];
 let cardsMore = [];
-
+const trackIndex = document.getElementsByClassName("trackIndex");
+const trackItem = document.getElementsByClassName("trackItem");
+const trackPlayBtn = document.getElementsByClassName("playbutton");
 // RIFERIMENTI PLAYER
 const tracklistRef = document.getElementById("tracklist");
 const playerSong = document.getElementById("playerSong");
@@ -175,24 +177,30 @@ let printArtist = async function () {
     let songCover = artistTracks[0].data[i].album.cover_big;
     let songTime = artistTracks[0].data[i].duration;
     let reproductions = artistTracks[0].data[i].rank;
+    let albumId = artistTracks[0].data[i].album.id;
     let id = i;
     let artistRef = document.querySelector("#artist");
     artistRef.innerHTML += ` 
-      <div class="row">
-      <div id="${id}" onclick="playFunction(\'${preview}\', \'${songTitle}\', \'${songArtist}\',\'${songCover}\', \'${songTime}\',${id})" class="col d-flex">
-      <span class="align-self-center mx-3 fs-3">${i + 1}</span>
-      <span class="d-flex flex-column justify-content-around">
-      <h4 class="my-0 ">${songTitle}</h4>
-      <p class="fs-5 my-0 ">${artistTracks[0].data[i].album.title}<p></span>
+      <div class=" row">
+      <div  class="trackItem col d-flex">
+      <button onclick="playFunction(\'${preview}\', \'${songTitle}\', \'${songArtist}\',\'${songCover}\', \'${songTime}\',${id})" class="playbutton px-2 align-self-center btn d-none">
+      <i class="bi bi-play-fill fs-3"></i>
+      </button>
+      <span class="trackIndex align-self-center mx-3 fs-3">${i + 1}</span>
+      <span class=" d-flex flex-column justify-content-around">
+      <h4 id="${id}" onclick="playFunction(\'${preview}\', \'${songTitle}\', \'${songArtist}\',\'${songCover}\', \'${songTime}\',${id})" class="my-0 ">${songTitle}</h4>
+      <a href="albums.html?id=${albumId}"><p class="fs-5 my-0 ">
+      ${artistTracks[0].data[i].album.title}<p></a></span>
     </div>
     <div class="col-2 d-flex">
     <h4 class="align-self-center">${reproductions}</h4>
   </div>
   <div class="col-2 d-flex">
   <h4 class="align-self-center">${songTime}</h4>
-</div>
+  </div>
     </div>`;
   }
+
   await getArtistAlbums();
   console.log(albumsArray);
   for (let i = 0; i < 5; i++) {
@@ -205,6 +213,16 @@ let printArtist = async function () {
       <p class="card-text">${albumsArray[0].data[i].title}</p>
     </div>
   </div>`;
+  }
+  for (let i = 0; i < trackItem.length; i++) {
+    trackItem[i].addEventListener("mouseover", function () {
+      trackPlayBtn[i].classList.toggle("d-none");
+      trackIndex[i].classList.toggle("d-none");
+    });
+    trackItem[i].addEventListener("mouseout", function () {
+      trackPlayBtn[i].classList.toggle("d-none");
+      trackIndex[i].classList.toggle("d-none");
+    });
   }
 };
 
