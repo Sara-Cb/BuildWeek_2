@@ -24,7 +24,7 @@
           <!-- impostazioni -->
           <div class="row">
             <div>
-              <img src="./assets/img/logo.svg" alt="logo Spotify" class="navbar-brand">
+              <img src="./assets/img/logo.svg" alt="logo Spotify" class="navbar-brand" />
             </div>
             <div class="dropdown">
               <a class="dropdown-toggle settings" href="javascript:void(0)" id="settingsDropdownMenuLink"
@@ -38,7 +38,6 @@
               </div>
             </div>
           </div>
-
 
           <div class="row">
             <ul>
@@ -103,46 +102,79 @@
           <div class="accountSet dropdown">
             <a class="dropdown-toggle account" href="#" id="profileDropdownMenuLink" data-bs-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
-              <img src="./assets/img/profile.jpg" alt="profile pic">
+              <img src="./assets/img/profile.jpg" alt="profile pic" />
               <span>Team Five</span>
             </a>
             <div class="dropdown-menu" aria-labelledby="profileDropdownMenuLink">
               <a class="dropdown-item" href="#">Account</a>
               <a class="dropdown-item" href="#">Profilo</a>
               <a class="dropdown-item" href="#">Impostazioni</a>
-              <hr>
+              <hr />
               <a class="dropdown-item" href="#">Esci</a>
             </div>
           </div>
         </div>
         <!--inizio contenuti pagina-->
         <div class="container-fluid content">
-          <div class="col">
-            <div id="album" class="row"></div>
-            <div class="row">
-              <ol id="tracklist">
+          <div id="album" class="row"></div>
 
-              </ol>
+          <div class="row">
+            <div class="col d-flex">
+              <a class="align-self-center mx-3" onclick="playTop()"><i
+                  class="text-success bi bi-play-circle-fill fs-3"></i></a>
+              <a class="align-self-center me-3"><i class="bi bi-heart"></i></a>
+              <a class="align-self-center me-3"><i class="bi bi-arrow-down-circle"></i></a>
+              <a class="align-self-center me-3"><i class="bi bi-three-dots"></i></a>
             </div>
           </div>
-        </div>
-        <!-- center end -->
 
-        <!-- right start -->
-        <div class="col-1">right</div>
+          <div class="row">
+            <ol id="tracklist">
+              <li>
+                <div class="row border-bottom border-dark-subtle mb-1 mx-2">
+                  <div class="ps-2 col-8 d-flex">
+                    <span class="align-self-center fs-5 text-secondary">#</span>
+                    <span class="align-self-center ms-2 fs-7 text-secondary">
+                      TITOLO
+                    </span>
+                  </div>
+                  <div class="col-2 d-flex">
+                    <span class="align-self-center fs-7 text-secondary">
+                      RIPRODUZIONI
+                    </span>
+                  </div>
+                  <div class="col-2 d-flex">
+                    <span class="align-self-center fs-7 text-secondary">
+                      DURATA
+                    </span>
+                  </div>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
       </div>
+      <!-- center end -->
+
+      <!-- right start -->
+      <div class="col-1">right</div>
     </div>
+  </div>
+  <!-- player -->
+  <section class="fixed-bottom bg-dark playerSection">
     <!-- player -->
     <section class="fixed-bottom bg-dark playerSection">
       <audio id="audioReference" src=""></audio>
       <div class="row" class="player">
         <div id="songData" class="col-4">
           <div>
-            <img id="playerImg" src="./assets/img/profile.jpg" alt="cover" />
+            <img id="playerImg"
+              src="https://e-cdns-images.dzcdn.net/images/cover/bb2f14dbe77a039147607237227da56a/500x500-000000-80-0-0.jpg"
+              alt="cover" />
           </div>
           <div>
-            <p id="playerSong">Title</p>
-            <p id="playerArtist">Artist</p>
+            <p id="playerSong">Salmo</p>
+            <p id="playerArtist">Aldo Ritmo</p>
           </div>
           <div>
             <button><i class="bi bi-heart"></i></button>
@@ -152,17 +184,23 @@
         <div id="playerComands" class="col-4">
           <div id="playerButtons">
             <button class="btn"><i class="bi bi-shuffle"></i></button>
-            <button id="trackBack" class="btn"><i class="bi bi-skip-start-fill fs-4"></i></button>
-            <button id="playbutton" class="btn"><i class="bi bi-play-circle-fill fs-3"></i></button>
-            <button id="trackNext" class="btn"><i class="bi bi-skip-end-fill fs-4"></i></button>
+            <button id="trackBack" class="btn">
+              <i class="bi bi-skip-start-fill fs-4"></i>
+            </button>
+            <button id="playbutton" class="btn">
+              <i class="bi bi-play-circle-fill fs-3"></i>
+            </button>
+            <button id="trackNext" class="btn">
+              <i class="bi bi-skip-end-fill fs-4"></i>
+            </button>
             <button class="btn"><i class="bi bi-repeat"></i></button>
           </div>
           <div id="songTime">
-            <p>current time</p>
+            <p>00:00</p>
             <div>
               <input type="range" id="timeRange" />
             </div>
-            <p>total time</p>
+            <p>00:00</p>
           </div>
         </div>
 
