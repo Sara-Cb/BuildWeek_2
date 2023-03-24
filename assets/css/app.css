@@ -47,9 +47,7 @@ table {
 /* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
 input,
 textarea {
-  -webkit-user-select: auto;
-     -moz-user-select: auto;
-          user-select: auto;
+  user-select: auto;
 }
 
 /* revert the 'white-space' property for textarea elements on Safari */
@@ -60,8 +58,7 @@ textarea {
 /* minimum style to allow to style meter element */
 meter {
   -webkit-appearance: revert;
-  -moz-appearance: revert;
-       appearance: revert;
+  appearance: revert;
 }
 
 /* preformatted text - use only for this feature */
@@ -70,9 +67,6 @@ meter {
 }
 
 /* reset default text opacity of input placeholder */
-::-moz-placeholder {
-  color: unset;
-}
 ::placeholder {
   color: unset;
 }
@@ -96,9 +90,7 @@ meter {
   -webkit-user-modify: read-write;
   overflow-wrap: break-word;
   line-break: after-white-space;
-  -webkit-user-select: auto;
-     -moz-user-select: auto;
-          user-select: auto;
+  user-select: auto;
 }
 
 /* apply back the draggable feature - exist only in Chromium and Safari */
@@ -174,8 +166,7 @@ meter {
 
 .playerSection input[type=range] {
   -webkit-appearance: none;
-  -moz-appearance: none;
-       appearance: none;
+  appearance: none;
   width: 100%;
   height: 8px;
   background-color: #808080;
@@ -247,7 +238,7 @@ body a {
 }
 
 .mainCenter .content {
-  height: 90%;
+  height: 95%;
   padding-top: 30px;
   overflow-y: auto;
   overflow-x: hidden;
@@ -350,7 +341,6 @@ body a {
 }
 
 .topNav > div {
-  width: -moz-max-content;
   width: max-content;
 }
 
@@ -406,6 +396,42 @@ body a {
 
 .dropdown-item:hover {
   color: rgb(0, 0, 0) !important;
+}
+
+.overflow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.albumCardHome {
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.albumCardHome p {
+  width: 70% !important;
+}
+.albumCardHome img {
+  width: 25%;
+  aspect-ratio: 1/1;
+}
+
+.trackItem {
+  height: 100px;
+}
+.trackItem div {
+  height: inherit;
+}
+.trackItem .trackBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: start;
 }
 
 .albumCardImg {

@@ -48,7 +48,7 @@ body {
 
 .mainCenter {
   .content {
-    height: 90%;
+    height: 95%;
     padding-top: 30px;
     @include scrolly;
   }
@@ -189,6 +189,32 @@ body {
 }
 .dropdown-item:hover {
   color: $black !important;
+}
+
+.overflow {
+  @include cutText;
+}
+.albumCardHome {
+  width: 100%;
+  padding: 5px;
+  @include spacingFlex(row, start, center);
+  background-color: transparentize($white, 0.8);
+  p {
+    width: 70% !important;
+  }
+  img {
+    width: 25%;
+    aspect-ratio: 1/1;
+  }
+}
+.trackItem {
+  height: 100px;
+  div {
+    height: inherit;
+  }
+  .trackBody {
+    @include spacingFlex(column, space-around, start);
+  }
 }
 .albumCardImg {
   width: 90%;

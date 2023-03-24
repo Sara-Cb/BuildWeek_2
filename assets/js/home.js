@@ -64,8 +64,10 @@ timeRange.addEventListener("click", function (event) {
 playButton.addEventListener("click", function () {
   if (audio.paused) {
     audio.play();
+    playButton.innerHTML = `<i class="bi bi-pause-circle-fill fs-2"></i>`;
   } else {
     audio.pause();
+    playButton.innerHTML = `<i class="bi bi-play-circle-fill fs-2"></i>`;
   }
 });
 
@@ -88,6 +90,7 @@ function playFunction(url, title, artist, cover, duration, id) {
     songTime.children[2].textContent = formatTime(Math.round(duration));
 
     audio.play();
+    playButton.innerHTML = `<i class="bi bi-pause-circle-fill fs-2"></i>`;
   });
 
   audio.addEventListener("timeupdate", function () {
@@ -143,25 +146,18 @@ let printWelcome = async function () {
 
   for (let i = 0; i < 6; i++) {
     let colRef = document.querySelector("#welcome");
-    colRef.innerHTML += ` <a href="albums.html?id=${cardsAlbums[i].id}"><div class="col">
-      <div class="card albumCard">
-        <div class="row g-0">
-          <div class="col-4">
+    colRef.innerHTML += `<div class="col-6 col-lg-4 my-1"><a class="w-100" href="albums.html?id=${cardsAlbums[i].id}">
+      <div class="card albumCard albumCardHome">
             <img
-              class="image-fluid w-100"
+              class="image-fluid me-2"
               src="${cardsAlbums[i].cover}"
               class="img-fluid rounded-start"
               alt="album cover"
             />
-          </div>
-          <div class="col-8">
-            <div class="card-body">
-              <h5 class="card-title">${cardsAlbums[i].title}</h5>
-            </div>
-          </div>
-        </div>
+              <p class="card-title fs-5 overflow">${cardsAlbums[i].title}</p>
+        </div></a>
       </div>
-    </div></a>`;
+    `;
   }
 };
 
@@ -217,7 +213,7 @@ let printMore = async function () {
 
   for (let i = 0; i < 6; i++) {
     let colRef = document.querySelector("#more");
-    colRef.innerHTML += ` <div class="col-2 justify-content-between"><a href="albums.html?id=${cardsMore[i].id}"> <div class="card">
+    colRef.innerHTML += ` <div class="col-5 col-md-2 justify-content-between"><a href="albums.html?id=${cardsMore[i].id}"> <div class="card">
     <img src="${cardsMore[i].cover_big}" class="card-img-top" alt="album cover" />
     </a></div>
     <div class="card-body">

@@ -67,8 +67,10 @@ timeRange.addEventListener("click", function (event) {
 playButton.addEventListener("click", function () {
   if (audio.paused) {
     audio.play();
+    playButton.innerHTML = `<i class="bi bi-pause-circle-fill fs-2"></i>`;
   } else {
     audio.pause();
+    playButton.innerHTML = `<i class="bi bi-play-circle-fill fs-2"></i>`;
   }
 });
 
@@ -91,6 +93,7 @@ function playFunction(url, title, artist, cover, duration, id) {
     songTime.children[2].textContent = formatTime(Math.round(duration));
 
     audio.play();
+    playButton.innerHTML = `<i class="bi bi-pause-circle-fill fs-2"></i>`;
   });
 
   audio.addEventListener("timeupdate", function () {
@@ -129,21 +132,20 @@ const printEverything = function () {
     const trackCard = document.createElement("div");
     trackCard.setAttribute("class", "card");
     const albumCard = document.createElement("div");
-    albumCard.setAttribute("class", "col-3");
+    albumCard.setAttribute("class", "col-6 col-md-4 col-lg-3");
     const artistCard = document.createElement("div");
-    artistCard.setAttribute("class", "col-3");
+    artistCard.setAttribute("class", "col-6 col-md-4 col-lg-3");
 
-    trackCard.innerHTML = `<a href="albums.html?id=${
-      album.id
-    }"><div class='row'><div class="col-1"><img class="image-fluid trackCardImg" src="${
+    trackCard.innerHTML = `<a href="albums.html?id=${album.id}"> <div class="row my-1" style="height: 100px"> 
+    <div class="col d-flex flex-row h-100"> <img class="trackCardImg me-1" style="height: inherit; aspect-ratio:1/1;" src="${
       album.cover_big
-    }"  alt="Album cover"/></div><div class="col"><div class='card-body'><h4>${
-      track.title
-    }</h4><p>${artist.name} </p></div></div><div class="col-2"><p>${formatTime(
-      track.duration
-    )}</p></div></div></a>`;
+    }"
+    alt="Album cover"/> <div class='card-body'> <h4>${track.title}</h4> <p>${
+      artist.name
+    }</p> </div> </div> <div class="col-2"> 
+    <p>${formatTime(track.duration)}</p> </div> </div> </a>`;
     albumCard.innerHTML = `<div class"card><a href="albums.html?id=${album.id}"> <img class="image-fluid albumCardImg" src="${album.cover_big}"  alt="Album cover"/></a>
- <div class='card-body'> <h4>${album.title}</h4><p><a href="artists.html?id=${artist.id}>${artist.name}</a></p></div>`; //non compare il p???
+    <div class='card-body'> <h4 class="overflow">${album.title}</h4><p><a href="artists.html?id=${artist.id}>${artist.name}</a></p></div>`; //non compare il p???
     artistCard.innerHTML = `<div class"card><a href="artists.html?artistId=${artist.id}"><div class= card-img-top"> <img class="image-fluid artistCardImg" src="${artist.picture_big}"  alt="Artist pic"/> </div> <div class="col"> <div class='card-body'><h4>${artist.name}</h4><p>Artista</p> <a/></div></div>`;
 
     tracksDiv.appendChild(trackCard);
@@ -158,9 +160,7 @@ const fetchEverything = async (keyword) => {
   artistsDiv.innerHTML = "";
   tracksArray = [];
   try {
-    const response = await fetch(
-      `https://striveschool-api.herokuapp.com/api/deezer/search?q=${keyword}`
-    );
+    const response = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${keyword}`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }

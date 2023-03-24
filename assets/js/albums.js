@@ -71,8 +71,10 @@ timeRange.addEventListener("click", function (event) {
 playButton.addEventListener("click", function () {
   if (audio.paused) {
     audio.play();
+    playButton.innerHTML = `<i class="bi bi-pause-circle-fill fs-2"></i>`;
   } else {
     audio.pause();
+    playButton.innerHTML = `<i class="bi bi-play-circle-fill fs-2"></i>`;
   }
 });
 
@@ -95,6 +97,7 @@ function playFunction(url, title, artist, cover, duration, id) {
     songTime.children[2].textContent = formatTime(Math.round(duration));
 
     audio.play();
+    playButton.innerHTML = `<i class="bi bi-pause-circle-fill fs-2"></i>`;
   });
 
   audio.addEventListener("timeupdate", function () {
@@ -153,7 +156,7 @@ let printAlbum = async function () {
         <span>album</span>
        </div> 
       <div>
-        <h2>${thisAlbum[i].title}</h2>
+        <h1>${thisAlbum[i].title}</h1>
         <p><a href="./artists.html?artistId=${thisAlbum[i].artist.id}">${
       thisAlbum[i].artist.name
     }</a> • ${thisAlbum[i].release_date.split("-")[0]} • ${
@@ -180,13 +183,10 @@ let printAlbum = async function () {
       <i class="bi bi-play-fill fs-3"></i>
     </button>
         <span class="trackIndex align-self-center mx-3 fs-3">${j + 1}</span>
-        </div>
-        <div  class="col d-flex flex-column justify-content-around">
+        <div class="trackBody">
           <h4 id=${id} onclick="playFunction(\'${preview}\', \'${songTitle}\', \'${songArtist}\',\'${songCover}\', \'${songTime}\',${id})" class="my-0 clickable">${songTitle}</h4>
-          <a href="./artists.html?artistId=${artistId}"><p class="fs-5 my-0 clickable">${songArtist}<p></a>    
-      </div>
-      <div class="col-2 d-flex justify-content-end">
-        <p class="align-self-center">${reproductions}</p>
+          <a href="./artists.html?artistId=${artistId}"><p class="fs-5 my-0 clickable">${songArtist}<p></a>
+        </div>
       </div>
       <div class="col-1 justify-content-center d-flex ">
         <p class="align-self-center"><i class="tracklike bi bi-heart d-none"></i></p>
@@ -255,7 +255,7 @@ const getMyAlbums = async function () {
     <img src="${album.cover_big}" class="card-img-top" alt="album cover" />
     </div>
     <div class="card-body">
-      <p class="card-text">${album.title}</p>
+      <p class="card-text overflow">${album.title}</p>
       <p class="card-text"><a href="./artists.html?artistId=${album.artist.id}">${album.artist.name}</a></p>
     </div>
   </a></div>`;
