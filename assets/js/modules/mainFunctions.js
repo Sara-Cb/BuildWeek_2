@@ -155,3 +155,13 @@ for (let i = 0; i < hearts.length; i++) {
   });
 }
 */
+let allCards = document.getElementsByClassName("card");
+let mainContainer = document.getElementsByClassName;
+
+const makeItColored = function () {
+  titolo.addEventListener("click", function () {
+    var randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+    titolo.style.color = randomColor;
+  });
+};
+makeItColored();
