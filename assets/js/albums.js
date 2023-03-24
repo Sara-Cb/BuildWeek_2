@@ -246,8 +246,6 @@ if (albumId) {
   getMyAlbums();
 }
 
-printMore();
-
 //LIKE FUNCTION
 
 for (let i = 0; i < hearts.length; i++) {
