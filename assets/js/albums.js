@@ -9,6 +9,7 @@ const trackIndex = document.getElementsByClassName("trackIndex");
 const trackItem = document.getElementsByClassName("trackItem");
 const trackPlayBtn = document.getElementsByClassName("playbutton");
 const hearts = document.getElementsByClassName("like");
+const heartsArray = document.getElementsByClassName("tracklike");
 
 const tracklistRef = document.getElementById("tracklist");
 // RIFERIMENTI PLAYER
@@ -173,34 +174,57 @@ let printAlbum = async function () {
       trackArray.push(thisAlbum[i]);
       console.log(thisAlbum[i]);
 
-      tracklistRef.innerHTML += `<li class="trackItem"><div class="row">
-      <div  class="col d-flex">
+      tracklistRef.innerHTML += `<li class="trackItem"><div class="row g-0  mb-1 mx-2">
+      <div  class="col-1 d-flex">
       <button onclick="playFunction(\'${preview}\', \'${songTitle}\', \'${songArtist}\',\'${songCover}\', \'${songTime}\',${id})" class="playbutton px-2 align-self-center  btn d-none">
       <i class="bi bi-play-fill fs-3"></i>
     </button>
         <span class="trackIndex align-self-center mx-3 fs-3">${j + 1}</span>
-        <span class="d-flex flex-column justify-content-around">
+        </div>
+        <div  class="col d-flex flex-column justify-content-around">
           <h4 id=${id} onclick="playFunction(\'${preview}\', \'${songTitle}\', \'${songArtist}\',\'${songCover}\', \'${songTime}\',${id})" class="my-0 clickable">${songTitle}</h4>
-          <a href="./artists.html?artistId=${artistId}"><p class="fs-5 my-0 clickable">${songArtist}<p></a>
-        </span>
+          <a href="./artists.html?artistId=${artistId}"><p class="fs-5 my-0 clickable">${songArtist}<p></a>    
       </div>
-      <div class="col-2 d-flex">
-        <h4 class="align-self-center">${reproductions}</h4>
+      <div class="col-2 d-flex justify-content-end">
+        <p class="align-self-center">${reproductions}</p>
       </div>
-      <div class="col-2 d-flex">
-        <h4 class="align-self-center">${formatTime(songTime)}</h4>
+      <div class="col-1 justify-content-center d-flex ">
+        <p class="align-self-center"><i class="tracklike bi bi-heart d-none"></i></p>
       </div>
+      <div class="col-2 justify-content-end d-flex">
+        <p class="align-self-center">${formatTime(songTime)}</p>
+      </div>
+      
       </div></li>`;
     }
+
     for (let i = 0; i < trackItem.length; i++) {
       trackItem[i].addEventListener("mouseover", function () {
         trackPlayBtn[i].classList.toggle("d-none");
         trackIndex[i].classList.toggle("d-none");
+        if (heartsArray[i].classList.contains("bi-heart")) {
+          heartsArray[i].classList.toggle("d-none");
+        }
       });
       trackItem[i].addEventListener("mouseout", function () {
         trackPlayBtn[i].classList.toggle("d-none");
         trackIndex[i].classList.toggle("d-none");
+        if (heartsArray[i].classList.contains("bi-heart")) {
+          heartsArray[i].classList.toggle("d-none");
+        }
       });
+      for (let i = 1; i < hearts.length; i++) {
+        hearts[i].addEventListener("click", function (e) {
+          e.target.classList.toggle("bi-heart");
+          e.target.classList.toggle("bi-heart-fill");
+        });
+      }
+      for (let i = 0; i < heartsArray.length; i++) {
+        heartsArray[i].addEventListener("click", function (e) {
+          e.target.classList.toggle("bi-heart");
+          e.target.classList.toggle("bi-heart-fill");
+        });
+      }
     }
   }
 };

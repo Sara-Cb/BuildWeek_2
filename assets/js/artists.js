@@ -11,6 +11,9 @@ const trackItem = document.getElementsByClassName("trackItem");
 const trackPlayBtn = document.getElementsByClassName("playbutton");
 const hearts = document.getElementsByClassName("like");
 
+const iconsRowRef = document.getElementById("iconsRow");
+const popolariRowRef = document.getElementById("popolari");
+
 const tracklistRef = document.getElementById("tracklist");
 const albumlistRef = document.getElementById("albumlist");
 // RIFERIMENTI PLAYER
@@ -22,8 +25,7 @@ const playerImg = document.getElementById("playerImg");
 const playButton = document.getElementById("playBtn");
 const btnNext = document.getElementById("trackNext");
 const btnBack = document.getElementById("trackBack");
-const iconsRowRef = document.getElementById("iconsRow");
-const indiciRowRef = document.getElementById("indici");
+
 let currentTrack;
 const volumeControl = document.getElementById("volume");
 let audio = document.getElementById("audioReference");
@@ -32,7 +34,7 @@ let audio = document.getElementById("audioReference");
 
 //play top
 const playTop = function () {
-  if (albumId) {
+  if (artistId) {
     document.getElementById("0").click();
   }
 };
@@ -178,8 +180,8 @@ let printArtist = async function () {
     let id = i;
     tracklistRef.innerHTML += ` 
     <li>
-    <div class="row">
-      <div class="trackItem col-1">
+    <div class="row trackItem">
+      <div class="col-1">
         <button
           onclick="playFunction(\'${preview}\', \'${songTitle}\', \'${songArtist}\',\'${songCover}\', \'${songTime}\',${id})"
           class="playbutton px-2 align-self-center btn d-none">
@@ -187,7 +189,7 @@ let printArtist = async function () {
         </button>
         <span class="trackIndex align-self-center mx-3 fs-3">${i + 1}</span>
       </div>
-      <div class="col-5 d-flex flex-column justify-content-around">
+      <div class="col d-flex flex-column justify-content-around">
         <h4 id="${id}"
           onclick="playFunction(\'${preview}\', \'${songTitle}\', \'${songArtist}\',\'${songCover}\', \'${songTime}\',${id})"
           class="my-0">${songTitle}</h4>
@@ -200,9 +202,9 @@ let printArtist = async function () {
         <h5 class="align-self-center">${reproductions}</h5>
       </div>
       <div class="col-1">
-        <span><i class="bi bi-heart like"></i></span>
+        <span><i class="bi bi-heart like d-none"></i></span>
       </div>
-      <div class="col-2">
+      <div class="col-1">
         <h5 class="align-self-center">${formatTime(songTime)}</h5>
       </div>
       <div class="col-1">
@@ -229,11 +231,23 @@ let printArtist = async function () {
     trackItem[i].addEventListener("mouseover", function () {
       trackPlayBtn[i].classList.toggle("d-none");
       trackIndex[i].classList.toggle("d-none");
+      if (hearts[i].classList.contains("bi-heart")) {
+        hearts[i].classList.toggle("d-none");
+      }
     });
     trackItem[i].addEventListener("mouseout", function () {
       trackPlayBtn[i].classList.toggle("d-none");
       trackIndex[i].classList.toggle("d-none");
+      if (hearts[i].classList.contains("bi-heart")) {
+        hearts[i].classList.toggle("d-none");
+      }
     });
+    for (let i = 0; i < hearts.length; i++) {
+      hearts[i].addEventListener("click", function (e) {
+        e.target.classList.toggle("bi-heart");
+        e.target.classList.toggle("bi-heart-fill");
+      });
+    }
   }
 };
 
@@ -296,16 +310,18 @@ if (artistId) {
   console.log(artistId);
   printArtist();
 } else {
+  iconsRowRef.classList.toggle("d-none");
+  popolariRowRef.classList.toggle("d-none");
   printArtists();
 }
 
 //LIKE FUNCTION
-for (let i = 0; i < hearts.length; i++) {
-  hearts[i].addEventListener("click", function (e) {
-    e.target.classList.toggle("bi-heart");
-    e.target.classList.toggle("bi-heart-fill");
-  });
-}
+//for (let i = 0; i < hearts.length; i++) {
+//  hearts[i].addEventListener("click", function (e) {
+//    e.target.classList.toggle("bi-heart");
+//    e.target.classList.toggle("bi-heart-fill");
+//  });
+//}
 
 // COLONNA DESTRA
 const closedRight = document.getElementById("mainRightClosed");
