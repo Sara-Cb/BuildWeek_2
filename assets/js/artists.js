@@ -291,3 +291,12 @@ for (let i = 0; i < hearts.length; i++) {
     e.target.classList.toggle("bi-heart-fill");
   });
 }
+
+// COLONNA DESTRA
+const closedRight = document.getElementById("mainRightClosed");
+const openedRight = document.getElementById("mainRightOpened");
+
+const toggleRightCol = function () {
+  openedRight.classList.toggle("d-none");
+  closedRight.classList.toggle("d-none");
+};

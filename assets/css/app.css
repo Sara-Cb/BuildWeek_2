@@ -114,7 +114,9 @@ meter {
 .playerSection {
   z-index: 5;
   padding: 10px;
+  background-color: rgb(25, 25, 25);
   height: 100px;
+  border-top: 0.6px solid rgba(255, 255, 255, 0.7);
 }
 
 #song {
@@ -424,6 +426,13 @@ body a {
   color: rgb(30, 215, 96);
 }
 
-.bi {
+i.bi,
+#hideAd {
   cursor: pointer;
+}
+
+#hideAd {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 5px 15px;
+  border-radius: 2em;
 }/*# sourceMappingURL=app.css.map */

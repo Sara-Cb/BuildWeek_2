@@ -183,7 +183,7 @@ let printAd = async function () {
   <div class="col d-flex flex-column justify-content-between">
     <div class="d-flex flex-row justify-content-between">
       <span>Brano</span>
-      <span onclick="hideAd()" class="text-secondary">nascondi annuncio</span>
+      <span onclick="hideAd()" id='hideAd'>Nascondi annuncio</span>
     </div>
     <div>
       <h1 class="fs-0">${cardAd[i].title}</h1>

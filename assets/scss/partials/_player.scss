@@ -1,8 +1,9 @@
 .playerSection {
   z-index: 5;
   padding: 10px;
-  //background-color: $grey;
+  background-color: $grey;
   height: 100px;
+  border-top: 0.6px solid transparentize($white, 0.3);
 }
 
 #song {
