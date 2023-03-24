@@ -400,6 +400,14 @@ body a {
   color: rgb(255, 255, 255);
 }
 
+.dropdown-item {
+  color: rgb(255, 255, 255) !important;
+}
+
+.dropdown-item:hover {
+  color: rgb(0, 0, 0) !important;
+}
+
 .albumCardImg {
   width: 90%;
   aspect-ratio: 1/1;
@@ -418,7 +426,7 @@ body a {
 }
 
 .myPlay {
-  font-size: 3em;
+  font-size: 2.5em;
   color: rgb(30, 215, 96);
 }
 

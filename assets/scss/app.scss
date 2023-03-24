@@ -184,6 +184,12 @@ body {
   @include colorCombo("dark");
 }
 
+.dropdown-item {
+  color: $white !important;
+}
+.dropdown-item:hover {
+  color: $black !important;
+}
 .albumCardImg {
   width: 90%;
   aspect-ratio: 1/1;
@@ -203,7 +209,7 @@ body {
 
 // BUTTONS - ICONS
 .myPlay {
-  font-size: 3em;
+  font-size: 2.5em;
   color: $green;
 }
 
