@@ -11,8 +11,9 @@ const trackItem = document.getElementsByClassName("trackItem");
 const trackPlayBtn = document.getElementsByClassName("playbutton");
 const hearts = document.getElementsByClassName("like");
 
-// RIFERIMENTI PLAYER
 const tracklistRef = document.getElementById("tracklist");
+const albumlistRef = document.getElementById("albumlist");
+// RIFERIMENTI PLAYER
 const playerSong = document.getElementById("playerSong");
 const playerArtist = document.getElementById("playerArtist");
 const songTime = document.getElementById("songTime");
@@ -175,34 +176,48 @@ let printArtist = async function () {
     let reproductions = artistTracks[0].data[i].rank;
     let albumId = artistTracks[0].data[i].album.id;
     let id = i;
-    let artistRef = document.querySelector("#artist");
-    artistRef.innerHTML += ` 
-      <div class=" row">
-      <div  class="trackItem col d-flex">
-      <button onclick="playFunction(\'${preview}\', \'${songTitle}\', \'${songArtist}\',\'${songCover}\', \'${songTime}\',${id})" class="playbutton px-2 align-self-center btn d-none">
-      <i class="bi bi-play-fill fs-3"></i>
-      </button>
-      <span class="trackIndex align-self-center mx-3 fs-3">${i + 1}</span>
-      <span class=" d-flex flex-column justify-content-around">
-      <h4 id="${id}" onclick="playFunction(\'${preview}\', \'${songTitle}\', \'${songArtist}\',\'${songCover}\', \'${songTime}\',${id})" class="my-0 ">${songTitle}</h4>
-      <a href="albums.html?id=${albumId}"><p class="fs-5 my-0 ">
-      ${artistTracks[0].data[i].album.title}<p></a></span>
+    tracklistRef.innerHTML += ` 
+    <li>
+    <div class="row">
+      <div class="trackItem col-1">
+        <button
+          onclick="playFunction(\'${preview}\', \'${songTitle}\', \'${songArtist}\',\'${songCover}\', \'${songTime}\',${id})"
+          class="playbutton px-2 align-self-center btn d-none">
+          <i class="bi bi-play-fill fs-3"></i>
+        </button>
+        <span class="trackIndex align-self-center mx-3 fs-3">${i + 1}</span>
+      </div>
+      <div class="col-5 d-flex flex-column justify-content-around">
+        <h4 id="${id}"
+          onclick="playFunction(\'${preview}\', \'${songTitle}\', \'${songArtist}\',\'${songCover}\', \'${songTime}\',${id})"
+          class="my-0">${songTitle}</h4>
+        <a href="albums.html?id=${albumId}">
+          <p class="fs-5 my-0 ">
+            ${artistTracks[0].data[i].album.title}<p>
+        </a>
+      </div>
+      <div class="col-2">
+        <h5 class="align-self-center">${reproductions}</h5>
+      </div>
+      <div class="col-1">
+        <span><i class="bi bi-heart like"></i></span>
+      </div>
+      <div class="col-2">
+        <h5 class="align-self-center">${formatTime(songTime)}</h5>
+      </div>
+      <div class="col-1">
+        <span><i class="bi bi-three-dots"></i></span>
+      </div>
     </div>
-    <div class="col-2 d-flex">
-    <h4 class="align-self-center">${reproductions}</h4>
-  </div>
-  <div class="col-2 d-flex">
-  <h4 class="align-self-center">${songTime}</h4>
-  </div>
-    </div>`;
+  </li>`;
   }
 
   await getArtistAlbums();
   console.log(albumsArray);
   for (let i = 0; i < 5; i++) {
     console.log(albumsArray[0]);
-    let artistRef = document.querySelector("#artist");
-    artistRef.innerHTML += ` <div class="col-2 justify-content-between"><a href="albums.html?id=${albumsArray[0].data[i].id}"> <div class="card">
+    albumlistRef.innerHTML += `<div class="col-6 col-md-4 col-lg-2 justify-content-between"><a href="albums.html?id=${albumsArray[0].data[i].id}"> 
+    <div class="card albumCard">
     <img src="${albumsArray[0].data[i].cover_big}" class="card-img-top" alt="album cover" />
     </a></div>
     <div class="card-body">

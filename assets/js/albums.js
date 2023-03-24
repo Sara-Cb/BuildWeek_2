@@ -10,8 +10,8 @@ const trackItem = document.getElementsByClassName("trackItem");
 const trackPlayBtn = document.getElementsByClassName("playbutton");
 const hearts = document.getElementsByClassName("like");
 
-// RIFERIMENTI PLAYER
 const tracklistRef = document.getElementById("tracklist");
+// RIFERIMENTI PLAYER
 const playerSong = document.getElementById("playerSong");
 const playerArtist = document.getElementById("playerArtist");
 const songTime = document.getElementById("songTime");
