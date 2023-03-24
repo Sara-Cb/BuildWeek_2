@@ -213,7 +213,7 @@ let printMore = async function () {
 
   for (let i = 0; i < 6; i++) {
     let colRef = document.querySelector("#more");
-    colRef.innerHTML += ` <div class="col-5 col-md-4 col-lg-3 justify-content-between"> 
+    colRef.innerHTML += ` <div class="col-5 col-md-4 col-lg-2 justify-content-between"> 
     <div class="card albumCard">
     <a href="albums.html?id=${cardsMore[i].id}">
     <img src="${cardsMore[i].cover_big}" class="card-img-top" alt="album cover" />
