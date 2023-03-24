@@ -72,8 +72,10 @@ timeRange.addEventListener("click", function (event) {
 playButton.addEventListener("click", function () {
   if (audio.paused) {
     audio.play();
+    playButton.innerHTML = `<i class="bi bi-pause-circle-fill fs-2"></i>`;
   } else {
     audio.pause();
+    playButton.innerHTML = `<i class="bi bi-play-circle-fill fs-2"></i>`;
   }
 });
 
@@ -96,6 +98,7 @@ function playFunction(url, title, artist, cover, duration, id) {
     songTime.children[2].textContent = formatTime(Math.round(duration));
 
     audio.play();
+    playButton.innerHTML = `<i class="bi bi-pause-circle-fill fs-2"></i>`;
   });
 
   audio.addEventListener("timeupdate", function () {
@@ -280,12 +283,11 @@ function playFunction(url, title, artist, cover, duration, id) {
     timeRange.style.width = "0%";
 
     audio.play();
+    playButton.innerHTML = `<i class="bi bi-pause-circle-fill fs-2"></i>`;
   });
 
   audio.addEventListener("timeupdate", function () {
-    songTime.children[0].textContent = formatTime(
-      Math.round(audio.currentTime)
-    );
+    songTime.children[0].textContent = formatTime(Math.round(audio.currentTime));
     timeRange.style.width = (audio.currentTime / audio.duration) * 100 + "%";
   });
 }
