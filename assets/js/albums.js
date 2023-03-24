@@ -177,22 +177,27 @@ let printAlbum = async function () {
       trackArray.push(thisAlbum[i]);
       console.log(thisAlbum[i]);
 
-      tracklistRef.innerHTML += `<li class="trackItem"><div class="row g-0  mb-1 mx-2">
-      <div  class="col-1 d-flex">
-      <button onclick="playFunction(\'${preview}\', \'${songTitle}\', \'${songArtist}\',\'${songCover}\', \'${songTime}\',${id})" class="playbutton px-2 align-self-center  btn d-none">
+      tracklistRef.innerHTML += `<li class="trackItem"><div class="row g-0 mx-0 mx-md-2">
+      <div  class="col-1 d-flex ">
+      <button onclick="playFunction(\'${preview}\', \'${songTitle}\', \'${songArtist}\',\'${songCover}\', \'${songTime}\',${id})" class="playbutton px-0 px-md-2 align-self-center btn d-none">
       <i class="bi bi-play-fill fs-3"></i>
     </button>
-        <span class="trackIndex align-self-center mx-3 fs-3">${j + 1}</span>
-        <div class="trackBody">
-          <h4 id=${id} onclick="playFunction(\'${preview}\', \'${songTitle}\', \'${songArtist}\',\'${songCover}\', \'${songTime}\',${id})" class="my-0 clickable">${songTitle}</h4>
-          <a href="./artists.html?artistId=${artistId}"><p class="fs-5 my-0 clickable">${songArtist}<p></a>
+        <span class="text-secondary trackIndex align-self-center   mx-md-3 fs-3">${
+          j + 1
+        }</span>
         </div>
+        <div class=" col trackBody ">
+          <h4 id=${id} onclick="playFunction(\'${preview}\', \'${songTitle}\', \'${songArtist}\',\'${songCover}\', \'${songTime}\',${id})" class="mb-0 mt-3 clickable">${songTitle}</h4>
+          <a href="./artists.html?artistId=${artistId}"><p class="fs-5 my-0 clickable text-secondary">${songArtist}<p></a>    
+      </div>
+      <div class="col-2 justify-content-end d-none d-md-flex">
+        <p class="align-self-center text-secondary">${reproductions}</p>
       </div>
       <div class="col-1 justify-content-center d-flex ">
         <p class="align-self-center"><i class="tracklike bi bi-heart d-none"></i></p>
       </div>
-      <div class="col-2 justify-content-end d-flex">
-        <p class="align-self-center">${formatTime(songTime)}</p>
+      <div class="col-1 justify-content-end d-none d-md-flex">
+        <p class="align-self-center text-secondary">${formatTime(songTime)}</p>
       </div>
       
       </div></li>`;

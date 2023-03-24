@@ -74,10 +74,8 @@ timeRange.addEventListener("click", function (event) {
 playButton.addEventListener("click", function () {
   if (audio.paused) {
     audio.play();
-    playButton.innerHTML = `<i class="bi bi-pause-circle-fill fs-2"></i>`;
   } else {
     audio.pause();
-    playButton.innerHTML = `<i class="bi bi-play-circle-fill fs-2"></i>`;
   }
 });
 
@@ -100,7 +98,6 @@ function playFunction(url, title, artist, cover, duration, id) {
     songTime.children[2].textContent = formatTime(Math.round(duration));
 
     audio.play();
-    playButton.innerHTML = `<i class="bi bi-pause-circle-fill fs-2"></i>`;
   });
 
   audio.addEventListener("timeupdate", function () {
@@ -184,7 +181,8 @@ let printArtist = async function () {
     tracklistRef.innerHTML += ` 
     <li>
     <div class="row trackItem">
-      <div class="col-1">
+      <div class="col-1 d-flex">
+
         <button
           onclick="playFunction(\'${preview}\', \'${songTitle}\', \'${songArtist}\',\'${songCover}\', \'${songTime}\',${id})"
           class="playbutton px-2 align-self-center btn d-none">
@@ -195,23 +193,23 @@ let printArtist = async function () {
       <div class="col d-flex flex-column justify-content-around">
         <h4 id="${id}"
           onclick="playFunction(\'${preview}\', \'${songTitle}\', \'${songArtist}\',\'${songCover}\', \'${songTime}\',${id})"
-          class="my-0">${songTitle}</h4>
+          class="mb-0 mt-3">${songTitle}</h4>
         <a href="albums.html?id=${albumId}">
           <p class="fs-5 my-0 ">
             ${artistTracks[0].data[i].album.title}<p>
         </a>
       </div>
-      <div class="col-2">
+      <div class="col-2  d-none d-md-flex">
         <h5 class="align-self-center">${reproductions}</h5>
       </div>
-      <div class="col-1">
-        <span><i class="bi bi-heart like d-none"></i></span>
+      <div class="col-1 d-flex">
+        <span class="align-self-center"><i class="bi bi-heart like d-none"></i></span>
       </div>
-      <div class="col-1">
+      <div class="col-1 d-none d-md-flex">
         <h5 class="align-self-center">${formatTime(songTime)}</h5>
       </div>
-      <div class="col-1">
-        <span><i class="bi bi-three-dots"></i></span>
+      <div class="col-1 d-none d-md-flex">
+        <span class="align-self-center"><i class="bi bi-three-dots"></i></span>
       </div>
     </div>
   </li>`;
@@ -297,11 +295,12 @@ function playFunction(url, title, artist, cover, duration, id) {
     timeRange.style.width = "0%";
 
     audio.play();
-    playButton.innerHTML = `<i class="bi bi-pause-circle-fill fs-2"></i>`;
   });
 
   audio.addEventListener("timeupdate", function () {
-    songTime.children[0].textContent = formatTime(Math.round(audio.currentTime));
+    songTime.children[0].textContent = formatTime(
+      Math.round(audio.currentTime)
+    );
     timeRange.style.width = (audio.currentTime / audio.duration) * 100 + "%";
   });
 }

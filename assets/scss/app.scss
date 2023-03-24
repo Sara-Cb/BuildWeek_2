@@ -213,7 +213,11 @@ body {
     height: inherit;
   }
   .trackBody {
-    @include spacingFlex(column, space-around, start);
+    @include spacingFlex(column, center, start);
+    height: 100%;
+    * {
+      height: fit-content;
+    }
   }
 }
 .albumCardImg {
