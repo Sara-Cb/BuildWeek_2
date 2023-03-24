@@ -182,20 +182,21 @@ let printArtist = async function () {
     <li>
     <div class="row trackItem">
       <div class="col-1 d-flex">
-
         <button
           onclick="playFunction(\'${preview}\', \'${songTitle}\', \'${songArtist}\',\'${songCover}\', \'${songTime}\',${id})"
           class="playbutton px-2 align-self-center btn d-none">
-          <i class="bi bi-play-fill fs-3"></i>
+          <i class="bi bi-play-fill"></i>
         </button>
-        <span class="trackIndex align-self-center mx-3 fs-3">${i + 1}</span>
+        <span class="trackIndex align-self-center text-secondary mx-3">${
+          i + 1
+        }</span>
       </div>
       <div class="col d-flex flex-column justify-content-around">
-        <h4 id="${id}"
+        <h5 id="${id}"
           onclick="playFunction(\'${preview}\', \'${songTitle}\', \'${songArtist}\',\'${songCover}\', \'${songTime}\',${id})"
-          class="mb-0 mt-3">${songTitle}</h4>
+          class="mb-0 mt-3">${songTitle}</h5>
         <a href="albums.html?id=${albumId}">
-          <p class="fs-5 my-0 ">
+          <p class="artistLink text-secondary my-0 ">
             ${artistTracks[0].data[i].album.title}<p>
         </a>
       </div>
@@ -219,13 +220,14 @@ let printArtist = async function () {
   console.log(albumsArray);
   for (let i = 0; i < 5; i++) {
     console.log(albumsArray[0]);
-    albumlistRef.innerHTML += `<div class="col-6 col-md-4 col-lg-2 justify-content-between"><a href="albums.html?id=${albumsArray[0].data[i].id}"> 
+    albumlistRef.innerHTML += `<div class="col-6 col-md-4 col-lg-2 justify-content-between"> <a href="albums.html?id=${albumsArray[0].data[i].id}">
     <div class="card albumCard">
     <img src="${albumsArray[0].data[i].cover_big}" class="card-img-top" alt="album cover" />
-    </a></div>
     <div class="card-body">
       <p class="card-text">${albumsArray[0].data[i].title}</p>
+      </div>
     </div>
+    </a>
   </div>`;
   }
   for (let i = 0; i < trackItem.length; i++) {

@@ -6,6 +6,16 @@
   border-top: 0.6px solid transparentize($white, 0.3);
 }
 
+@media screen and (max-width: 765px) {
+  .playerSection {
+    height: 80px;
+    margin-bottom: -20px;
+  }
+  #mobileNav {
+    z-index: 10;
+  }
+}
+
 #song {
   @include spacingFlex(row, space-between, center);
 }

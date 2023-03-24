@@ -177,18 +177,18 @@ let printAlbum = async function () {
       trackArray.push(thisAlbum[i]);
       console.log(thisAlbum[i]);
 
-      tracklistRef.innerHTML += `<li class="trackItem"><div class="row g-0 mx-0 mx-md-2">
+      tracklistRef.innerHTML += `<li><div class="row g-0 mx-0 mx-md-2 trackItem">
       <div  class="col-1 d-flex ">
       <button onclick="playFunction(\'${preview}\', \'${songTitle}\', \'${songArtist}\',\'${songCover}\', \'${songTime}\',${id})" class="playbutton px-0 px-md-2 align-self-center btn d-none">
-      <i class="bi bi-play-fill fs-3"></i>
+      <i class="bi bi-play-fill"></i>
     </button>
-        <span class="text-secondary trackIndex align-self-center   mx-md-3 fs-3">${
+        <span class="text-secondary trackIndex align-self-center mx-md-3">${
           j + 1
         }</span>
         </div>
         <div class=" col trackBody ">
-          <h4 id=${id} onclick="playFunction(\'${preview}\', \'${songTitle}\', \'${songArtist}\',\'${songCover}\', \'${songTime}\',${id})" class="mb-0 mt-3 clickable">${songTitle}</h4>
-          <a href="./artists.html?artistId=${artistId}"><p class="fs-5 my-0 clickable text-secondary">${songArtist}<p></a>    
+          <h5 id=${id} onclick="playFunction(\'${preview}\', \'${songTitle}\', \'${songArtist}\',\'${songCover}\', \'${songTime}\',${id})" class="mb-0 mt-3 clickable">${songTitle}</h5>
+          <a href="./artists.html?artistId=${artistId}"><p class="artistLink my-0 clickable text-secondary">${songArtist}<p></a>    
       </div>
       <div class="col-2 justify-content-end d-none d-md-flex">
         <p class="align-self-center text-secondary">${reproductions}</p>
@@ -256,12 +256,12 @@ const getMyAlbums = async function () {
   await getData("album/406094377", myAlbums);
   //console.log(myAlbums);
   myAlbums.forEach((album) => {
-    albumRef.innerHTML += ` <div class="col-6 col-md-4 col-lg-3 justify-content-between"><a href="albums.html?id=${album.id}"> <div class="card">
+    albumRef.innerHTML += ` <div class="col-6 col-md-4 col-lg-3 justify-content-between"><a href="albums.html?id=${album.id}"> <div class="card albumCard">
     <img src="${album.cover_big}" class="card-img-top" alt="album cover" />
-    </div>
     <div class="card-body">
-      <p class="card-text overflow">${album.title}</p>
-      <p class="card-text"><a href="./artists.html?artistId=${album.artist.id}">${album.artist.name}</a></p>
+      <h4 class="card-text overflow">${album.title}</h4>
+      <p class="card-text artistLink"><a href="./artists.html?artistId=${album.artist.id}">${album.artist.name}</a></p>
+    </div>
     </div>
   </a></div>`;
   });

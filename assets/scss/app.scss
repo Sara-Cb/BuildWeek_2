@@ -33,6 +33,10 @@ body {
   padding: 0;
 }
 
+.mainRow {
+  margin-bottom: 100px;
+}
+
 .mainContainer {
   height: calc(100% - 100px);
 }
@@ -48,7 +52,7 @@ body {
 
 .mainCenter {
   .content {
-    height: 95%;
+    height: 90%;
     padding-top: 30px;
     @include scrolly;
   }
@@ -121,7 +125,7 @@ body {
 }
 
 .recentNav {
-  height: 55%;
+  height: 50%;
   border-top: 1px solid transparentize($white, 0.4);
   padding-top: 15px;
   .row {
@@ -154,14 +158,14 @@ body {
   margin: 0 5px;
   @include centeringFlex;
   aspect-ratio: 1/1;
-  background-color: transparentize($grey, 0.4);
+  background-color: transparentize($black, 0.4);
   padding: 5px;
   border-radius: 50%;
 }
 
 .account {
   width: 150px;
-  background-color: transparentize($grey, 0.4);
+  background-color: transparentize($black, 0.4);
   border-radius: 2em;
   padding: 5px 3px;
   img {
@@ -198,7 +202,7 @@ body {
   width: 100%;
   padding: 5px;
   @include spacingFlex(row, start, center);
-  background-color: transparentize($white, 0.8);
+  background-color: rgb(162, 161, 161, 0.2);
   p {
     width: 70% !important;
   }
@@ -207,8 +211,9 @@ body {
     aspect-ratio: 1/1;
   }
 }
+
 .trackItem {
-  height: 100px;
+  height: 80px;
   div {
     height: inherit;
   }
@@ -219,7 +224,27 @@ body {
       height: fit-content;
     }
   }
+  h5 {
+    font-size: 1em;
+  }
 }
+
+.albumCard {
+  @include spacingFlex(column, space-between, center);
+  background-color: rgb(162, 161, 161, 0.2);
+  text-align: center;
+  min-height: 250px;
+}
+
+.albumCard:hover,
+.albumCardHome:hover {
+  background-color: rgb(162, 161, 161, 0.5);
+}
+
+.artistLink:hover {
+  text-decoration: underline;
+}
+
 .albumCardImg {
   width: 90%;
   aspect-ratio: 1/1;

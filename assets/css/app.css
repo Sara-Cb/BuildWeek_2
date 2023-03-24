@@ -47,7 +47,9 @@ table {
 /* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
 input,
 textarea {
-  user-select: auto;
+  -webkit-user-select: auto;
+     -moz-user-select: auto;
+          user-select: auto;
 }
 
 /* revert the 'white-space' property for textarea elements on Safari */
@@ -58,7 +60,8 @@ textarea {
 /* minimum style to allow to style meter element */
 meter {
   -webkit-appearance: revert;
-  appearance: revert;
+  -moz-appearance: revert;
+       appearance: revert;
 }
 
 /* preformatted text - use only for this feature */
@@ -67,6 +70,9 @@ meter {
 }
 
 /* reset default text opacity of input placeholder */
+::-moz-placeholder {
+  color: unset;
+}
 ::placeholder {
   color: unset;
 }
@@ -90,7 +96,9 @@ meter {
   -webkit-user-modify: read-write;
   overflow-wrap: break-word;
   line-break: after-white-space;
-  user-select: auto;
+  -webkit-user-select: auto;
+     -moz-user-select: auto;
+          user-select: auto;
 }
 
 /* apply back the draggable feature - exist only in Chromium and Safari */
@@ -111,6 +119,15 @@ meter {
   border-top: 0.6px solid rgba(255, 255, 255, 0.7);
 }
 
+@media screen and (max-width: 765px) {
+  .playerSection {
+    height: 80px;
+    margin-bottom: -20px;
+  }
+  #mobileNav {
+    z-index: 10;
+  }
+}
 #song {
   display: flex;
   flex-direction: row;
@@ -166,7 +183,8 @@ meter {
 
 .playerSection input[type=range] {
   -webkit-appearance: none;
-  appearance: none;
+  -moz-appearance: none;
+       appearance: none;
   width: 100%;
   height: 8px;
   background-color: #808080;
@@ -224,6 +242,10 @@ body a {
   padding: 0;
 }
 
+.mainRow {
+  margin-bottom: 100px;
+}
+
 .mainContainer {
   height: calc(100% - 100px);
 }
@@ -238,7 +260,7 @@ body a {
 }
 
 .mainCenter .content {
-  height: 95%;
+  height: 90%;
   padding-top: 30px;
   overflow-y: auto;
   overflow-x: hidden;
@@ -317,7 +339,7 @@ body a {
 }
 
 .recentNav {
-  height: 55%;
+  height: 50%;
   border-top: 1px solid rgba(255, 255, 255, 0.6);
   padding-top: 15px;
 }
@@ -341,6 +363,7 @@ body a {
 }
 
 .topNav > div {
+  width: -moz-max-content;
   width: max-content;
 }
 
@@ -360,14 +383,14 @@ body a {
   justify-content: center;
   align-items: center;
   aspect-ratio: 1/1;
-  background-color: rgba(25, 25, 25, 0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 5px;
   border-radius: 50%;
 }
 
 .account {
   width: 150px;
-  background-color: rgba(25, 25, 25, 0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   border-radius: 2em;
   padding: 5px 3px;
 }
@@ -411,7 +434,7 @@ body a {
   flex-direction: row;
   justify-content: start;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(162, 161, 161, 0.2);
 }
 .albumCardHome p {
   width: 70% !important;
@@ -422,7 +445,7 @@ body a {
 }
 
 .trackItem {
-  height: 100px;
+  height: 80px;
 }
 .trackItem div {
   height: inherit;
@@ -430,8 +453,35 @@ body a {
 .trackItem .trackBody {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: start;
+  height: 100%;
+}
+.trackItem .trackBody * {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.trackItem h5 {
+  font-size: 1em;
+}
+
+.albumCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(162, 161, 161, 0.2);
+  text-align: center;
+  min-height: 250px;
+}
+
+.albumCard:hover,
+.albumCardHome:hover {
+  background-color: rgba(162, 161, 161, 0.5);
+}
+
+.artistLink:hover {
+  text-decoration: underline;
 }
 
 .albumCardImg {

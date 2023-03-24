@@ -147,7 +147,7 @@ let printWelcome = async function () {
   for (let i = 0; i < 6; i++) {
     let colRef = document.querySelector("#welcome");
     colRef.innerHTML += `<div class="col-6 col-lg-4 my-1"><a class="w-100" href="albums.html?id=${cardsAlbums[i].id}">
-      <div class="card albumCard albumCardHome">
+      <div class="card albumCardHome">
             <img
               class="image-fluid me-2"
               src="${cardsAlbums[i].cover}"
@@ -213,12 +213,15 @@ let printMore = async function () {
 
   for (let i = 0; i < 6; i++) {
     let colRef = document.querySelector("#more");
-    colRef.innerHTML += ` <div class="col-5 col-md-2 justify-content-between"><a href="albums.html?id=${cardsMore[i].id}"> <div class="card">
+    colRef.innerHTML += ` <div class="col-5 col-md-4 col-lg-3 justify-content-between"> 
+    <div class="card albumCard">
+    <a href="albums.html?id=${cardsMore[i].id}">
     <img src="${cardsMore[i].cover_big}" class="card-img-top" alt="album cover" />
-    </a></div>
+    </a>
     <div class="card-body">
       <p class="card-text">${cardsMore[i].title}</p>
-      <p class="card-text"><a href="./artists.html?artistId=${cardsMore[i].artist.id}">${cardsMore[i].artist.name}</a></p>
+      <p class="card-text artistLink"><a href="./artists.html?artistId=${cardsMore[i].artist.id}">${cardsMore[i].artist.name}</a></p>
+    </div>
     </div>
   </div>`;
   }

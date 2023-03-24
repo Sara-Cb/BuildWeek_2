@@ -136,7 +136,9 @@ const printEverything = function () {
     const artistCard = document.createElement("div");
     artistCard.setAttribute("class", "col-6 col-md-4 col-lg-3");
 
-    trackCard.innerHTML = `<a href="albums.html?id=${album.id}"> <div class="row my-1" style="height: 100px"> 
+    trackCard.innerHTML = `<a href="albums.html?id=${
+      album.id
+    }"> <div class="row my-1" style="height: 100px"> 
     <div class="col d-flex flex-row h-100"> <img class="trackCardImg me-1" style="height: inherit; aspect-ratio:1/1;" src="${
       album.cover_big
     }"
@@ -144,8 +146,8 @@ const printEverything = function () {
       artist.name
     }</p> </div> </div> <div class="col-2"> 
     <p>${formatTime(track.duration)}</p> </div> </div> </a>`;
-    albumCard.innerHTML = `<div class"card><a href="albums.html?id=${album.id}"> <img class="image-fluid albumCardImg" src="${album.cover_big}"  alt="Album cover"/></a>
-    <div class='card-body'> <h4 class="overflow">${album.title}</h4><p><a href="artists.html?id=${artist.id}>${artist.name}</a></p></div>`; //non compare il p???
+    albumCard.innerHTML = `<div class"card albumCard"><a href="albums.html?id=${album.id}"> <img class="image-fluid albumCardImg" src="${album.cover_big}"  alt="Album cover"/></a>
+    <div class='card-body'> <h4 class="overflow">${album.title}</h4><p><a class='linkArtist' href="artists.html?id=${artist.id}>${artist.name}</a></p></div>`; //non compare il p???
     artistCard.innerHTML = `<div class"card><a href="artists.html?artistId=${artist.id}"><div class= card-img-top"> <img class="image-fluid artistCardImg" src="${artist.picture_big}"  alt="Artist pic"/> </div> <div class="col"> <div class='card-body'><h4>${artist.name}</h4><p>Artista</p> <a/></div></div>`;
 
     tracksDiv.appendChild(trackCard);
@@ -160,7 +162,9 @@ const fetchEverything = async (keyword) => {
   artistsDiv.innerHTML = "";
   tracksArray = [];
   try {
-    const response = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${keyword}`);
+    const response = await fetch(
+      `https://striveschool-api.herokuapp.com/api/deezer/search?q=${keyword}`
+    );
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }

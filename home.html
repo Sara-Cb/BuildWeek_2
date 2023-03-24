@@ -153,11 +153,13 @@
           <!-- fine annuncio -->
           <main>
             <!-- benvenuto ascoltati di recente -->
-            <div class="row">
-              <h3>Benvenuto</h3>
-            </div>
-            <div id="welcome" class="row">
-              <div id="welcomeSpinner" class="spinner-border text-success" role="status"></div>
+            <div class="mb-4 mt-2">
+              <div class="row ">
+                <h3>Benvenuto</h3>
+              </div>
+              <div id="welcome" class="row">
+                <div id="welcomeSpinner" class="spinner-border text-success" role="status"></div>
+              </div>
             </div>
 
             <div class="row justify-content-between flex-nowrap">
@@ -227,73 +229,79 @@
   <!-- player -->
   <section class="fixed-bottom">
     <div class="playerSection">
-    <audio id="audioReference"
-      src="https://cdns-preview-b.dzcdn.net/stream/c-be6b18388a0a94404e424aba6ae5c086-3.mp3"></audio>
-    <div class="row" class="player">
-      <div id="songData" class="col-4 d-none d-md-flex">
-        <div>
-          <img id="playerImg"
-            src="https://e-cdns-images.dzcdn.net/images/cover/bb2f14dbe77a039147607237227da56a/500x500-000000-80-0-0.jpg"
-            alt="cover" />
-        </div>
-        <div>
-          <p id="playerSong">Aldo Ritmo</p>
-          <p id="playerArtist">Salmo</p>
-        </div>
-        <div>
-          <button><i class="bi bi-heart like"></i></button>
-        </div>
-      </div>
-
-      <div id="playerComands" class="col-12 col-md-4">
-        <div id="playerButtons">
-          <button class="btn"><i class="bi bi-shuffle"></i></button>
-          <button id="trackBack" class="btn">
-            <i class="bi bi-skip-start-fill fs-4"></i>
-          </button>
-          <button id="playBtn" class="btn">
-            <i class="bi bi-play-circle-fill fs-2"></i>
-          </button>
-          <button id="trackNext" class="btn">
-            <i class="bi bi-skip-end-fill fs-4"></i>
-          </button>
-          <button class="btn"><i class="bi bi-repeat"></i></button>
-        </div>
-        <div id="songTime" class="d-none d-md-flex">
-          <p>0:00</p>
+      <audio id="audioReference"
+        src="https://cdns-preview-b.dzcdn.net/stream/c-be6b18388a0a94404e424aba6ae5c086-3.mp3"></audio>
+      <div class="row" class="player">
+        <div id="songData" class="col-4 d-none d-md-flex">
           <div>
-            <input type="range" id="timeRange" value="0" />
+            <img id="playerImg"
+              src="https://e-cdns-images.dzcdn.net/images/cover/bb2f14dbe77a039147607237227da56a/500x500-000000-80-0-0.jpg"
+              alt="cover" />
           </div>
-          <p>0:00</p>
+          <div>
+            <p id="playerSong">Aldo Ritmo</p>
+            <p id="playerArtist">Salmo</p>
+          </div>
+          <div>
+            <button><i class="bi bi-heart like"></i></button>
+          </div>
         </div>
-      </div>
 
-      <div id="playerIcons" class="col-4 d-none d-md-flex">
-        <button><i class="bi bi-mic"></i></button>
-        <button><i class="bi bi-list"></i></button>
-        <button><i class="bi bi-speaker"></i></button>
-        <label for="volume"><i class="bi bi-volume-down-fill"></i></label>
-        <input type="range" id="volume" name="volume" value="3" min="0" max="10" />
-        <button><i class="bi bi-arrows-angle-expand"></i></button>
-      </div>
+        <div id="playerComands" class="col-12 col-md-4">
+          <div id="playerButtons">
+            <button class="btn"><i class="bi bi-shuffle"></i></button>
+            <button id="trackBack" class="btn">
+              <i class="bi bi-skip-start-fill fs-4"></i>
+            </button>
+            <button id="playBtn" class="btn">
+              <i class="bi bi-play-circle-fill fs-2"></i>
+            </button>
+            <button id="trackNext" class="btn">
+              <i class="bi bi-skip-end-fill fs-4"></i>
+            </button>
+            <button class="btn"><i class="bi bi-repeat"></i></button>
+          </div>
+          <div id="songTime" class="d-none d-md-flex">
+            <p>0:00</p>
+            <div>
+              <input type="range" id="timeRange" value="0" />
+            </div>
+            <p>0:00</p>
+          </div>
+        </div>
 
+        <div id="playerIcons" class="col-4 d-none d-md-flex">
+          <button><i class="bi bi-mic"></i></button>
+          <button><i class="bi bi-list"></i></button>
+          <button><i class="bi bi-speaker"></i></button>
+          <label for="volume"><i class="bi bi-volume-down-fill"></i></label>
+          <input type="range" id="volume" name="volume" value="3" min="0" max="10" />
+          <button><i class="bi bi-arrows-angle-expand"></i></button>
+        </div>
+
+      </div>
     </div>
-  </div>
-  <div id="mobileNav" class="row d-md-none align-items-center text-center py-2">
-  <div class="col cols-4">
-    <a href="./home.html"><i class="bi bi-house-door-fill fs-2"></i><h5>Home</h5></a>
-  </div>
-  <div class="col cols-4">
-    <a href="./searchPage.html"><i class="bi bi-search fs-2"></i><h5>Cerca</h5></a>
-  </div>
-  <div class="col cols-4">
-    <a href="./albums.html"><img
-      src="https://cdn.sanity.io/images/tsbk0zvv/production/f1a3a073127aade3fa0377ce143a166d56d596e9-24x24.svg?w=60&fit=max&auto=format"
-      width="27.73px" alt=""><h5>La tua libreria</h5></a>
-  </div>
-</div>
+    <div id="mobileNav" class="row d-md-none align-items-center text-center py-2">
+      <div class="col cols-4">
+        <a href="./home.html"><i class="bi bi-house-door-fill fs-2"></i>
+          <h5>Home</h5>
+        </a>
+      </div>
+      <div class="col cols-4">
+        <a href="./searchPage.html"><i class="bi bi-search fs-2"></i>
+          <h5>Cerca</h5>
+        </a>
+      </div>
+      <div class="col cols-4">
+        <a href="./albums.html"><img
+            src="https://cdn.sanity.io/images/tsbk0zvv/production/f1a3a073127aade3fa0377ce143a166d56d596e9-24x24.svg?w=60&fit=max&auto=format"
+            width="27.73px" alt="">
+          <h5>La tua libreria</h5>
+        </a>
+      </div>
+    </div>
 
-</section>
+  </section>
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
